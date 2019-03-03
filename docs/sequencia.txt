@@ -1,0 +1,32 @@
+Para obter a geração de código:
+
+1 - Usuário abre o GeraChart;
+2 - Indica o path para gravação do projeto;
+3 - indica o path do arquivo CSV;
+4 - GeraChart faz o pre-processamento do arquivo identificando:
+	- metadados (nomes das colunas) do CSV;
+	- Quantas linhas no total o arquivo tem.
+
+5 - GeraChart exibe as Colunas contidas no arquivo para que o usuário confirme quais serão dimensões
+do gráfico;
+
+6 - Gera um diretório do projeto, contendo todos os arquivos para a composição do Dashboard pronto;
+
+7 - (Desejável) gerar zip ou rar de saída com a estrutura de pastas necessárias, bem como os 
+arquivos de CSS e JS;
+
+
+Levantamento de Requisitos:
+
+User stories:
+
+Como usuário, gostaria de poder preparar um dashboard baseado em um arquivo CSV, independente do
+domínio dos dados;
+
+Como usuário, quero que esse dashboard seja portátil, livre de instalações ou plataforma;
+
+Como usuário, quero que os dashboards gerados sejam feitos com ferramentas open-source;
+
+Como usuário, quero que os dashboards venham em um arquivo compactado zip, contendo toda a estrutura
+e arquivos para funcionar em qualquer sistema operacional.
+
