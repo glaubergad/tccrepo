@@ -6,6 +6,8 @@
 package engine;
 
 import model.ModeloDashboard;
+import model.DataSet;
+import util.PackSaida;
 
 /**
  *
@@ -13,6 +15,17 @@ import model.ModeloDashboard;
  */
 public class MotorTemplate {
     private ModeloDashboard modeloDashboard;
+    private DataSet dataset;
+    private PackSaida packSaida;
+
+    public MotorTemplate() {
+    }
+
+    public MotorTemplate(ModeloDashboard modeloDashboard, DataSet dataset) {
+        this.modeloDashboard = modeloDashboard;
+        this.dataset = dataset;
+    }
+    
     
     
     
