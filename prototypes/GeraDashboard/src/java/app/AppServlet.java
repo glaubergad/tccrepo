@@ -12,6 +12,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import grafico.*;
+import model.*;
+import util.*;
+import engine.*;
+import java.util.ArrayList;
+import java.util.List;
+
 
 /**
  *
@@ -19,6 +26,14 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "AppServlet", urlPatterns = {"/AppServlet"})
 public class AppServlet extends HttpServlet {
+    
+    private TipoGrafico tipo1,tipo2,tipo3;
+    private Grafico graf1,graf2,graf3;
+    private List<String> rows;
+    private DataSet dataSet;
+    private ModeloDashboard modeloDashboard;
+    private MotorTemplate motorTemplate;
+    
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -73,6 +88,7 @@ public class AppServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        
     }
 
     /**
@@ -82,6 +98,29 @@ public class AppServlet extends HttpServlet {
      */
     @Override
     public String getServletInfo() {
-        return "Short description";
+        return "App gerador de Dashboards";
     }// </editor-fold>
+    
+    
+    public void alimentaTipoGrafico(){
+        this.tipo1 = new TipoGrafico("areaChart", 4);
+        this.tipo2 = new TipoGrafico("pieChart", 4);
+        this.tipo3 = new TipoGrafico("rowChart", 4);
+    }
+    
+    public void alimentaGraficos(){
+        this.rows = carregaLista();
+        alimentaTipoGrafico();
+        this.graf1 = new Grafico(tipo1,"ano",this.rows);
+        this.graf2 = new Grafico(tipo2,"ano",this.rows);
+        this.graf3 = new Grafico(tipo2,"ano",this.rows);
+    }
+    
+    public List<String> carregaLista(){
+        List<String> lista = new ArrayList<String>();
+        lista.add("sexo");
+        lista.add("idade");
+        lista.add("escolaridade");
+        return lista;
+    }
 }
