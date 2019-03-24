@@ -3,7 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/glaubergad/NetBeansProjects/Dashboards/web/index.html</file>
+            <file>file:/home/glaubergad/tccrepo/prototypes/Dashboards/src/java/model/ModeloDashboard.java</file>
+            <file>file:/home/glaubergad/tccrepo/prototypes/Dashboards/src/java/grafico/TipoGrafico.java</file>
+            <file>file:/home/glaubergad/tccrepo/prototypes/Dashboards/src/java/grafico/Grafico.java</file>
+            <file>file:/home/glaubergad/tccrepo/prototypes/Dashboards/src/java/engine/MotorTemplate.java</file>
+            <file>file:/home/glaubergad/tccrepo/prototypes/Dashboards/src/java/util/PackSaida.java</file>
+            <file>file:/home/glaubergad/tccrepo/prototypes/Dashboards/web/index.html</file>
+            <file>file:/home/glaubergad/tccrepo/prototypes/Dashboards/src/java/model/DataSet.java</file>
         </group>
     </open-files>
 </project-private>
