@@ -1,5 +1,0 @@
-Anotações:
-
-Ferramentas RAD
-
-- Reuso de software remota desde um simples GOTO até as subrotinas (funções, procedimentos, métodos)
