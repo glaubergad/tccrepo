@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <title>Dashgen Template 1</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap e DC CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/dc.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+
+        <h1>IFPA Dashgen - Dashboard Modelo 1</h1>
+
+        <div class="row">
+
+            <div id="carType" class='col-xs-12 col-md-4 col-lg-4'>
+                <strong>Car Type</strong>
+                <span class="reset" style="display: none;">Selected: <span class="filter"></span></span>
+                <a class="reset" href="javascript:carTypeChart.filterAll();dc.redrawAll();"
+                    style="display: none;">reset</a>
+
+                <div class="clearfix"></div>
+
+            </div>
+
+            <div id="gateName" class='col-xs-12 col-md-4 col-lg-4'>
+                <strong>Gate Name</strong>
+                <span class="reset" style="display: none;">Selected: <span class="filter"></span></span>
+                <a class="reset" href="javascript:gateNameChart.filterAll();dc.redrawAll();"
+                    style="display: none;">reset</a>
+
+                <div class="clearfix"></div>
+            </div>
+
+            <div id="carTypePie" class='col-xs-12 col-md-4 col-lg-4'>
+                <strong>Pie Car</strong>
+                <span class="reset" style="display: none;">Selected: <span class="filter"></span></span>
+                <a class="reset" href="javascript:gateNameChart.filterAll();dc.redrawAll();"
+                    style="display: none;">reset</a>
+
+                <div class="clearfix"></div>
+            </div>
+
+        </div>
+
+        <div>
+            <div class="dc-data-count">
+                <span class="filter-count"></span> selected out of <span class="total-count"></span> records | <a
+                    href="javascript:dc.filterAll(); dc.renderAll();">Reset All</a>
+            </div>
+        </div>
+        <table class="table table-striped dc-data-table">
+        </table>
+
+
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/crossfilter.js"></script>
+    <script src="js/d3.js"></script>
+    <script src="js/dc.js"></script>
+    <script src="js/dashgen.js"></script>
+
+
+</body>
+
+</html>
