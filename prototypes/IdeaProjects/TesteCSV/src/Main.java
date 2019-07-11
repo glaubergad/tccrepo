@@ -3,7 +3,6 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.filechooser.FileSystemView;
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Paths;
 
 import java.util.Map;
 
@@ -25,16 +24,15 @@ public class Main {
         // int returnValue = jfc.showSaveDialog(null);
 
         if (returnValue == JFileChooser.APPROVE_OPTION) {
-            File  arquivoCSV = jfc.getSelectedFile();
-            System.out.println("Caminho obtido do JFileChooser :"+arquivoCSV.getAbsolutePath());
+            File arquivoCSV = jfc.getSelectedFile();
+            System.out.println("Caminho obtido do JFileChooser :" + arquivoCSV.getAbsolutePath());
             dataset = new Dataset(arquivoCSV.getAbsolutePath());
-        }else{
+        } else {
             System.out.println("Arquivo invalido ou não encontrado");
         }
 
 
-
-        System.out.println("Caminho obtido do objeto Dataset :"+dataset.getCaminho());
+        System.out.println("Caminho obtido do objeto Dataset :" + dataset.getCaminho());
 
         System.out.println("Usando o método headersToString()");
         dataset.headersToString();
@@ -54,22 +52,5 @@ public class Main {
         dataset.recordsToString();
 
 
-
-
-
-       /* Método força bruta
-       try (
-                Reader reader = Files.newBufferedReader(Paths.get(SAMPLE_CSV_FILE_PATH));
-                CSVParser csvParser = new CSVParser(reader, CSVFormat.DEFAULT.withDelimiter(';').withHeader());
-        ) {
-            Map<String,Integer> headers = csvParser.getHeaderMap();
-
-            for (Map.Entry entry : headers.entrySet()) {
-                System.out.println(entry.getValue() + ", " + entry.getKey());
-            }
-
-        }
-
-        */
     }
 }
