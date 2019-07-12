@@ -1,6 +1,7 @@
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
+
 import java.io.IOException;
 import java.io.Reader;
 import java.nio.file.Files;
@@ -8,19 +9,20 @@ import java.nio.file.Paths;
 import java.util.Map;
 
 public class Dataset {
-    private String caminho;
+    private String caminho, arquivo;
     private Map<String, Integer> headers;
     private CSVParser parser;
     private Iterable<CSVRecord> record;
 
-    public Dataset(String caminho) {
+    public Dataset(String caminho, String arquivo) {
         this.caminho = caminho;
+        this.arquivo = arquivo;
         try {
             this.setParser();
             this.setHeaders();
             this.setRecord();
         } catch (Exception e) {
-            System.out.println("Erro:" + e.getMessage());
+            System.out.println("Erro :" + e.getMessage());
         }
     }
 
@@ -30,6 +32,14 @@ public class Dataset {
 
     public void setCaminho(String caminho) {
         this.caminho = caminho;
+    }
+
+    public String getArquivo() {
+        return arquivo;
+    }
+
+    public void setArquivo(String arquivo) {
+        this.arquivo = arquivo;
     }
 
     public Map<String, Integer> getHeaders() {

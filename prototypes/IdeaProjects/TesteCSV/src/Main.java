@@ -25,8 +25,10 @@ public class Main {
 
         if (returnValue == JFileChooser.APPROVE_OPTION) {
             File arquivoCSV = jfc.getSelectedFile();
+
             System.out.println("Caminho obtido do JFileChooser :" + arquivoCSV.getAbsolutePath());
-            dataset = new Dataset(arquivoCSV.getAbsolutePath());
+            System.out.println("Esse é o nome do arquivo: "+ arquivoCSV.getName());
+            dataset = new Dataset(arquivoCSV.getAbsolutePath(),arquivoCSV.getName());
         } else {
             System.out.println("Arquivo invalido ou não encontrado");
         }
@@ -50,7 +52,5 @@ public class Main {
 
         System.out.println("\n Exibindo as 10 primeiras linhas do CSV com o método recordsToString()");
         dataset.recordsToString();
-
-
     }
 }
