@@ -1,6 +1,6 @@
 public class Grafico {
     private String atributoX;
-    private String atributoY;
+    //private String atributoY;
     private String nome;
     private String tipo;
     public static final String TIPO_BARRAS = "dc.barChart";
@@ -17,12 +17,12 @@ public class Grafico {
         this.tipo = tipo;
     }
 
-    public Grafico(String atributoX, String atributoY, String nome, String tipo) {
+    /*public Grafico(String atributoX, String atributoY, String nome, String tipo) {
         this.atributoX = atributoX;
         this.atributoY = atributoY;
         this.nome = nome;
         this.tipo = tipo;
-    }
+    }*/
 
     public String getAtributoX() {
         return atributoX;
@@ -32,6 +32,7 @@ public class Grafico {
         this.atributoX = atributoX;
     }
 
+    /*
     public String getAtributoY() {
         return atributoY;
     }
@@ -39,7 +40,7 @@ public class Grafico {
     public void setAtributoY(String atributoY) {
         this.atributoY = atributoY;
     }
-
+    */
     public String getTipo() {
         return tipo;
     }

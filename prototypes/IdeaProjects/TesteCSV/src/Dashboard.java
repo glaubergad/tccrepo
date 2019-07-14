@@ -1,20 +1,29 @@
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+
 
 public class Dashboard {
     private Dataset dataset;
     private List<Grafico> listaGraficos;
+    private String nomeDashboard;
+
 
     public Dashboard() {
     }
 
-    public Dashboard(Dataset dataset) {
+    public Dashboard(Dataset dataset, String nomeDashboard) {
         this.dataset = dataset;
+        this.nomeDashboard = nomeDashboard;
+        this.listaGraficos = new ArrayList<Grafico>();
     }
 
-    public Dashboard(Dataset dataset, List<Grafico> listaGraficos) {
+    public Dashboard(Dataset dataset, String nomeDashboard, List<Grafico> listaGraficos) {
         this.dataset = dataset;
+        this.nomeDashboard = nomeDashboard;
         this.listaGraficos = listaGraficos;
     }
+
 
     public Dataset getDataset() {
         return dataset;
@@ -36,12 +45,27 @@ public class Dashboard {
         this.listaGraficos.add(grafico);
     }
 
-    public void graficosToString() {
-        for (Grafico grafico : listaGraficos) {
-            System.out.println("Grafico:" + grafico.getNome());
-            System.out.println("AtrX :" + grafico.getAtributoX() +
-                    "AtrY :" + grafico.getAtributoY() +
-                    "Tipo :" + grafico.getTipo());
+
+    public String getNomeDashboard() {
+        return nomeDashboard;
+    }
+
+    public void setNomeDashboard(String nomeDashboard) {
+        this.nomeDashboard = nomeDashboard;
+    }
+
+    public String toString() {
+        String out = "Nome: " + this.nomeDashboard;
+        out += "\nDataset: " + this.dataset.getArquivo();
+        out += "\nAtributos :" + this.dataset.getHeaders().size();
+        for (Map.Entry entry : this.dataset.getHeaders().entrySet()) {
+            out += "\n" + entry.getValue() + " | " + entry.getKey();
         }
+        out += "\nQuantidade de Graficos :" + this.getListaGraficos().size();
+        for (Grafico grafico : this.listaGraficos) {
+            out += "\nGrafico :" + grafico.getNome() + "|Eixo X:" + grafico.getAtributoX() + "|Tipo :" + grafico.getTipo();
+        }
+
+        return out;
     }
 }
