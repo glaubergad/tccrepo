@@ -19,7 +19,7 @@
         <h1>Meu Dashboard Gerado pelo DashGen</h1>
 
         <div class="row">
-                <div id="grafico1" class='col-xs-12 col-md-4 col-lg-4'>
+                <div id="grafico1" class='col-xs-12 col-md-12 col-lg-4'>
                     <strong>Sexo Entrevistados</strong>
                     <span class="reset" style="display: none;">Selected: <span class="filter"></span></span>
                     <a class="reset" href="javascript:grafico1.filterAll();dc.redrawAll();"
@@ -28,7 +28,7 @@
                     <div class="clearfix"></div>
 
                 </div>
-                <div id="grafico2" class='col-xs-12 col-md-4 col-lg-4'>
+                <div id="grafico2" class='col-xs-12 col-md-12 col-lg-4'>
                     <strong>Categoria</strong>
                     <span class="reset" style="display: none;">Selected: <span class="filter"></span></span>
                     <a class="reset" href="javascript:grafico2.filterAll();dc.redrawAll();"
@@ -37,7 +37,7 @@
                     <div class="clearfix"></div>
                 </div>
 
-                <div id="grafico3" class='col-xs-12 col-md-4 col-lg-4'>
+                <div id="grafico3" class='col-xs-12 col-md-12 col-lg-4'>
                     <strong>Classe Funcional</strong>
                     <span class="reset" style="display: none;">Selected: <span class="filter"></span></span>
                     <a class="reset" href="javascript:grafico3.filterAll();dc.redrawAll();"
@@ -82,11 +82,11 @@
             var all = ndx.groupAll();
 
             var grafico1Dim = ndx.dimension(function (d) {
-                return d["sexo"];
+                return d["categoria"];
             });
 
             var grafico2Dim = ndx.dimension(function (d) {
-                return d["categoria"];
+                return d["sexo"];
             });
 
             var grafico3Dim = ndx.dimension(function (d) {
@@ -97,6 +97,10 @@
             var grafico2Group = grafico2Dim.group().reduceCount();
             var grafico3Group = grafico3Dim.group();
 
+            var graf3minX = grafico3Dim.bottom(1)[0]["previsao_idade"];
+            var graf3maxX = grafico3Dim.top(1)[0]["previsao_idade"];
+            
+            
             grafico1
                 .dimension(grafico1Dim)
                 .group(grafico1Group)
@@ -112,7 +116,7 @@
                 .elasticX(true);
             
             grafico3
-                .x(d3.scale.linear().domain([40,80]))
+                .x(d3.scale.linear().domain([graf3minX,graf3maxX]))
                 .dimension(grafico3Dim)
                 .group(grafico3Group);
 
