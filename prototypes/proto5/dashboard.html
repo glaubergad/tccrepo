@@ -92,13 +92,14 @@
             var grafico3Dim = ndx.dimension(function (d) {
                 return d["previsao_idade"];
             });
+			var graf3minX = grafico3Dim.bottom(1)[0]["previsao_idade"];
+            var graf3maxX = grafico3Dim.top(1)[0]["previsao_idade"];
 
             var grafico1Group = grafico1Dim.group().reduceCount();
             var grafico2Group = grafico2Dim.group().reduceCount();
-            var grafico3Group = grafico3Dim.group();
+            var grafico3Group = grafico3Dim.group().reduceCount();
 
-            var graf3minX = grafico3Dim.bottom(1)[0]["previsao_idade"];
-            var graf3maxX = grafico3Dim.top(1)[0]["previsao_idade"];
+
             
             
             grafico1

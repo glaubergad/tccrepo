@@ -63,8 +63,8 @@ public class Prototipo4 {
 
             System.out.println("\n Testando a criação de gráficos");
             Grafico grafico1 = new Grafico("sexo","Sexo Entrevistados",Grafico.TIPO_PIZZA);
-            Grafico grafico2 = new Grafico("classe_funcional","Classe Funcional",Grafico.TIPO_PIZZA);
-            Grafico grafico3 = new Grafico("previsao_idade","Idade Prevista",Grafico.TIPO_BARRASV);
+            Grafico grafico2 = new Grafico("categoria","Categoria",Grafico.TIPO_BARRASV);
+            Grafico grafico3 = new Grafico("previsao_idade","Idade Prevista",Grafico.TIPO_BARRAS);
 
             Dashboard dashboard = new Dashboard(dataset,"Meu Dashboard Gerado pelo DashGen");
             System.out.println("Inserindo Grafico 1 :" + grafico1.getNome());
@@ -101,7 +101,7 @@ public class Prototipo4 {
 
             try {
                 Writer fileWriter = new FileWriter(new File(HOME+"\\boilerplate\\dashboard.html"));
-                Template template = cfg.getTemplate("templatedcjs.ftl");
+                Template template = cfg.getTemplate("dashboard.ftl");
                 template.process(input, fileWriter);
                 fileWriter.close();
             } catch (Exception e) {

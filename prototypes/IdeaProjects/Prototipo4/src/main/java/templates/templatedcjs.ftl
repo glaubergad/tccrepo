@@ -71,11 +71,6 @@
 var url = "../TemplateBasico/data/${arquivo}";
 
 d3.csv(url, function (err, data) {
-    // Timestamp,car-id,car-type,gate-name
-    // 2015-05-01 00:43:28,20154301124328-262,4,entrance3
-    // 2015-05-01 01:03:48,20154301124328-262,4,general-gate1
-    // 2015-05-01 01:06:24,20154301124328-262,4,ranger-stop2
-    // 2015-05-01 01:09:25,20154301124328-262,4,ranger-stop0
     if (err) throw err;
 
     /*
@@ -89,7 +84,7 @@ d3.csv(url, function (err, data) {
 
     <#list graficos as grafico>
     var  grafico${grafico_index+1}Dim = ndx.dimension(function (d) {
-        return d[${grafico.attributoX}];
+        return d["${grafico.atributoX}"];
     });
     var grafico${grafico_index+1}Group = grafico${grafico_index+1}Dim.group();
     grafico${grafico_index+1}
