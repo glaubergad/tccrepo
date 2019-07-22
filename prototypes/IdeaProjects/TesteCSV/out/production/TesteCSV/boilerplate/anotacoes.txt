@@ -1,0 +1,11 @@
+#notas
+
+Este exemplo cria dois rowCharts, uma pieChart e uma Table
+
+Está 100% operacional mas está altamente acoplado ao arquivo de dados
+
+É preciso melhorar a página HTML5, tornando o visual mais eficiente
+
+É preciso dividir as partes do /js/dashgen.js a fim de marcar as entradas variáveis a partir da aplicação.
+
+Este será a base para o Template tipo 1 do IFPA Dashgen

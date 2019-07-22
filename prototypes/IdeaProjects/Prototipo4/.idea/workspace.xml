@@ -108,7 +108,7 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="99" />
     <option name="y" value="20" />
     <option name="width" value="1171" />
@@ -259,12 +259,12 @@
       <workItem from="1563121824879" duration="5377000" />
       <workItem from="1563196619983" duration="1089000" />
       <workItem from="1563284899246" duration="25214000" />
-      <workItem from="1563318160143" duration="1038000" />
+      <workItem from="1563318160143" duration="1258000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32718000" />
+    <option name="totallyTimeSpent" value="32938000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="81" y="-8" width="1207" height="784" extended-state="6" />
@@ -279,7 +279,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32872504" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32872504" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32872504" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
