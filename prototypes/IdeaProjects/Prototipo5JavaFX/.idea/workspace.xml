@@ -18,16 +18,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/DashGenController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
+            <state relative-caret-position="340">
               <caret line="27" column="17" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1439#1440#0" expanded="true" />
-                <element signature="e#1500#1501#0" expanded="true" />
-                <element signature="e#1531#1532#0" expanded="true" />
-                <element signature="e#1592#1593#0" expanded="true" />
-                <element signature="e#1554#1555#0" expanded="true" />
-                <element signature="e#1618#1619#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -106,6 +100,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -153,7 +148,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -223,16 +217,18 @@
       <workItem from="1563677093403" duration="2018000" />
       <workItem from="1563720462422" duration="2933000" />
       <workItem from="1563757525761" duration="1253000" />
+      <workItem from="1563831538859" duration="116000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9009000" />
+    <option name="totallyTimeSpent" value="9125000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="81" y="-8" width="1207" height="784" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25370532" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2580645" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -309,10 +305,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/DashGenApp.java" />
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_211/javafx-src.zip!/com/sun/javafx/application/LauncherImpl.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_211/javafx-src.zip!/com/sun/javafx/application/LauncherImpl.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/DashGenController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="569">
-          <caret line="916" column="30" selection-start-line="916" selection-start-column="30" selection-end-line="916" selection-end-column="30" />
+        <state relative-caret-position="340">
+          <caret line="27" column="17" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -332,22 +332,6 @@
           <caret line="18" column="33" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/DashGenController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="27" column="17" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1439#1440#0" expanded="true" />
-            <element signature="e#1500#1501#0" expanded="true" />
-            <element signature="e#1531#1532#0" expanded="true" />
-            <element signature="e#1592#1593#0" expanded="true" />
-            <element signature="e#1554#1555#0" expanded="true" />
-            <element signature="e#1618#1619#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -417,7 +401,6 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
