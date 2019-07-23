@@ -15,10 +15,10 @@ public class DashGenFx extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-    pStage = primaryStage;
+        pStage = primaryStage;
         Parent root = FXMLLoader.load(getClass().getResource("views/DashGen.fxml"));
         pStage.setTitle("IFPA DashGen - Prototipo 5");
-        pStage.setScene(new Scene(root,500,500));
+        pStage.setScene(new Scene(root, 500, 500));
         pStage.show();
     }
 
@@ -29,13 +29,16 @@ public class DashGenFx extends Application {
 
     static File selectCSV() throws Exception {
         FileChooser csvFileChooser = new FileChooser();
+        csvFileChooser.setTitle("Selecione o arquivo CSV para o Dashboard");
         csvFileChooser.setInitialDirectory(FileSystemView.getFileSystemView().getHomeDirectory());
-        csvFileChooser.setSelectedExtensionFilter(new FileChooser.ExtensionFilter("Arquivos CSV", "*.csv"));
+        csvFileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Arquivos CSV", "*.csv"));
         return csvFileChooser.showOpenDialog(pStage);
     }
 
     static File selectDestFolder() throws Exception {
         DirectoryChooser destDirectoryChooser = new DirectoryChooser();
+        destDirectoryChooser.setTitle("Selecione o diretório de destino para o Dashboard");
         destDirectoryChooser.setInitialDirectory(FileSystemView.getFileSystemView().getHomeDirectory());
         return destDirectoryChooser.showDialog(pStage);
     }

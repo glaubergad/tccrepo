@@ -51,7 +51,7 @@ public class Dataset {
     private void setParser() throws IOException {
         try (
                 Reader reader = Files.newBufferedReader(Paths.get(this.caminho));
-                CSVParser parser1 = new CSVParser(reader, CSVFormat.DEFAULT.withDelimiter(';').withHeader());
+                CSVParser parser1 = new CSVParser(reader, CSVFormat.DEFAULT.withDelimiter(';').withHeader())
         ) {
             this.parser = parser1;
         }

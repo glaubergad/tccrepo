@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dbba78bb-f695-4801-a7b7-9a524c17a1d4" name="Default Changelist" comment="" />
+    <list default="true" id="dbba78bb-f695-4801-a7b7-9a524c17a1d4" name="Default Changelist" comment="Nova tela">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prototipo5JavaFX.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DashGen/Dataset.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DashGen/Dataset.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DashGenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DashGenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DashGenFx.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DashGenFx.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/views/DashGen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/DashGen.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DashGenController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DashGenController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DashGenFx.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DashGenFx.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/Prototipo5JavaFX.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/DashGen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/DashGen.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/views/DashGen.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/views/img/ifpa_navlogo.png" beforeDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -10,16 +24,30 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/DashGenController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="27" column="17" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="17" />
+            <state relative-caret-position="121">
+              <caret line="8" selection-start-line="8" selection-end-line="8" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -28,37 +56,13 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/DashGen/Dataset.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="680">
-              <caret line="62" selection-start-line="62" selection-end-line="62" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/DashGenFx.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="18" column="33" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/views/DashGen.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="32" column="142" selection-start-line="32" selection-start-column="136" selection-end-line="32" selection-end-column="142" />
+            <state relative-caret-position="258">
+              <caret line="23" column="62" selection-start-line="23" selection-start-column="62" selection-end-line="23" selection-end-column="62" />
             </state>
           </provider>
+          <provider editor-type-id="JavaFX-Scene-Builder" />
         </entry>
       </file>
     </leaf>
@@ -70,6 +74,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -77,8 +84,8 @@
         <option value="$PROJECT_DIR$/src/main/java/DashGenApp.java" />
         <option value="$PROJECT_DIR$/src/main/java/DashGen.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/DashGenFx.java" />
-        <option value="$PROJECT_DIR$/src/main/java/views/DashGen.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/DashGenController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/views/DashGen.fxml" />
       </list>
     </option>
   </component>
@@ -95,12 +102,12 @@
     <option name="width" value="612" />
     <option name="height" value="784" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -137,41 +144,38 @@
               <item name="target" type="462c0819:PsiDirectoryNode" />
               <item name="classes" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Prototipo5JavaFX" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Prototipo5JavaFX" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/target/classes/views" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/target/classes" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Global Libraries" />
+    <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\glaubergad\OneDrive\tccrepo\prototypes\IdeaProjects\Prototipo5JavaFX\target\classes" />
+      <recent name="C:\Users\glaubergad\OneDrive\tccrepo\prototypes\IdeaProjects\Prototipo5JavaFX\target\classes\views" />
+      <recent name="C:\Users\glaubergad\IdeaProjects\Prototipo5JavaFX\target\classes\views" />
+      <recent name="C:\Users\glaubergad\IdeaProjects\Prototipo5JavaFX\target\classes" />
+      <recent name="C:\Users\glaubergad\IdeaProjects\Prototipo5JavaFX\src\main\java" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\glaubergad\IdeaProjects\Prototipo5JavaFX\src\main\java\views" />
       <recent name="C:\Users\glaubergad\IdeaProjects\Prototipo5JavaFX\src\main\java" />
       <recent name="C:\Users\glaubergad\IdeaProjects\Prototipo5JavaFX\src\main\java\view" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\glaubergad\IdeaProjects\Prototipo5JavaFX\target\classes\views" />
-      <recent name="C:\Users\glaubergad\IdeaProjects\Prototipo5JavaFX\target\classes" />
-      <recent name="C:\Users\glaubergad\IdeaProjects\Prototipo5JavaFX\src\main\java" />
-      <recent name="C:\Users\glaubergad\IdeaProjects\Prototipo5JavaFX\src\main\java\DashGen" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -218,17 +222,20 @@
       <workItem from="1563720462422" duration="2933000" />
       <workItem from="1563757525761" duration="1253000" />
       <workItem from="1563831538859" duration="116000" />
+      <workItem from="1563831907716" duration="46000" />
+      <workItem from="1563832732763" duration="4518000" />
+      <workItem from="1563837577184" duration="2199000" />
+      <workItem from="1563841148213" duration="670000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9125000" />
+    <option name="totallyTimeSpent" value="16558000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="81" y="-8" width="1207" height="784" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2580645" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27462947" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -252,46 +259,19 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="right" id="Database" order="4" weight="0.32955536" />
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info anchor="right" id="Maven" order="6" />
       <window_info anchor="right" id="Capture Analysis" order="7" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
     </layout>
-    <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25370532" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Image Layers" order="2" />
-      <window_info id="Designer" order="3" />
-      <window_info id="UI Designer" order="4" />
-      <window_info id="Capture Tool" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.29032257" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" />
-      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.32872504" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Database" order="4" />
-      <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="right" id="Maven" order="6" />
-      <window_info anchor="right" id="Capture Analysis" order="7" />
-      <window_info anchor="right" id="Palette&#9;" order="8" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Nova tela" />
+    <option name="LAST_COMMIT_MESSAGE" value="Nova tela" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/pom.xml">
@@ -306,19 +286,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/DashGenApp.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_211/javafx-src.zip!/com/sun/javafx/application/LauncherImpl.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/DashGenController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="27" column="17" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/DashGen/Dataset.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
+        <state relative-caret-position="-26">
           <caret line="62" selection-start-line="62" selection-end-line="62" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -328,19 +298,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/DashGenFx.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="18" column="33" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
+        <state relative-caret-position="312">
+          <caret line="33" column="52" lean-forward="true" selection-start-line="33" selection-start-column="52" selection-end-line="33" selection-end-column="52" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/views/DashGen.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/DashGen/PackSaida.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="32" column="142" selection-start-line="32" selection-start-column="136" selection-end-line="32" selection-end-column="142" />
+        <state relative-caret-position="68">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/views/DashGen.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="258">
+          <caret line="23" column="62" selection-start-line="23" selection-start-column="62" selection-end-line="23" selection-end-column="62" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/DashGenController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="121">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
