@@ -10,6 +10,7 @@
     <!-- Bootstrap e DC CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/dc.css">
+    <link rel="stylesheet" href="css/dashgen.css">
     <script src=js/crossfilter.js></script>
     <script src=js/d3.js></script>
     <script src=js/dc.js></script>
@@ -19,9 +20,9 @@
 
 <div class="container">
 
-
+    <div class="row dashgen-header" >
     <h1>${titulo}</h1>
-
+    </div>
     <div class="row">
         <#list graficos as grafico>
             <div id="grafico${grafico_index +1}" class='col-xs-12 col-md-12 col-lg-4'>
@@ -95,10 +96,12 @@
             .group(grafico${grafico_index+1}Group)
             <#if grafico.tipo == "dc.barChart">
             .x(d3.scale.linear().domain([grafico${grafico_index+1}minX, grafico${grafico_index+1}maxX]))
-            .elasticX(true);
-            <#else>
-            ;
+
             </#if>
+            <#if grafico.tipo == "dc.rowChart">
+                .elasticX(true)
+            </#if>
+            ;
         </#list>
 
         dc.renderAll();

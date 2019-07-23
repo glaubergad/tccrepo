@@ -2,7 +2,7 @@
 <html lang="pt-br">
 
 <head>
-    <title>Esse é meu Dashboard 2</title>
+    <title>Bolsa Familia</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -10,6 +10,7 @@
     <!-- Bootstrap e DC CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/dc.css">
+    <link rel="stylesheet" href="css/dashgen.css">
     <script src=js/crossfilter.js></script>
     <script src=js/d3.js></script>
     <script src=js/dc.js></script>
@@ -19,35 +20,28 @@
 
 <div class="container">
 
-
-    <h1>Esse é meu Dashboard 2</h1>
-
+    <div class="row dashgen-header" >
+    <h1>Bolsa Familia</h1>
+    </div>
     <div class="row">
             <div id="grafico1" class='col-xs-12 col-md-12 col-lg-4'>
-                <strong>Sexo dos Entrevistados</strong>
+                <strong>Ano e Mes</strong>
                 <span class="reset" style="display: none;">Selected: <span class="filter"></span></span>
                 <a class="reset" href="javascript:grafico1.filterAll();dc.redrawAll();"
                    style="display: none;">reset</a>
                 <div class="clearfix"></div>
             </div>
             <div id="grafico2" class='col-xs-12 col-md-12 col-lg-4'>
-                <strong>Categoria</strong>
+                <strong>Quantidade de familias</strong>
                 <span class="reset" style="display: none;">Selected: <span class="filter"></span></span>
                 <a class="reset" href="javascript:grafico2.filterAll();dc.redrawAll();"
                    style="display: none;">reset</a>
                 <div class="clearfix"></div>
             </div>
             <div id="grafico3" class='col-xs-12 col-md-12 col-lg-4'>
-                <strong>Idade Prevista</strong>
+                <strong>Valor Repassado</strong>
                 <span class="reset" style="display: none;">Selected: <span class="filter"></span></span>
                 <a class="reset" href="javascript:grafico3.filterAll();dc.redrawAll();"
-                   style="display: none;">reset</a>
-                <div class="clearfix"></div>
-            </div>
-            <div id="grafico4" class='col-xs-12 col-md-12 col-lg-4'>
-                <strong>Sexo de Novo</strong>
-                <span class="reset" style="display: none;">Selected: <span class="filter"></span></span>
-                <a class="reset" href="javascript:grafico4.filterAll();dc.redrawAll();"
                    style="display: none;">reset</a>
                 <div class="clearfix"></div>
             </div>
@@ -62,10 +56,9 @@
 
 <script>
 
-    var grafico1 = dc.pieChart("#grafico1");
-    var grafico2 = dc.rowChart("#grafico2");
+    var grafico1 = dc.barChart("#grafico1");
+    var grafico2 = dc.barChart("#grafico2");
     var grafico3 = dc.barChart("#grafico3");
-    var grafico4 = dc.rowChart("#grafico4");
 
 
     //var grafico1 = dc.pieChart("#grafico1");
@@ -74,7 +67,7 @@
 
     // Full dataset could give issues because of gzip
     // var url = "Lekagul Sensor Data.csv.gz";
-    var url = "data/aposentadoria.csv";
+    var url = "data/misocial.csv";
 
     d3.csv(url, function (err, data) {
         /*
@@ -95,42 +88,43 @@
         var all = ndx.groupAll();
 
         var grafico1Dim = ndx.dimension(function (d) {
-            return d["sexo"];
+            return d["anomes"];
         });
+            var grafico1minX = grafico1Dim.bottom(1)[0]["anomes"];
+            var grafico1maxX = grafico1Dim.top(1)[0]["anomes"];
         var grafico2Dim = ndx.dimension(function (d) {
-            return d["categoria"];
+            return d["qtd_familias_beneficiarias_bolsa_familia"];
         });
+            var grafico2minX = grafico2Dim.bottom(1)[0]["qtd_familias_beneficiarias_bolsa_familia"];
+            var grafico2maxX = grafico2Dim.top(1)[0]["qtd_familias_beneficiarias_bolsa_familia"];
         var grafico3Dim = ndx.dimension(function (d) {
-            return d["previsao_idade"];
+            return d["valor_repassado_bolsa_familia"];
         });
-            var grafico3minX = grafico3Dim.bottom(1)[0]["previsao_idade"];
-            var grafico3maxX = grafico3Dim.top(1)[0]["previsao_idade"];
-        var grafico4Dim = ndx.dimension(function (d) {
-            return d["sexo"];
-        });
+            var grafico3minX = grafico3Dim.bottom(1)[0]["valor_repassado_bolsa_familia"];
+            var grafico3maxX = grafico3Dim.top(1)[0]["valor_repassado_bolsa_familia"];
 
         //Agrupadores
         var grafico1Group = grafico1Dim.group();
         var grafico2Group = grafico2Dim.group();
         var grafico3Group = grafico3Dim.group();
-        var grafico4Group = grafico4Dim.group();
 
         grafico1
             .dimension(grafico1Dim)
             .group(grafico1Group)
+            .x(d3.scale.linear().domain([grafico1minX, grafico1maxX]))
+
             ;
         grafico2
             .dimension(grafico2Dim)
             .group(grafico2Group)
+            .x(d3.scale.linear().domain([grafico2minX, grafico2maxX]))
+
             ;
         grafico3
             .dimension(grafico3Dim)
             .group(grafico3Group)
             .x(d3.scale.linear().domain([grafico3minX, grafico3maxX]))
-            .elasticX(true);
-        grafico4
-            .dimension(grafico4Dim)
-            .group(grafico4Group)
+
             ;
 
         dc.renderAll();

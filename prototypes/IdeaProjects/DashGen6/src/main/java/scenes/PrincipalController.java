@@ -101,6 +101,7 @@ public class PrincipalController {
     }
 
     public void setaDashboard(){
+        tituloDashboard = tfTituloDashboard.getText();
         dashboard = new Dashboard(dataset,tituloDashboard,graficos);
     }
 
@@ -114,13 +115,19 @@ public class PrincipalController {
 
     public void resetForm(){
         graficos.clear();
-        lvGraficos.getItems().setAll(graficos);
+        cbTipoGrafico.getItems().clear();
+        cbAtributo.getItems().clear();
+        lvGraficos.getItems().clear();
         tfTituloGrafico.clear();
+        tfTituloDashboard.clear();
+        lblPathCsv.setText("");
+        lblPathDest.setText("");
         cbAtributo.getSelectionModel().clearSelection();
         cbTipoGrafico.getSelectionModel().clearSelection();
     }
 
     public void clearGraficosClick(ActionEvent actionEvent) {
-        resetForm();
+        lvGraficos.getItems().clear();
+        graficos.clear();
     }
 }
