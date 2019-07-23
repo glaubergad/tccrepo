@@ -1,13 +1,12 @@
 package scenes;
 
-import DashGen.Dataset;
-import DashGen.Grafico;
+import DashGen.*;
+import freemarker.template.TemplateException;
 import javafx.event.ActionEvent;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -15,7 +14,10 @@ import java.util.Map;
 public class PrincipalController {
     public File csvFile, destFolder;
     public Dataset dataset;
-    public List<Grafico> graficos;
+    public Dashboard dashboard;
+    public Gerador gerador;
+    public PackSaida packsaida;
+    public final List<Grafico> graficos = new ArrayList<Grafico>();
     public final List<String> tipoGrafico = new ArrayList<String>();
     public Label lblPathCsv;
     public Label lblPathDest;
@@ -24,14 +26,16 @@ public class PrincipalController {
     public TextField tfTituloGrafico;
     public TextField tfTituloDashboard;
     public String tituloDashboard;
-
+    public ListView lvGraficos;
 
 
     public void selectCSV(ActionEvent actionEvent) {
         try {
+            resetForm();
             csvFile = DashGen6.selectCSV();
             lblPathCsv.setText(csvFile.getAbsolutePath());
             tituloDashboard = tfTituloDashboard.getText();
+
             setDataset();
         } catch (Exception e) {
             System.out.println(e.toString());
@@ -69,12 +73,54 @@ public class PrincipalController {
 
     public void addGrafico(ActionEvent actionEvent) {
         try {
-            graficos.add(new Grafico(cbAtributo.getValue().toString(), tfTituloGrafico.getText(), cbTipoGrafico.getValue().toString()));
+            String atributo = cbAtributo.getSelectionModel().getSelectedItem().toString();
+            String tipoGraf = cbTipoGrafico.getSelectionModel().getSelectedItem().toString();
+            String titGraf = tfTituloGrafico.getText();
+            graficos.add(new Grafico(atributo,titGraf,tipoGraf));
+
+            lvGraficos.getItems().setAll(graficos);
         }catch (Exception e){
             System.out.println("AddGrafico:"+e.toString());
         }
     }
 
     public void endDashboard(ActionEvent actionEvent) {
+        setaDashboard();
+        try{
+            setaGerador();
+            setaPackSaida();
+        }catch (Exception e){
+            System.out.println("SetaGerador:"+e.toString());
+        }finally {
+            new Alert(Alert.AlertType.INFORMATION, "Dashboard gerado com sucesso!").showAndWait();
+            resetForm();
+        }
+
+
+
+    }
+
+    public void setaDashboard(){
+        dashboard = new Dashboard(dataset,tituloDashboard,graficos);
+    }
+
+    public void setaGerador() throws IOException, TemplateException {
+        gerador = new Gerador(dashboard);
+    }
+
+    public void setaPackSaida() throws IOException {
+        packsaida = new PackSaida(destFolder,csvFile);
+    }
+
+    public void resetForm(){
+        graficos.clear();
+        lvGraficos.getItems().setAll(graficos);
+        tfTituloGrafico.clear();
+        cbAtributo.getSelectionModel().clearSelection();
+        cbTipoGrafico.getSelectionModel().clearSelection();
+    }
+
+    public void clearGraficosClick(ActionEvent actionEvent) {
+        resetForm();
     }
 }

@@ -16,6 +16,7 @@ public class DashGen6 extends Application {
 
     private static Stage pStage;
     static Dataset dataset;
+    private static final File HOME = new File(DashGen6.class.getProtectionDomain().getCodeSource().getLocation().getPath());
 
     public static void main(String[] args) {
         launch(args);

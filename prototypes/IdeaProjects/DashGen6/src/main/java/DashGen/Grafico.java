@@ -58,4 +58,10 @@ public class Grafico {
     public String getNome() {
         return nome;
     }
+
+    @Override
+    public String toString() {
+        return this.getAtributoX()+"|"+this.nome+"|"+this.tipo;
+
+    }
 }

@@ -7,12 +7,12 @@ import java.io.File;
 import java.io.IOException;
 
 public class PackSaida {
-    private File boilerplateDir,destDir,csvFile;
+    private final File boilerplateDir = new File(PackSaida.class.getProtectionDomain().getCodeSource().getLocation().getPath()+"\\DashGen\\boilerplate");
+    private File destDir,csvFile;
     private static final String FILE_NAME = "dashgen.zip";
 
-    public PackSaida(File boilerplateDir, File destDir,File csvFile) throws IOException {
+    public PackSaida(File destDir,File csvFile) throws IOException {
         this.destDir = destDir;
-        this.boilerplateDir = boilerplateDir;
         this.csvFile =csvFile;
         processarCopia();
         processarZip();

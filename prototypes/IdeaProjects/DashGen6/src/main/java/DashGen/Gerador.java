@@ -12,7 +12,7 @@ import java.util.Map;
 
 public class Gerador {
     private Dashboard dashboard;
-    private static final File HOME = new File(Gerador.class.getProtectionDomain().getCodeSource().getLocation().getPath());
+    private static final File HOME = new File(Gerador.class.getProtectionDomain().getCodeSource().getLocation().getPath()+"\\DashGen");
     private Template template;
     private final Configuration cfg = new Configuration(new Version("2.3.28"));
     private final Map<String,Object> input = new HashMap<>();
@@ -26,7 +26,7 @@ public class Gerador {
     }
 
     private void configurar() throws IOException {
-        cfg.setDirectoryForTemplateLoading(new File(HOME +"/templates"));
+        cfg.setDirectoryForTemplateLoading(new File(HOME + "\\templates"));
         cfg.setIncompatibleImprovements(new Version(2, 3, 28));
         cfg.setDefaultEncoding("UTF-8");
         cfg.setLocale(Locale.US);

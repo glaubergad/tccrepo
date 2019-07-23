@@ -27,7 +27,7 @@
       <Label layoutX="14.0" layoutY="443.0" text="Titulo do Grafico" />
       <Label layoutX="14.0" layoutY="323.0" text="Atributo do CSV" />
       <Label layoutX="14.0" layoutY="382.0" text="Tipo de Gráfico" />
-      <ListView layoutX="279.0" layoutY="331.0" prefHeight="200.0" prefWidth="200.0" />
+      <ListView fx:id="lvGraficos" layoutX="279.0" layoutY="299.0" prefHeight="200.0" prefWidth="200.0" />
       <Label layoutX="14.0" layoutY="273.0" text="Graficos ">
          <font>
             <Font name="System Bold" size="20.0" />
@@ -35,6 +35,7 @@
       </Label>
       <Button fx:id="btnAddGrafico" layoutX="69.0" layoutY="552.0" mnemonicParsing="false" onAction="#addGrafico" text="Adicionar Gráfico" />
       <Button fx:id="btnEndDashboard" layoutX="319.0" layoutY="552.0" mnemonicParsing="false" onAction="#endDashboard" text="Finalizar Dashboard" />
-      <Label layoutX="324.0" layoutY="280.0" text="Graficos Adicionados" />
+      <Label layoutX="324.0" layoutY="274.0" text="Graficos Adicionados" />
+      <Button fx:id="btnClearGraficos" layoutX="354.0" layoutY="509.0" mnemonicParsing="false" onAction="#clearGraficosClick" text="Limpar Gráficos" />
    </children>
 </AnchorPane>
