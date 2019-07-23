@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scenes.PrincipalController">
+   <children>
+      <Label layoutX="121.0" layoutY="14.0" text="IFPA DashGen Prototipo 6" textFill="#005e0d">
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+      </Label>
+      <Label id="lblPathCsv" fx:id="lblPathCsv" layoutX="17.0" layoutY="100.0" text="Local..." />
+      <Button fx:id="btnSelectCsv" layoutX="17.0" layoutY="125.0" mnemonicParsing="false" onAction="#selectCSV" prefHeight="25.0" prefWidth="115.0" text="Arquivo CSV" />
+      <Button fx:id="btnSelectDest" layoutX="17.0" layoutY="182.0" mnemonicParsing="false" onAction="#selectDest" text="Selecionar Destino" />
+      <Label fx:id="lblPathDest" layoutX="17.0" layoutY="158.0" text="Local..." />
+      <ComboBox fx:id="cbAtributo" layoutX="14.0" layoutY="348.0" prefWidth="150.0" promptText="Atributo" />
+      <ComboBox fx:id="cbTipoGrafico" layoutX="14.0" layoutY="406.0" prefWidth="150.0" promptText="Tipo de Grafico" />
+      <TextField fx:id="tfTituloGrafico" layoutX="15.0" layoutY="466.0" prefHeight="25.0" prefWidth="181.0" />
+      <TextField fx:id="tfTituloDashboard" layoutX="18.0" layoutY="71.0" prefHeight="25.0" prefWidth="465.0" />
+      <Label layoutX="17.0" layoutY="45.0" text="Titulo do Dashboard" />
+      <Label layoutX="14.0" layoutY="443.0" text="Titulo do Grafico" />
+      <Label layoutX="14.0" layoutY="323.0" text="Atributo do CSV" />
+      <Label layoutX="14.0" layoutY="382.0" text="Tipo de Gráfico" />
+      <ListView layoutX="279.0" layoutY="331.0" prefHeight="200.0" prefWidth="200.0" />
+      <Label layoutX="14.0" layoutY="273.0" text="Graficos ">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnAddGrafico" layoutX="69.0" layoutY="552.0" mnemonicParsing="false" onAction="#addGrafico" text="Adicionar Gráfico" />
+      <Button fx:id="btnEndDashboard" layoutX="319.0" layoutY="552.0" mnemonicParsing="false" onAction="#endDashboard" text="Finalizar Dashboard" />
+      <Label layoutX="324.0" layoutY="280.0" text="Graficos Adicionados" />
+   </children>
+</AnchorPane>
