@@ -49,28 +49,11 @@
     </#list>
 
 
-    //var grafico1 = dc.pieChart("#grafico1");
-    //var grafico2 = dc.rowChart("#grafico2");
-    //var grafico3 = dc.barChart("#grafico3");
-
-    // Full dataset could give issues because of gzip
-    // var url = "Lekagul Sensor Data.csv.gz";
     var url = "data/${arquivo}";
 
     d3.csv(url, function (err, data) {
-        /*
-        siape,nome_oficial,sexo,categoria,classe_funcional,descricao_cargo,unidade,locacao,data_previsao_aposentadoria,previsao_idade,regra_aposentadoria
-        345783,ABMAEL BEZERRA DE OLIVEIRA,M,Docente,Classe C - Adjunto,PROFESSOR DO MAGISTERIO SUPERIOR,DEPARTAMENTO DE ENGENHARIA ELÉTRICA,DEPARTAMENTO DE ENGENHARIA ELÉTRICA,20/01/2003,53,Voluntária com proventos proporcionais
-        345783,ABMAEL BEZERRA DE OLIVEIRA,M,Docente,Classe C - Adjunto,PROFESSOR DO MAGISTERIO SUPERIOR,DEPARTAMENTO DE ENGENHARIA ELÉTRICA,DEPARTAMENTO DE ENGENHARIA ELÉTRICA,12/05/2005,55,Voluntária com proventos reduzidos - Art. 2º da EC41/2003
-        345783,ABMAEL BEZERRA DE OLIVEIRA,M,Docente,Classe C - Adjunto,PROFESSOR DO MAGISTERIO SUPERIOR,DEPARTAMENTO DE ENGENHARIA ELÉTRICA,DEPARTAMENTO DE ENGENHARIA ELÉTRICA,17/04/2007,57,Voluntária com proventos integrais e paridade - Art 3º da EC47/2005
 
-        */
         if (err) throw err;
-        /*
-        data.forEach(function (d) {
-            d.Timestamp = new Date(d.Timestamp);
-        });
-        */
 
         var ndx = crossfilter(data);
         var all = ndx.groupAll();

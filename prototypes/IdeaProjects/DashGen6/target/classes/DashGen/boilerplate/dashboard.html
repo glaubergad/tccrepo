@@ -2,7 +2,7 @@
 <html lang="pt-br">
 
 <head>
-    <title>Meu novo dashboard de teste para o TCC</title>
+    <title>Novo teste de Dashboard</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -21,27 +21,20 @@
 <div class="container">
 
     <div class="row dashgen-header" >
-    <h1>Meu novo dashboard de teste para o TCC</h1>
+    <h1>Novo teste de Dashboard</h1>
     </div>
     <div class="row">
             <div id="grafico1" class='col-xs-12 col-md-12 col-lg-4'>
-                <strong>SEXO DOS ENTREVISTADOS</strong>
+                <strong>teste</strong>
                 <span class="reset" style="display: none;">Selected: <span class="filter"></span></span>
                 <a class="reset" href="javascript:grafico1.filterAll();dc.redrawAll();"
                    style="display: none;">reset</a>
                 <div class="clearfix"></div>
             </div>
             <div id="grafico2" class='col-xs-12 col-md-12 col-lg-4'>
-                <strong>Classe Funcional</strong>
+                <strong>teste</strong>
                 <span class="reset" style="display: none;">Selected: <span class="filter"></span></span>
                 <a class="reset" href="javascript:grafico2.filterAll();dc.redrawAll();"
-                   style="display: none;">reset</a>
-                <div class="clearfix"></div>
-            </div>
-            <div id="grafico3" class='col-xs-12 col-md-12 col-lg-4'>
-                <strong>Idade</strong>
-                <span class="reset" style="display: none;">Selected: <span class="filter"></span></span>
-                <a class="reset" href="javascript:grafico3.filterAll();dc.redrawAll();"
                    style="display: none;">reset</a>
                 <div class="clearfix"></div>
             </div>
@@ -56,9 +49,8 @@
 
 <script>
 
-    var grafico1 = dc.pieChart("#grafico1");
-    var grafico2 = dc.rowChart("#grafico2");
-    var grafico3 = dc.barChart("#grafico3");
+    var grafico1 = dc.rowChart("#grafico1");
+    var grafico2 = dc.pieChart("#grafico2");
 
 
     //var grafico1 = dc.pieChart("#grafico1");
@@ -67,7 +59,7 @@
 
     // Full dataset could give issues because of gzip
     // var url = "Lekagul Sensor Data.csv.gz";
-    var url = "data/aposentadoria.csv";
+    var url = "data/obitos_dengue.csv";
 
     d3.csv(url, function (err, data) {
         /*
@@ -88,36 +80,24 @@
         var all = ndx.groupAll();
 
         var grafico1Dim = ndx.dimension(function (d) {
-            return d["sexo"];
+            return d["indicx"];
         });
         var grafico2Dim = ndx.dimension(function (d) {
-            return d["classe_funcional"];
+            return d["no_cidade"];
         });
-        var grafico3Dim = ndx.dimension(function (d) {
-            return d["previsao_idade"];
-        });
-            var grafico3minX = grafico3Dim.bottom(1)[0]["previsao_idade"];
-            var grafico3maxX = grafico3Dim.top(1)[0]["previsao_idade"];
 
         //Agrupadores
         var grafico1Group = grafico1Dim.group();
         var grafico2Group = grafico2Dim.group();
-        var grafico3Group = grafico3Dim.group();
 
         grafico1
             .dimension(grafico1Dim)
             .group(grafico1Group)
+                .elasticX(true)
             ;
         grafico2
             .dimension(grafico2Dim)
             .group(grafico2Group)
-                .elasticX(true)
-            ;
-        grafico3
-            .dimension(grafico3Dim)
-            .group(grafico3Group)
-            .x(d3.scale.linear().domain([grafico3minX, grafico3maxX]))
-
             ;
 
         dc.renderAll();

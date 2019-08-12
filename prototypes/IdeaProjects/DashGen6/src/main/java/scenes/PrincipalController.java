@@ -12,20 +12,18 @@ import java.util.List;
 import java.util.Map;
 
 public class PrincipalController {
-    public File csvFile, destFolder;
-    public Dataset dataset;
-    public Dashboard dashboard;
-    public Gerador gerador;
-    public PackSaida packsaida;
-    public final List<Grafico> graficos = new ArrayList<Grafico>();
-    public final List<String> tipoGrafico = new ArrayList<String>();
+    private File csvFile, destFolder;
+    private Dataset dataset;
+    private Dashboard dashboard;
+    private String tituloDashboard;
+    private final List<Grafico> graficos = new ArrayList<Grafico>();
+    private final List<String> tipoGrafico = new ArrayList<String>();
     public Label lblPathCsv;
     public Label lblPathDest;
     public ComboBox cbAtributo;
     public ComboBox cbTipoGrafico;
     public TextField tfTituloGrafico;
     public TextField tfTituloDashboard;
-    public String tituloDashboard;
     public ListView lvGraficos;
 
 
@@ -100,20 +98,21 @@ public class PrincipalController {
 
     }
 
-    public void setaDashboard(){
+    private void setaDashboard(){
         tituloDashboard = tfTituloDashboard.getText();
         dashboard = new Dashboard(dataset,tituloDashboard,graficos);
     }
 
-    public void setaGerador() throws IOException, TemplateException {
-        gerador = new Gerador(dashboard);
+    private void setaGerador() throws IOException, TemplateException {
+        new Gerador(dashboard);
     }
 
-    public void setaPackSaida() throws IOException {
-        packsaida = new PackSaida(destFolder,csvFile);
+    private void setaPackSaida() throws IOException {
+        new PackSaida(destFolder, csvFile);
     }
 
-    public void resetForm(){
+    //Método redefine todos os itens da tela para o estado inicial
+    private void resetForm(){
         graficos.clear();
         cbTipoGrafico.getItems().clear();
         cbAtributo.getItems().clear();
@@ -122,10 +121,12 @@ public class PrincipalController {
         tfTituloDashboard.clear();
         lblPathCsv.setText("");
         lblPathDest.setText("");
-        cbAtributo.getSelectionModel().clearSelection();
-        cbTipoGrafico.getSelectionModel().clearSelection();
+        cbAtributo.getItems().clear();
+        cbTipoGrafico.getItems().clear();
+
     }
 
+    //Método limpa os gráficos da lista caso o usuário tenha se equivocado
     public void clearGraficosClick(ActionEvent actionEvent) {
         lvGraficos.getItems().clear();
         graficos.clear();
