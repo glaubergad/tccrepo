@@ -2,19 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0f3afc4c-65e0-4641-8d44-855e6e2dbda6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/target/classes/DashGen/boilerplate/data/bolsistas20102017.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/DashGen/boilerplate/data/misocial.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../support/misocial.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DashGen/boilerplate/css/dashgen.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DashGen/boilerplate/css/dashgen.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DashGen/templates/dashboard.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DashGen/templates/dashboard.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/scenes/PrincipalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scenes/PrincipalController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/scenes/principal.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scenes/principal.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DashGen/boilerplate/css/dashgen.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DashGen/boilerplate/css/dashgen.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/scenes/DashGen6.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scenes/DashGen6.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/DashGen/boilerplate/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DashGen/boilerplate/dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DashGen/templates/dashboard.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DashGen/templates/dashboard.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/scenes/PrincipalController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/scenes/PrincipalController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/scenes/principal.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/scenes/principal.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scenes/DashGen6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/scenes/DashGen6.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -29,10 +20,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/scenes/PrincipalController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="321">
+            <state relative-caret-position="1564">
               <caret line="103" column="54" selection-start-line="103" selection-start-column="54" selection-end-line="103" selection-end-column="54" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -60,11 +51,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/scenes/DashGen6.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="34" column="9" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
+            <state relative-caret-position="270">
+              <caret line="29" column="55" selection-start-line="29" selection-start-column="55" selection-end-line="29" selection-end-column="55" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -99,7 +90,6 @@
       <list>
         <option value="$PROJECT_DIR$/src/main/java/DashGen6.java" />
         <option value="$PROJECT_DIR$/src/main/java/DashGen/Grafico.java" />
-        <option value="$PROJECT_DIR$/src/main/java/scenes/DashGen6.java" />
         <option value="$PROJECT_DIR$/src/main/java/DashGen/PackSaida.java" />
         <option value="$PROJECT_DIR$/src/main/java/DashGen/Gerador.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
@@ -107,6 +97,7 @@
         <option value="$PROJECT_DIR$/src/main/java/DashGen/templates/dashboard.ftl" />
         <option value="$PROJECT_DIR$/src/main/java/scenes/principal.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/scenes/PrincipalController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/scenes/DashGen6.java" />
       </list>
     </option>
   </component>
@@ -151,7 +142,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="676" />
     <option name="y" value="-8" />
     <option name="width" value="612" />
@@ -165,8 +156,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -177,6 +166,17 @@
             <path>
               <item name="DashGen6" type="b2602c69:ProjectViewProjectNode" />
               <item name="DashGen6" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DashGen6" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DashGen6" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DashGen6" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DashGen6" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -191,14 +191,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DashGen6" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DashGen6" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="DashGen" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="DashGen6" type="b2602c69:ProjectViewProjectNode" />
@@ -208,32 +200,12 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="scenes" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="DashGen6" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DashGen6" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DashGen6" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DashGen6" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DashGen6" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DashGen6" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
-              <item name="DashGen" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DashGen6" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -305,18 +277,19 @@
       <workItem from="1563843293152" duration="6033000" />
       <workItem from="1563879742095" duration="6939000" />
       <workItem from="1563891526682" duration="5086000" />
-      <workItem from="1563897137500" duration="877000" />
+      <workItem from="1563897137500" duration="1490000" />
+      <workItem from="1565619458960" duration="469000" />
+      <workItem from="1565622236442" duration="421000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18935000" />
+    <option name="totallyTimeSpent" value="20438000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="81" y="-8" width="1207" height="784" extended-state="6" />
-    <editor active="true" />
+    <frame x="80" y="-8" width="1208" height="784" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17436792" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18031359" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -335,7 +308,7 @@
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Messages" order="12" visible="true" weight="0.32872504" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.32872504" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -442,7 +415,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/scenes/PrincipalController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
+        <state relative-caret-position="1564">
           <caret line="103" column="54" selection-start-line="103" selection-start-column="54" selection-end-line="103" selection-end-column="54" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -467,8 +440,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/scenes/DashGen6.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="34" column="9" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
+        <state relative-caret-position="270">
+          <caret line="29" column="55" selection-start-line="29" selection-start-column="55" selection-end-line="29" selection-end-column="55" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -481,7 +454,7 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
-          <last-edited>DashGen6</last-edited>
+          <last-edited>DashGen</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

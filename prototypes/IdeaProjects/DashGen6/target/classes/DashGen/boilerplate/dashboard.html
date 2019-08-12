@@ -2,7 +2,7 @@
 <html lang="pt-br">
 
 <head>
-    <title>Bolsa Familia</title>
+    <title>Meu novo dashboard de teste para o TCC</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -21,25 +21,25 @@
 <div class="container">
 
     <div class="row dashgen-header" >
-    <h1>Bolsa Familia</h1>
+    <h1>Meu novo dashboard de teste para o TCC</h1>
     </div>
     <div class="row">
             <div id="grafico1" class='col-xs-12 col-md-12 col-lg-4'>
-                <strong>Ano e Mes</strong>
+                <strong>SEXO DOS ENTREVISTADOS</strong>
                 <span class="reset" style="display: none;">Selected: <span class="filter"></span></span>
                 <a class="reset" href="javascript:grafico1.filterAll();dc.redrawAll();"
                    style="display: none;">reset</a>
                 <div class="clearfix"></div>
             </div>
             <div id="grafico2" class='col-xs-12 col-md-12 col-lg-4'>
-                <strong>Quantidade de familias</strong>
+                <strong>Classe Funcional</strong>
                 <span class="reset" style="display: none;">Selected: <span class="filter"></span></span>
                 <a class="reset" href="javascript:grafico2.filterAll();dc.redrawAll();"
                    style="display: none;">reset</a>
                 <div class="clearfix"></div>
             </div>
             <div id="grafico3" class='col-xs-12 col-md-12 col-lg-4'>
-                <strong>Valor Repassado</strong>
+                <strong>Idade</strong>
                 <span class="reset" style="display: none;">Selected: <span class="filter"></span></span>
                 <a class="reset" href="javascript:grafico3.filterAll();dc.redrawAll();"
                    style="display: none;">reset</a>
@@ -56,8 +56,8 @@
 
 <script>
 
-    var grafico1 = dc.barChart("#grafico1");
-    var grafico2 = dc.barChart("#grafico2");
+    var grafico1 = dc.pieChart("#grafico1");
+    var grafico2 = dc.rowChart("#grafico2");
     var grafico3 = dc.barChart("#grafico3");
 
 
@@ -67,7 +67,7 @@
 
     // Full dataset could give issues because of gzip
     // var url = "Lekagul Sensor Data.csv.gz";
-    var url = "data/misocial.csv";
+    var url = "data/aposentadoria.csv";
 
     d3.csv(url, function (err, data) {
         /*
@@ -88,20 +88,16 @@
         var all = ndx.groupAll();
 
         var grafico1Dim = ndx.dimension(function (d) {
-            return d["anomes"];
+            return d["sexo"];
         });
-            var grafico1minX = grafico1Dim.bottom(1)[0]["anomes"];
-            var grafico1maxX = grafico1Dim.top(1)[0]["anomes"];
         var grafico2Dim = ndx.dimension(function (d) {
-            return d["qtd_familias_beneficiarias_bolsa_familia"];
+            return d["classe_funcional"];
         });
-            var grafico2minX = grafico2Dim.bottom(1)[0]["qtd_familias_beneficiarias_bolsa_familia"];
-            var grafico2maxX = grafico2Dim.top(1)[0]["qtd_familias_beneficiarias_bolsa_familia"];
         var grafico3Dim = ndx.dimension(function (d) {
-            return d["valor_repassado_bolsa_familia"];
+            return d["previsao_idade"];
         });
-            var grafico3minX = grafico3Dim.bottom(1)[0]["valor_repassado_bolsa_familia"];
-            var grafico3maxX = grafico3Dim.top(1)[0]["valor_repassado_bolsa_familia"];
+            var grafico3minX = grafico3Dim.bottom(1)[0]["previsao_idade"];
+            var grafico3maxX = grafico3Dim.top(1)[0]["previsao_idade"];
 
         //Agrupadores
         var grafico1Group = grafico1Dim.group();
@@ -111,14 +107,11 @@
         grafico1
             .dimension(grafico1Dim)
             .group(grafico1Group)
-            .x(d3.scale.linear().domain([grafico1minX, grafico1maxX]))
-
             ;
         grafico2
             .dimension(grafico2Dim)
             .group(grafico2Group)
-            .x(d3.scale.linear().domain([grafico2minX, grafico2maxX]))
-
+                .elasticX(true)
             ;
         grafico3
             .dimension(grafico3Dim)
