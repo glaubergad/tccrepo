@@ -52,7 +52,7 @@ public class PrincipalController {
     }
 
     private void setDataset() throws Exception {
-        dataset = new Dataset(csvFile.getAbsolutePath(), csvFile.getName());
+        dataset = new Dataset(csvFile);
         populateCbAtributo(dataset.getHeaders());
         populateCbTipoGrafico();
 

@@ -14,6 +14,7 @@ import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.Reader;
 import java.nio.file.Files;
@@ -21,18 +22,19 @@ import java.nio.file.Paths;
 import java.util.Map;
 
 public class Dataset {
-    private String caminho, arquivo;
+    private File datasetFile;
     private Map<String, Integer> headers;
     private CSVParser parser;
     private Iterable<CSVRecord> record;
 
     /*
-     * Método construtor admite como parâmetro o path para o CSV e o nome do Arquivo
-     * Isso facilita o uso de ambos em outras etapas da aplicação
+     * Método construtor admite como parâmetro o objeto file obtido no Front-End
+     * Para facilitar o uso em outras etapas do sistema, o caminho absoluto e o nome do arquivo são
+     * armazenados como string nas variáveis caminho e arquivo
      */
-    public Dataset(String caminho, String arquivo) throws Exception {
-        this.caminho = caminho;
-        this.arquivo = arquivo;
+    public Dataset(File fileDs) throws Exception {
+
+        this.datasetFile = fileDs;
             this.setParser();
             this.setHeaders();
             this.setRecord();
@@ -40,20 +42,14 @@ public class Dataset {
 
 
     //Seção dos Getters e Setters
-    public String getCaminho() {
-        return caminho;
-    }
 
-    public void setCaminho(String caminho) {
-        this.caminho = caminho;
+
+    public String getCaminho() {
+        return datasetFile.getAbsolutePath();
     }
 
     public String getArquivo() {
-        return arquivo;
-    }
-
-    public void setArquivo(String arquivo) {
-        this.arquivo = arquivo;
+        return datasetFile.getName();
     }
 
     public Map<String, Integer> getHeaders() {
@@ -66,7 +62,7 @@ public class Dataset {
 
     private void setParser() throws IOException {
         try (
-                Reader reader = Files.newBufferedReader(Paths.get(this.caminho));
+                Reader reader = Files.newBufferedReader(datasetFile.toPath());
                 CSVParser parser1 = new CSVParser(reader, CSVFormat.DEFAULT.withDelimiter(';').withHeader());
         ) {
             this.parser = parser1;
@@ -79,7 +75,7 @@ public class Dataset {
 
     public void setRecord() {
         try {
-            Reader in = Files.newBufferedReader(Paths.get(this.caminho));
+            Reader in = Files.newBufferedReader(datasetFile.toPath());
             this.record = CSVFormat.DEFAULT.withDelimiter(';').withHeader().parse(in);
         } catch (Exception e) {
             System.out.println("Erro ao setar Record:" + e.getMessage());
@@ -88,8 +84,8 @@ public class Dataset {
 
 
     //Método usado para exibir no console todos os cabeçalhos de dados do CSV - Finalidade de Teste
-    public void headersToString() {
 
+    public void headersToString() {
         for (Map.Entry entry : this.headers.entrySet()) {
             System.out.println(entry.getValue() + ", " + entry.getKey());
         }

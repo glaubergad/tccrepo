@@ -38,11 +38,11 @@ public class PackSaida {
     }
 
     private void processarCopia() throws IOException {
-        FileUtils.copyFile(this.csvFile, new File(boilerplateDir.getAbsolutePath()+"\\data\\" + csvFile.getName()));
+        FileUtils.copyFile(this.csvFile, new File(this.destDir.getAbsolutePath()+"\\data\\" + csvFile.getName()));
         FileUtils.copyDirectory(this.boilerplateDir,this.destDir);
     }
 
     private void processarZip(){
-        ZipUtil.pack(this.boilerplateDir,new File(this.destDir.getAbsolutePath()+"\\"+ FILE_NAME));
+        ZipUtil.pack(this.destDir,new File(this.destDir.getAbsolutePath()+"\\"+ FILE_NAME));
     }
 }

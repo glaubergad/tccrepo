@@ -21,6 +21,7 @@
 <div class="container">
 
     <div class="row dashgen-header" >
+    <img src="img/ifpa_navlogo.png"width="64px" height="69px" alt="Logo IFPA"/>
     <h1>${titulo}</h1>
     </div>
     <div class="row">
@@ -86,9 +87,7 @@
             </#if>
             ;
         </#list>
-
         dc.renderAll();
-
     });
 </script>
 
