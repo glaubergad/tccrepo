@@ -19,15 +19,15 @@ import java.io.File;
 import java.io.IOException;
 
 public class PackSaida {
-
-    private final File boilerplateDir = new File(PackSaida.class.getProtectionDomain().getCodeSource().getLocation().getPath()+"\\DashGen\\boilerplate");
-    private File destDir,csvFile;
+    private final String sep = File.separator;
+    private final File boilerplateDir = new File(PackSaida.class.getProtectionDomain().getCodeSource().getLocation().getPath() + sep + "DashGen" + sep + "boilerplate");
+    private File destDir, csvFile;
     private static final String FILE_NAME = "dashgen.zip";
 
     //Método construtor recebe o diretorio de destino e o arquivo CSV para composição do pacote de saída Dashgen
-    public PackSaida(File destDir,File csvFile) throws IOException {
+    public PackSaida(File destDir, File csvFile) throws IOException {
         this.destDir = destDir;
-        this.csvFile =csvFile;
+        this.csvFile = csvFile;
         //Recebidos os dados necessários, é processada a cópia dos arquivos
         processarCopia();
         /*
@@ -38,11 +38,11 @@ public class PackSaida {
     }
 
     private void processarCopia() throws IOException {
-        FileUtils.copyFile(this.csvFile, new File(this.destDir.getAbsolutePath()+"\\data\\" + csvFile.getName()));
-        FileUtils.copyDirectory(this.boilerplateDir,this.destDir);
+        FileUtils.copyFile(this.csvFile, new File(this.destDir.getAbsolutePath() + sep + "data" + sep + csvFile.getName()));
+        FileUtils.copyDirectory(this.boilerplateDir, this.destDir);
     }
 
-    private void processarZip(){
-        ZipUtil.pack(this.destDir,new File(this.destDir.getAbsolutePath()+"\\"+ FILE_NAME));
+    private void processarZip() {
+        ZipUtil.pack(this.destDir, new File(this.destDir.getAbsolutePath() + sep + FILE_NAME));
     }
 }

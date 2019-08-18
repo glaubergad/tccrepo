@@ -2,7 +2,7 @@
 <html lang="pt-br">
 
 <head>
-    <title>Dados CENIPA Glauberius Blue</title>
+    <title>Novo teste com dados do CENIPA</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -22,41 +22,27 @@
 
     <div class="row dashgen-header" >
     <img src="img/ifpa_navlogo.png"width="64px" height="69px" alt="Logo IFPA"/>
-    <h1>Dados CENIPA Glauberius Blue</h1>
+    <h1>Novo teste com dados do CENIPA</h1>
     </div>
     <div class="row">
             <div id="grafico1" class='col-xs-12 col-md-12 col-lg-4'>
-                <strong>Momento do Acidente</strong>
+                <strong>Tipo de Aeronave</strong>
                 <span class="reset" style="display: none;">Selected: <span class="filter"></span></span>
                 <a class="reset" href="javascript:grafico1.filterAll();dc.redrawAll();"
                    style="display: none;">reset</a>
                 <div class="clearfix"></div>
             </div>
             <div id="grafico2" class='col-xs-12 col-md-12 col-lg-4'>
-                <strong>Tipo de Aeronave</strong>
+                <strong>Quantidade de Motores</strong>
                 <span class="reset" style="display: none;">Selected: <span class="filter"></span></span>
                 <a class="reset" href="javascript:grafico2.filterAll();dc.redrawAll();"
                    style="display: none;">reset</a>
                 <div class="clearfix"></div>
             </div>
             <div id="grafico3" class='col-xs-12 col-md-12 col-lg-4'>
-                <strong>Tipo de Motor</strong>
+                <strong>Momento da Operação</strong>
                 <span class="reset" style="display: none;">Selected: <span class="filter"></span></span>
                 <a class="reset" href="javascript:grafico3.filterAll();dc.redrawAll();"
-                   style="display: none;">reset</a>
-                <div class="clearfix"></div>
-            </div>
-            <div id="grafico4" class='col-xs-12 col-md-12 col-lg-4'>
-                <strong>Fatalidades</strong>
-                <span class="reset" style="display: none;">Selected: <span class="filter"></span></span>
-                <a class="reset" href="javascript:grafico4.filterAll();dc.redrawAll();"
-                   style="display: none;">reset</a>
-                <div class="clearfix"></div>
-            </div>
-            <div id="grafico5" class='col-xs-12 col-md-12 col-lg-4'>
-                <strong>Operador</strong>
-                <span class="reset" style="display: none;">Selected: <span class="filter"></span></span>
-                <a class="reset" href="javascript:grafico5.filterAll();dc.redrawAll();"
                    style="display: none;">reset</a>
                 <div class="clearfix"></div>
             </div>
@@ -71,11 +57,9 @@
 
 <script>
 
-    var grafico1 = dc.rowChart("#grafico1");
+    var grafico1 = dc.pieChart("#grafico1");
     var grafico2 = dc.rowChart("#grafico2");
     var grafico3 = dc.pieChart("#grafico3");
-    var grafico4 = dc.barChart("#grafico4");
-    var grafico5 = dc.rowChart("#grafico5");
 
 
     var url = "data/anv.csv";
@@ -88,34 +72,23 @@
         var all = ndx.groupAll();
 
         var grafico1Dim = ndx.dimension(function (d) {
-            return d["aeronave_tipo_operacao"];
-        });
-        var grafico2Dim = ndx.dimension(function (d) {
             return d["aeronave_tipo_veiculo"];
         });
+        var grafico2Dim = ndx.dimension(function (d) {
+            return d["aeronave_motor_quantidade"];
+        });
         var grafico3Dim = ndx.dimension(function (d) {
-            return d["aeronave_motor_tipo"];
-        });
-        var grafico4Dim = ndx.dimension(function (d) {
-            return d["total_fatalidades"];
-        });
-            var grafico4minX = grafico4Dim.bottom(1)[0]["total_fatalidades"];
-            var grafico4maxX = grafico4Dim.top(1)[0]["total_fatalidades"];
-        var grafico5Dim = ndx.dimension(function (d) {
-            return d["aeronave_operador_categoria"];
+            return d["aeronave_fase_operacao"];
         });
 
         //Agrupadores
         var grafico1Group = grafico1Dim.group();
         var grafico2Group = grafico2Dim.group();
         var grafico3Group = grafico3Dim.group();
-        var grafico4Group = grafico4Dim.group();
-        var grafico5Group = grafico5Dim.group();
 
         grafico1
             .dimension(grafico1Dim)
             .group(grafico1Group)
-                .elasticX(true)
             ;
         grafico2
             .dimension(grafico2Dim)
@@ -125,17 +98,6 @@
         grafico3
             .dimension(grafico3Dim)
             .group(grafico3Group)
-            ;
-        grafico4
-            .dimension(grafico4Dim)
-            .group(grafico4Group)
-            .x(d3.scale.linear().domain([grafico4minX, grafico4maxX]))
-
-            ;
-        grafico5
-            .dimension(grafico5Dim)
-            .group(grafico5Group)
-                .elasticX(true)
             ;
         dc.renderAll();
     });

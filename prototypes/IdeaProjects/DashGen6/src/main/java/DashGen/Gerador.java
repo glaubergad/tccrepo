@@ -28,7 +28,8 @@ import java.util.Map;
 public class Gerador {
 
     private Dashboard dashboard;
-    private static final File HOME = new File(Gerador.class.getProtectionDomain().getCodeSource().getLocation().getPath()+"\\DashGen");
+    private static final String sep = File.separator;
+    private static final File HOME = new File(Gerador.class.getProtectionDomain().getCodeSource().getLocation().getPath()+ sep +"DashGen");
     private Template template;
     private final Configuration cfg = new Configuration(new Version("2.3.28"));
     private final Map<String,Object> input = new HashMap<>();
@@ -58,7 +59,7 @@ public class Gerador {
 
     //Configurador dos dados necessários para processamento do template
     private void configurar() throws IOException {
-        cfg.setDirectoryForTemplateLoading(new File(HOME + "\\templates"));
+        cfg.setDirectoryForTemplateLoading(new File(HOME + sep + "templates"));
         cfg.setIncompatibleImprovements(new Version(2, 3, 28));
         cfg.setDefaultEncoding("UTF-8");
         cfg.setLocale(Locale.US);
@@ -80,7 +81,7 @@ public class Gerador {
     //Executa o processamento do template e a geração do arquivo final, gravando no caminho especificado sob o nome
     // dashboard.html
     private void processar() throws IOException, TemplateException {
-        Writer fileWriter = new FileWriter(new File(HOME+"\\boilerplate\\dashboard.html"));
+        Writer fileWriter = new FileWriter(new File(HOME+sep+"boilerplate"+sep+"dashboard.html"));
         template.process(input, fileWriter);
         fileWriter.close();
     }
