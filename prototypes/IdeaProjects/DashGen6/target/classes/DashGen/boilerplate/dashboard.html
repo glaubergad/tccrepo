@@ -2,7 +2,7 @@
 <html lang="pt-br">
 
 <head>
-    <title>Novo teste com dados do CENIPA</title>
+    <title>Meu teste Dashboard</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -22,25 +22,25 @@
 
     <div class="row dashgen-header" >
     <img src="img/ifpa_navlogo.png"width="64px" height="69px" alt="Logo IFPA"/>
-    <h1>Novo teste com dados do CENIPA</h1>
+    <h1>Meu teste Dashboard</h1>
     </div>
     <div class="row">
             <div id="grafico1" class='col-xs-12 col-md-12 col-lg-4'>
-                <strong>Tipo de Aeronave</strong>
+                <strong>Teste 1</strong>
                 <span class="reset" style="display: none;">Selected: <span class="filter"></span></span>
                 <a class="reset" href="javascript:grafico1.filterAll();dc.redrawAll();"
                    style="display: none;">reset</a>
                 <div class="clearfix"></div>
             </div>
             <div id="grafico2" class='col-xs-12 col-md-12 col-lg-4'>
-                <strong>Quantidade de Motores</strong>
+                <strong>Qtd Motores</strong>
                 <span class="reset" style="display: none;">Selected: <span class="filter"></span></span>
                 <a class="reset" href="javascript:grafico2.filterAll();dc.redrawAll();"
                    style="display: none;">reset</a>
                 <div class="clearfix"></div>
             </div>
             <div id="grafico3" class='col-xs-12 col-md-12 col-lg-4'>
-                <strong>Momento da Operação</strong>
+                <strong>Fatalidades</strong>
                 <span class="reset" style="display: none;">Selected: <span class="filter"></span></span>
                 <a class="reset" href="javascript:grafico3.filterAll();dc.redrawAll();"
                    style="display: none;">reset</a>
@@ -59,7 +59,7 @@
 
     var grafico1 = dc.pieChart("#grafico1");
     var grafico2 = dc.rowChart("#grafico2");
-    var grafico3 = dc.pieChart("#grafico3");
+    var grafico3 = dc.barChart("#grafico3");
 
 
     var url = "data/anv.csv";
@@ -78,8 +78,10 @@
             return d["aeronave_motor_quantidade"];
         });
         var grafico3Dim = ndx.dimension(function (d) {
-            return d["aeronave_fase_operacao"];
+            return d["total_fatalidades"];
         });
+            var grafico3minX = grafico3Dim.bottom(1)[0]["total_fatalidades"];
+            var grafico3maxX = grafico3Dim.top(1)[0]["total_fatalidades"];
 
         //Agrupadores
         var grafico1Group = grafico1Dim.group();
@@ -98,6 +100,8 @@
         grafico3
             .dimension(grafico3Dim)
             .group(grafico3Group)
+            .x(d3.scale.linear().domain([grafico3minX, grafico3maxX]))
+
             ;
         dc.renderAll();
     });
