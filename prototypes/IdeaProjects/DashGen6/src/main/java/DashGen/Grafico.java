@@ -13,7 +13,7 @@ package DashGen;
 public class Grafico {
 
     private String atributoX;
-    //private String atributoY;
+    private String atributoY;
     private String nome;
     private String tipo;
 
@@ -35,6 +35,13 @@ public class Grafico {
 
     public Grafico(String atributoX, String nome, String tipo) {
         this.atributoX = atributoX;
+        this.nome = nome;
+        this.tipo = tipo;
+    }
+
+    public Grafico(String atributoX, String atributoY, String nome, String tipo) {
+        this.atributoX = atributoX;
+        this.atributoY = atributoY;
         this.nome = nome;
         this.tipo = tipo;
     }
@@ -69,9 +76,17 @@ public class Grafico {
     //Fim da seção de Getters e Setters
 
 
+    public String getAtributoY() {
+        return atributoY;
+    }
+
+    public void setAtributoY(String atributoY) {
+        this.atributoY = atributoY;
+    }
+
     //Método toString() retorna uma string representando o objeto de forma textual
     public String toString() {
-        return this.getAtributoX()+"|"+this.nome+"|"+this.tipo;
+        return this.getAtributoX()+"|"+ this.getAtributoY()+"|"+this.nome+"|"+this.tipo;
 
     }
 }

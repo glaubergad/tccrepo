@@ -31,6 +31,8 @@ public class Dataset {
      * Para facilitar o uso em outras etapas do sistema, o caminho absoluto e o nome do arquivo são
      * armazenados como string nas variáveis caminho e arquivo
      */
+
+
     public Dataset(File fileDs) throws Exception {
 
         this.datasetFile = fileDs;
@@ -88,7 +90,6 @@ public class Dataset {
         for (Map.Entry entry : this.headers.entrySet()) {
             System.out.println(entry.getValue() + ", " + entry.getKey());
         }
-
     }
 
     //Método usado para exibir no console dados das 3 primeiras linhas do CSV - Finalidade de Teste

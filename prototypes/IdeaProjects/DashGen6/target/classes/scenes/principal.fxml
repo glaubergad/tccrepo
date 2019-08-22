@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scenes.PrincipalController">
+<AnchorPane prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scenes.PrincipalController">
    <children>
-      <Label layoutX="121.0" layoutY="14.0" text="IFPA DashGen Prototipo 6" textFill="#005e0d">
+      <Label layoutX="221.0" layoutY="14.0" text="IFPA DashGen Prototipo 6" textFill="#005e0d">
          <font>
             <Font name="System Bold" size="21.0" />
          </font>
@@ -26,16 +26,18 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="14.0" layoutY="323.0" text="Atributo do CSV" />
-      <ComboBox fx:id="cbAtributo" layoutX="14.0" layoutY="348.0" prefWidth="150.0" promptText="Atributo" />
-      <Label layoutX="14.0" layoutY="382.0" text="Tipo de Gráfico" />
-      <ComboBox fx:id="cbTipoGrafico" layoutX="14.0" layoutY="406.0" prefWidth="150.0" promptText="Tipo de Grafico" />
-      <Label layoutX="14.0" layoutY="443.0" text="Titulo do Grafico" />
-      <TextField fx:id="tfTituloGrafico" layoutX="15.0" layoutY="466.0" prefHeight="25.0" prefWidth="181.0" />
+      <Label layoutX="58.0" layoutY="434.0" text="Atributo Eixo X" />
+      <ComboBox fx:id="cbAtributoX" layoutX="14.0" layoutY="459.0" prefHeight="25.0" prefWidth="168.0" promptText="Atributo do CSV" />
+      <Label layoutX="14.0" layoutY="364.0" text="Tipo de Gráfico" />
+      <ComboBox fx:id="cbTipoGrafico" layoutX="14.0" layoutY="388.0" prefHeight="25.0" prefWidth="239.0" promptText="Tipo de Grafico" />
+      <Label layoutX="14.0" layoutY="300.0" text="Titulo do Grafico" />
+      <TextField fx:id="tfTituloGrafico" layoutX="15.0" layoutY="323.0" prefHeight="25.0" prefWidth="239.0" />
       <Button fx:id="btnAddGrafico" layoutX="69.0" layoutY="552.0" mnemonicParsing="false" onAction="#addGrafico" text="Adicionar Gráfico" />
-      <Label layoutX="324.0" layoutY="274.0" text="Graficos Adicionados" />
-      <ListView fx:id="lvGraficos" layoutX="279.0" layoutY="299.0" prefHeight="200.0" prefWidth="200.0" />
-      <Button fx:id="btnClearGraficos" layoutX="330.0" layoutY="511.0" mnemonicParsing="false" onAction="#clearGraficosClick" text="Limpar Gráficos" />
-      <Button fx:id="btnEndDashboard" layoutX="319.0" layoutY="552.0" mnemonicParsing="false" onAction="#endDashboard" text="Finalizar Dashboard" />
+      <Label layoutX="471.0" layoutY="273.0" text="Graficos Adicionados" />
+      <ListView fx:id="lvGraficos" layoutX="383.0" layoutY="299.0" prefHeight="200.0" prefWidth="287.0" />
+      <Button fx:id="btnClearGraficos" layoutX="477.0" layoutY="509.0" mnemonicParsing="false" onAction="#clearGraficosClick" text="Limpar Gráficos" />
+      <Button fx:id="btnEndDashboard" layoutX="467.0" layoutY="552.0" mnemonicParsing="false" onAction="#endDashboard" text="Finalizar Dashboard" />
+      <Label layoutX="242.0" layoutY="434.0" text="Atributo Eixo Y" />
+      <ComboBox fx:id="cbAtributoY" layoutX="197.0" layoutY="459.0" prefHeight="25.0" prefWidth="168.0" promptText="Atributo do CSV" />
    </children>
 </AnchorPane>

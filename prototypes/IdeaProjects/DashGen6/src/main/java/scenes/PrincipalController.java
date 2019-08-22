@@ -20,7 +20,8 @@ public class PrincipalController {
     private final List<String> tipoGrafico = new ArrayList<String>();
     public Label lblPathCsv;
     public Label lblPathDest;
-    public ComboBox cbAtributo;
+    public ComboBox cbAtributoX;
+    public ComboBox cbAtributoY;
     public ComboBox cbTipoGrafico;
     public TextField tfTituloGrafico;
     public TextField tfTituloDashboard;
@@ -53,28 +54,37 @@ public class PrincipalController {
 
     private void setDataset() throws Exception {
         dataset = new Dataset(csvFile);
-        populateCbAtributo(dataset.getHeaders());
+        populateCbAtributoX(dataset.getHeaders());
+        populateCbAtributoY(dataset.getHeaders());
         populateCbTipoGrafico();
 
     }
 
-    private void populateCbAtributo(Map<String, Integer> headers) {
-        cbAtributo.getItems().setAll(headers.keySet());
+    private void populateCbAtributoX(Map<String, Integer> headers) {
+        cbAtributoX.getItems().clear();
+        cbAtributoX.getItems().setAll(headers.keySet());
+    }
+
+    private void populateCbAtributoY(Map<String, Integer> headers) {
+        cbAtributoY.getItems().clear();
+        cbAtributoY.getItems().setAll(headers.keySet());
     }
 
     private void populateCbTipoGrafico() {
         tipoGrafico.add(Grafico.TIPO_BARRAS);
         tipoGrafico.add(Grafico.TIPO_BARRASV);
         tipoGrafico.add(Grafico.TIPO_PIZZA);
+        cbTipoGrafico.getItems().clear();
         cbTipoGrafico.getItems().setAll(tipoGrafico);
     }
 
     public void addGrafico(ActionEvent actionEvent) {
         try {
-            String atributo = cbAtributo.getSelectionModel().getSelectedItem().toString();
+            String atributoX = cbAtributoX.getSelectionModel().getSelectedItem().toString();
+            String atributoY = cbAtributoY.getSelectionModel().getSelectedItem().toString();
             String tipoGraf = cbTipoGrafico.getSelectionModel().getSelectedItem().toString();
             String titGraf = tfTituloGrafico.getText();
-            graficos.add(new Grafico(atributo,titGraf,tipoGraf));
+            graficos.add(new Grafico(atributoX,atributoY,titGraf,tipoGraf));
 
             lvGraficos.getItems().setAll(graficos);
         }catch (Exception e){
@@ -115,13 +125,13 @@ public class PrincipalController {
     private void resetForm(){
         graficos.clear();
         cbTipoGrafico.getItems().clear();
-        cbAtributo.getItems().clear();
+        cbAtributoX.getItems().clear();
         lvGraficos.getItems().clear();
         tfTituloGrafico.clear();
         tfTituloDashboard.clear();
         lblPathCsv.setText("");
         lblPathDest.setText("");
-        cbAtributo.getItems().clear();
+        cbAtributoY.getItems().clear();
         cbTipoGrafico.getItems().clear();
 
     }

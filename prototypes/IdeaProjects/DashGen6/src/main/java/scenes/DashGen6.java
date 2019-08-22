@@ -37,7 +37,7 @@ public class DashGen6 extends Application {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("principal.fxml"));
             pStage.setTitle("IFPA DashGen - Prototipo 6");
-            pStage.setScene(new Scene(root, 500, 600));
+            pStage.setScene(new Scene(root, 700, 600));
             pStage.show();
         } catch (IOException e) {
             System.out.println(e.toString());
