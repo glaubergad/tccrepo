@@ -18,11 +18,13 @@ import java.io.File;
 import java.io.IOException;
 import java.io.Reader;
 import java.nio.file.Files;
+import java.util.HashMap;
 import java.util.Map;
 
 public class Dataset {
     private File datasetFile;
     private Map<String, Integer> headers;
+    private final Map <String, String> mapColumnType = new HashMap<>();
     private CSVParser parser;
     private Iterable<CSVRecord> record;
 
@@ -38,7 +40,11 @@ public class Dataset {
         this.datasetFile = fileDs;
             this.setParser();
             this.setHeaders();
+            this.headersToString();
             this.setRecord();
+            this.recordsToString();
+            this.setMapColumnType();
+            this.mapColumnTypeToString();
     }
 
 
@@ -100,8 +106,50 @@ public class Dataset {
             for (int i = 0; i < colunas; i++) {
                 System.out.print(reg.get(i) + " | ");
             }
-            if (reg.getRecordNumber() == 3)
+            if (reg.getRecordNumber() == 10)
+                System.out.println();
                 break;
+        }
+    }
+
+    private boolean isNumeric(String string){
+        try{
+            double result = Double.parseDouble(string);
+            return true;
+        }catch (NumberFormatException e){
+            return false;
+        }
+    }
+
+    private String columnDiscoverType(int col) {
+        int flag = 0;
+        int res = 0;
+        String tipo ="T";
+        for (CSVRecord reg : this.record) {
+            if (!isNumeric(reg.get(col))) {
+                res++;
+            }
+            flag++;
+           // System.out.println(res + "|" + flag);
+            if (flag == 100) {
+                if (res == 0) {
+                    tipo = "N";
+                }
+                break;
+            }
+        }
+        return tipo;
+    }
+
+    private void setMapColumnType(){
+        for (Map.Entry entry: headers.entrySet()){
+               this.mapColumnType.put(entry.getKey().toString() , columnDiscoverType(Integer.parseInt(entry.getValue().toString())));
+        }
+    }
+
+    public void mapColumnTypeToString(){
+        for (Map.Entry entry: mapColumnType.entrySet()){
+            System.out.println(entry);
         }
     }
 }
