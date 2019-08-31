@@ -1,7 +1,9 @@
 package scenes;
 
 import DashGen.*;
+import DashGen.Atributo;
 import freemarker.template.TemplateException;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 
@@ -9,7 +11,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 public class PrincipalController {
     private File csvFile, destFolder;
@@ -26,6 +27,7 @@ public class PrincipalController {
     public TextField tfTituloGrafico;
     public TextField tfTituloDashboard;
     public ListView lvGraficos;
+
 
 
     public void selectCSV(ActionEvent actionEvent) {
@@ -54,26 +56,33 @@ public class PrincipalController {
 
     private void setDataset() throws Exception {
         dataset = new Dataset(csvFile);
-        populateCbAtributoX(dataset.getHeaders());
-        populateCbAtributoY(dataset.getHeaders());
+        populateCbAtributoX(dataset.getAtributos());
+        populateCbAtributoY(dataset.getAtributos());
         populateCbTipoGrafico();
 
     }
 
-    private void populateCbAtributoX(Map<String, Integer> headers) {
+    private void populateCbAtributoX(List<Atributo> atributos) {
         cbAtributoX.getItems().clear();
-        cbAtributoX.getItems().setAll(headers.keySet());
+        for(Atributo atributo:atributos)
+        cbAtributoX.getItems().add(atributo.getNome());
     }
 
-    private void populateCbAtributoY(Map<String, Integer> headers) {
+    private void populateCbAtributoY(List<Atributo> atributos) {
         cbAtributoY.getItems().clear();
-        cbAtributoY.getItems().setAll(headers.keySet());
+        int i = 0;
+        for (Atributo atributo : atributos) {
+            if (atributo.getTipoDado().equals("N")) {
+                cbAtributoY.getItems().add(atributo.getNome());
+            }
+        }
     }
 
     private void populateCbTipoGrafico() {
         tipoGrafico.add(Grafico.TIPO_BARRAS);
         tipoGrafico.add(Grafico.TIPO_BARRASV);
         tipoGrafico.add(Grafico.TIPO_PIZZA);
+        //tipoGrafico.add(Grafico.TIPO_TABELA);
         cbTipoGrafico.getItems().clear();
         cbTipoGrafico.getItems().setAll(tipoGrafico);
     }
@@ -84,33 +93,33 @@ public class PrincipalController {
             String atributoY = cbAtributoY.getSelectionModel().getSelectedItem().toString();
             String tipoGraf = cbTipoGrafico.getSelectionModel().getSelectedItem().toString();
             String titGraf = tfTituloGrafico.getText();
-            graficos.add(new Grafico(atributoX,atributoY,titGraf,tipoGraf));
-
+            graficos.add(new Grafico(atributoX, atributoY, titGraf, tipoGraf));
             lvGraficos.getItems().setAll(graficos);
-        }catch (Exception e){
-            System.out.println("AddGrafico:"+e.toString());
+            cbAtributoX.getSelectionModel().clearSelection();
+            cbAtributoY.getSelectionModel().clearSelection();
+        } catch (Exception e) {
+            System.out.println("AddGrafico:" + e.toString());
         }
     }
 
     public void endDashboard(ActionEvent actionEvent) {
         setaDashboard();
-        try{
+        try {
             setaGerador();
             setaPackSaida();
-        }catch (Exception e){
-            System.out.println("SetaGerador:"+e.toString());
-        }finally {
+        } catch (Exception e) {
+            System.out.println("SetaGerador:" + e.toString());
+        } finally {
             new Alert(Alert.AlertType.INFORMATION, "Dashboard gerado com sucesso!").showAndWait();
             resetForm();
         }
 
 
-
     }
 
-    private void setaDashboard(){
+    private void setaDashboard() {
         tituloDashboard = tfTituloDashboard.getText();
-        dashboard = new Dashboard(dataset,tituloDashboard,graficos);
+        dashboard = new Dashboard(dataset, tituloDashboard, graficos);
     }
 
     private void setaGerador() throws IOException, TemplateException {
@@ -122,7 +131,7 @@ public class PrincipalController {
     }
 
     //Método redefine todos os itens da tela para o estado inicial
-    private void resetForm(){
+    private void resetForm() {
         graficos.clear();
         cbTipoGrafico.getItems().clear();
         cbAtributoX.getItems().clear();

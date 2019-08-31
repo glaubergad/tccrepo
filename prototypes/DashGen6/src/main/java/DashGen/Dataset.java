@@ -10,6 +10,7 @@ package DashGen;
  */
 
 //Para reduzir a complexidade, foi utilizada a biblioteca Apache Commons CSV - Importada usando o Maven
+
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
@@ -18,13 +19,14 @@ import java.io.File;
 import java.io.IOException;
 import java.io.Reader;
 import java.nio.file.Files;
-import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 public class Dataset {
     private File datasetFile;
     private Map<String, Integer> headers;
-    private final Map <String, String> mapColumnType = new HashMap<>();
+    private final List<Atributo> atributos = new ArrayList<Atributo>();
     private CSVParser parser;
     private Iterable<CSVRecord> record;
 
@@ -38,13 +40,10 @@ public class Dataset {
     public Dataset(File fileDs) throws Exception {
 
         this.datasetFile = fileDs;
-            this.setParser();
-            this.setHeaders();
-            this.headersToString();
-            this.setRecord();
-            this.recordsToString();
-            this.setMapColumnType();
-            this.mapColumnTypeToString();
+        this.setParser();
+        this.setHeaders();
+        this.setRecord();
+        this.setAtributos();
     }
 
 
@@ -108,15 +107,15 @@ public class Dataset {
             }
             if (reg.getRecordNumber() == 10)
                 System.out.println();
-                break;
+            break;
         }
     }
 
-    private boolean isNumeric(String string){
-        try{
+    private boolean isNumeric(String string) {
+        try {
             double result = Double.parseDouble(string);
             return true;
-        }catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             return false;
         }
     }
@@ -124,13 +123,13 @@ public class Dataset {
     private String columnDiscoverType(int col) {
         int flag = 0;
         int res = 0;
-        String tipo ="T";
+        String tipo = "T";
         for (CSVRecord reg : this.record) {
             if (!isNumeric(reg.get(col))) {
                 res++;
             }
             flag++;
-           // System.out.println(res + "|" + flag);
+            // System.out.println(res + "|" + flag);
             if (flag == 100) {
                 if (res == 0) {
                     tipo = "N";
@@ -141,15 +140,19 @@ public class Dataset {
         return tipo;
     }
 
-    private void setMapColumnType(){
-        for (Map.Entry entry: headers.entrySet()){
-               this.mapColumnType.put(entry.getKey().toString() , columnDiscoverType(Integer.parseInt(entry.getValue().toString())));
+    private void setAtributos() {
+        for (Map.Entry entry : headers.entrySet()) {
+            this.atributos.add(new Atributo(Integer.parseInt(entry.getValue().toString()), entry.getKey().toString(), columnDiscoverType(Integer.parseInt(entry.getValue().toString()))));
         }
     }
 
-    public void mapColumnTypeToString(){
-        for (Map.Entry entry: mapColumnType.entrySet()){
-            System.out.println(entry);
+    public List<Atributo> getAtributos() {
+        return atributos;
+    }
+
+    public void atributosToString() {
+        for (Atributo atributo : this.atributos) {
+            System.out.println(atributo.getIndex() + "|" + atributo.getNome() + "|" + atributo.getTipoDado());
         }
     }
 }

@@ -7,7 +7,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0f3afc4c-65e0-4641-8d44-855e6e2dbda6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/DashGen/Atributo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DashGen/Dataset.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DashGen/Dataset.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/scenes/PrincipalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scenes/PrincipalController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DashGen/Dataset.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DashGen/Dataset.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DashGen/boilerplate/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DashGen/boilerplate/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scenes/PrincipalController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/scenes/PrincipalController.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,7 +46,7 @@
     </dirStrings>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
@@ -47,12 +54,6 @@
         <option name="importAutomatically" value="true" />
       </MavenImportingSettings>
     </option>
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="676" />
-    <option name="y" value="-8" />
-    <option name="width" value="612" />
-    <option name="height" value="784" />
   </component>
   <component name="ProjectId" id="1PWkbKbQgBCZ0uPz7cixzB5ENe0" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -75,19 +76,19 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.15862069" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\tccrepo\prototypes\IdeaProjects\DashGen6\target\classes\DashGen" />
-      <recent name="C:\tccrepo\prototypes\IdeaProjects\DashGen6\target\classes\scenes" />
-      <recent name="C:\tccrepo\prototypes\IdeaProjects\DashGen6\src\main\java\scenes" />
-      <recent name="$PROJECT_DIR$/target/classes/DashGen" />
-      <recent name="$PROJECT_DIR$/target/classes/scenes" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\tccrepo\prototypes\IdeaProjects\DashGen6\target\classes\DashGen" />
       <recent name="C:\tccrepo\prototypes\IdeaProjects\DashGen6\src\main\java\DashGen\boilerplate" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\tccrepo\prototypes\DashGen6\target\classes\DashGen" />
+      <recent name="C:\tccrepo\prototypes\DashGen6\target\classes\scenes" />
+      <recent name="C:\tccrepo\prototypes\IdeaProjects\DashGen6\target\classes\DashGen" />
+      <recent name="C:\tccrepo\prototypes\IdeaProjects\DashGen6\target\classes\scenes" />
+      <recent name="C:\tccrepo\prototypes\IdeaProjects\DashGen6\src\main\java\scenes" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -139,6 +140,7 @@
       <workItem from="1566423589846" duration="2485000" />
       <workItem from="1566507734242" duration="3078000" />
       <workItem from="1567195659020" duration="6454000" />
+      <workItem from="1567256780703" duration="6846000" />
     </task>
     <servers />
   </component>
@@ -150,11 +152,18 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="C:" />
+    </ignored-roots>
   </component>
   <component name="masterDetails">
     <states>
