@@ -7,20 +7,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0f3afc4c-65e0-4641-8d44-855e6e2dbda6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/DashGen/Atributo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/DashGen6_jar/DashGen6.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/DashGen6_jar/DashGen6.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/DashGen/Dataset.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DashGen/Dataset.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DashGen/templates/dashboard.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DashGen/templates/dashboard.ftl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/scenes/PrincipalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scenes/PrincipalController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/DashGen/Dataset.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DashGen/Dataset.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/DashGen/boilerplate/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DashGen/boilerplate/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DashGen/templates/dashboard.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DashGen/templates/dashboard.ftl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/scenes/PrincipalController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/scenes/PrincipalController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../support/febreamarela.csv" beforeDir="false" afterPath="$PROJECT_DIR$/../../support/febreamarela.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../support/misocial.csv" beforeDir="false" afterPath="$PROJECT_DIR$/../../support/misocial.csv" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
   </component>
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
@@ -64,7 +81,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/target/classes/DashGen" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/target/classes/DashGen/templates" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -84,11 +101,11 @@
       <recent name="C:\tccrepo\prototypes\IdeaProjects\DashGen6\src\main\java\DashGen\boilerplate" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\tccrepo\prototypes\DashGen6\target\classes\DashGen\templates" />
       <recent name="C:\tccrepo\prototypes\DashGen6\target\classes\DashGen" />
       <recent name="C:\tccrepo\prototypes\DashGen6\target\classes\scenes" />
       <recent name="C:\tccrepo\prototypes\IdeaProjects\DashGen6\target\classes\DashGen" />
       <recent name="C:\tccrepo\prototypes\IdeaProjects\DashGen6\target\classes\scenes" />
-      <recent name="C:\tccrepo\prototypes\IdeaProjects\DashGen6\src\main\java\scenes" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -141,6 +158,14 @@
       <workItem from="1566507734242" duration="3078000" />
       <workItem from="1567195659020" duration="6454000" />
       <workItem from="1567256780703" duration="6956000" />
+      <workItem from="1567893080452" duration="546000" />
+      <workItem from="1567957556719" duration="3478000" />
+      <workItem from="1568076523180" duration="3292000" />
+      <workItem from="1568214162693" duration="1374000" />
+      <workItem from="1568501620521" duration="9176000" />
+      <workItem from="1569074803054" duration="1742000" />
+      <workItem from="1569082086137" duration="590000" />
+      <workItem from="1569103958629" duration="8258000" />
     </task>
     <servers />
   </component>
@@ -164,89 +189,5 @@
     <ignored-roots>
       <path value="C:" />
     </ignored-roots>
-  </component>
-  <component name="masterDetails">
-    <states>
-      <state key="ArtifactsStructureConfigurable.UI">
-        <settings>
-          <artifact-editor>
-            <show-content>
-              <type id="library" />
-              <type id="artifact" />
-              <type id="jpa-descriptors" />
-              <type id="javaee-facet-resources" />
-            </show-content>
-          </artifact-editor>
-          <last-edited>DashGen6:jar</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.15862069" />
-                <option value="0.5" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <last-edited>No facets are configured</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.15862069" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="GlobalLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.15862069" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="JdkListConfigurable.UI">
-        <settings>
-          <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.15862069" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ModuleStructureConfigurable.UI">
-        <settings>
-          <last-edited>DashGen6</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.15862069" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectLibrariesConfigurable.UI">
-        <settings>
-          <last-edited>Maven: ch.qos.logback:logback-core:1.2.3</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.15862069" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
   </component>
 </project>

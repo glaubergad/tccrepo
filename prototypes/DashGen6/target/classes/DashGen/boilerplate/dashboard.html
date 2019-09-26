@@ -2,7 +2,7 @@
 <html lang="pt-br">
 
 <head>
-    <title>Teste anv.csv</title>
+    <title>teste</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -22,27 +22,13 @@
 
     <div class="row dashgen-header" >
     <img src="img/ifpa_navlogo.png"width="64px" height="69px" alt="Logo IFPA"/>
-    <h1>Teste anv.csv</h1>
+    <h1>teste</h1>
     </div>
     <div class="row">
             <div id="grafico1" class='col-xs-12 col-md-12 col-lg-4'>
-                <strong>Teste1</strong>
+                <strong>teste</strong>
                 <span class="reset" style="display: none;">Selected: <span class="filter"></span></span>
                 <a class="reset" href="javascript:grafico1.filterAll();dc.redrawAll();"
-                   style="display: none;">reset</a>
-                <div class="clearfix"></div>
-            </div>
-            <div id="grafico2" class='col-xs-12 col-md-12 col-lg-4'>
-                <strong>Teste1</strong>
-                <span class="reset" style="display: none;">Selected: <span class="filter"></span></span>
-                <a class="reset" href="javascript:grafico2.filterAll();dc.redrawAll();"
-                   style="display: none;">reset</a>
-                <div class="clearfix"></div>
-            </div>
-            <div id="grafico3" class='col-xs-12 col-md-12 col-lg-4'>
-                <strong>Teste1</strong>
-                <span class="reset" style="display: none;">Selected: <span class="filter"></span></span>
-                <a class="reset" href="javascript:grafico3.filterAll();dc.redrawAll();"
                    style="display: none;">reset</a>
                 <div class="clearfix"></div>
             </div>
@@ -57,9 +43,7 @@
 
 <script>
 
-    var grafico1 = dc.pieChart("#grafico1");
-    var grafico2 = dc.rowChart("#grafico2");
-    var grafico3 = dc.rowChart("#grafico3");
+    var grafico1 = dc.barChart("#grafico1");
 
 
     var url = "data/anv.csv";
@@ -69,36 +53,25 @@
         if (err) throw err;
 
         var ndx = crossfilter(data);
-        var all = ndx.groupAll();
+        //var all = ndx.groupAll();
 
         var grafico1Dim = ndx.dimension(function (d) {
-            return d["aeronave_tipo_veiculo"];
+            return d["total_fatalidades"];
         });
-        var grafico2Dim = ndx.dimension(function (d) {
-            return d["aeronave_motor_tipo"];
-        });
-        var grafico3Dim = ndx.dimension(function (d) {
-            return d["aeronave_tipo_operacao"];
-        });
+            var grafico1minX = grafico1Dim.bottom(1)[0]["aeronave_assentos"];
+            var grafico1maxX = grafico1Dim.top(1)[0]["aeronave_assentos"];
+
 
         //Agrupadores
-        var grafico1Group = grafico1Dim.group();
-        var grafico2Group = grafico2Dim.group();
-        var grafico3Group = grafico3Dim.group();
+            var grafico1Group = grafico1Dim.group();
 
         grafico1
             .dimension(grafico1Dim)
             .group(grafico1Group)
-            ;
-        grafico2
-            .dimension(grafico2Dim)
-            .group(grafico2Group)
-                .elasticX(true)
-            ;
-        grafico3
-            .dimension(grafico3Dim)
-            .group(grafico3Group)
-                .elasticX(true)
+
+            .x(d3.scale.linear().domain([grafico1minX, grafico1maxX]))
+
+
             ;
         dc.renderAll();
     });

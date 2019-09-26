@@ -133,6 +133,7 @@ public class PrincipalController {
     //Método redefine todos os itens da tela para o estado inicial
     private void resetForm() {
         graficos.clear();
+        tipoGrafico.clear();
         cbTipoGrafico.getItems().clear();
         cbAtributoX.getItems().clear();
         lvGraficos.getItems().clear();

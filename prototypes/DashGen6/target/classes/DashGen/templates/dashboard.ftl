@@ -57,31 +57,38 @@
         if (err) throw err;
 
         var ndx = crossfilter(data);
-        var all = ndx.groupAll();
+        //var all = ndx.groupAll();
 
         <#list graficos as grafico>
         var grafico${grafico_index+1}Dim = ndx.dimension(function (d) {
             return d["${grafico.atributoX}"];
         });
         <#if grafico.tipo == "dc.barChart">
-            var grafico${grafico_index+1}minX = grafico${grafico_index+1}Dim.bottom(1)[0]["${grafico.atributoX}"];
-            var grafico${grafico_index+1}maxX = grafico${grafico_index+1}Dim.top(1)[0]["${grafico.atributoX}"];
+            var grafico${grafico_index+1}minX = grafico${grafico_index+1}Dim.bottom(1)[0]["${grafico.atributoY}"];
+            var grafico${grafico_index+1}maxX = grafico${grafico_index+1}Dim.top(1)[0]["${grafico.atributoY}"];
+
         </#if>
         </#list>
 
         //Agrupadores
         <#list graficos as grafico>
+        <#if grafico.tipo == "dc.barChart">
+            var grafico${grafico_index+1}Group = grafico${grafico_index+1}Dim.group();
+        <#else>
         var grafico${grafico_index+1}Group = grafico${grafico_index+1}Dim.group();
+        </#if>
         </#list>
 
         <#list graficos as grafico>
         grafico${grafico_index+1}
             .dimension(grafico${grafico_index+1}Dim)
             .group(grafico${grafico_index+1}Group)
+
             <#if grafico.tipo == "dc.barChart">
             .x(d3.scale.linear().domain([grafico${grafico_index+1}minX, grafico${grafico_index+1}maxX]))
 
             </#if>
+
             <#if grafico.tipo == "dc.rowChart">
                 .elasticX(true)
             </#if>

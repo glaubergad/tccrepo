@@ -23,6 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+
 public class Dataset {
     private File datasetFile;
     private Map<String, Integer> headers;
@@ -42,8 +43,12 @@ public class Dataset {
         this.datasetFile = fileDs;
         this.setParser();
         this.setHeaders();
+        this.headersToString();
         this.setRecord();
+        this.recordsToString();
         this.setAtributos();
+        //this.novoSetAtributos();
+        System.out.println(this.atributosToString());
     }
 
 
@@ -58,18 +63,11 @@ public class Dataset {
         return datasetFile.getName();
     }
 
-    public Map<String, Integer> getHeaders() {
-        return headers;
-    }
-
-    private void setHeaders() {
-        this.headers = this.parser.getHeaderMap();
-    }
 
     private void setParser() throws IOException {
         try (
                 Reader reader = Files.newBufferedReader(datasetFile.toPath());
-                CSVParser parser1 = new CSVParser(reader, CSVFormat.DEFAULT.withDelimiter(';').withHeader());
+                CSVParser parser1 = new CSVParser(reader, CSVFormat.DEFAULT.withDelimiter(';').withHeader())
         ) {
             this.parser = parser1;
         }
@@ -77,6 +75,14 @@ public class Dataset {
 
     public CSVParser getParser() {
         return parser;
+    }
+
+    public Map<String, Integer> getHeaders() {
+        return headers;
+    }
+
+    private void setHeaders() {
+        this.headers = this.parser.getHeaderMap();
     }
 
     public void setRecord() {
@@ -100,49 +106,52 @@ public class Dataset {
     //Método usado para exibir no console dados das 3 primeiras linhas do CSV - Finalidade de Teste
     public void recordsToString() {
         int colunas = this.headers.size();
+        this.setRecord();
         for (CSVRecord reg : this.record) {
             System.out.print("\n Linha:" + reg.getRecordNumber() + " | ");
             for (int i = 0; i < colunas; i++) {
-                System.out.print(reg.get(i) + " | ");
+                System.out.print(i + ":" + reg.get(i) + " | ");
             }
+            System.out.println();
             if (reg.getRecordNumber() == 10)
-                System.out.println();
-            break;
+                break;
         }
     }
 
     private boolean isNumeric(String string) {
         try {
-            double result = Double.parseDouble(string);
+            Double.parseDouble(string);
             return true;
         } catch (NumberFormatException e) {
             return false;
         }
     }
 
-    private String columnDiscoverType(int col) {
-        int flag = 0;
-        int res = 0;
-        String tipo = "T";
+
+    private String columnDiscoverType(String col) {
+        int numeric = 0, string = 0;
+        //Necessário resetar o Record para ler novamente as linhas do CSV a partir do inicio
+        this.setRecord();
         for (CSVRecord reg : this.record) {
-            if (!isNumeric(reg.get(col))) {
-                res++;
+
+            if (this.isNumeric(reg.get(col))) {
+                numeric++;
+            } else {
+                string++;
             }
-            flag++;
-            // System.out.println(res + "|" + flag);
-            if (flag == 100) {
-                if (res == 0) {
-                    tipo = "N";
-                }
+            if (reg.getRecordNumber() == 100)
                 break;
-            }
         }
-        return tipo;
+        if (string > 0) {
+            return "T";
+        } else {
+            return "N";
+        }
     }
 
     private void setAtributos() {
-        for (Map.Entry entry : headers.entrySet()) {
-            this.atributos.add(new Atributo(Integer.parseInt(entry.getValue().toString()), entry.getKey().toString(), columnDiscoverType(Integer.parseInt(entry.getValue().toString()))));
+        for (Map.Entry entry : this.headers.entrySet()) {
+            this.atributos.add(new Atributo(Integer.parseInt(entry.getValue() + ""), entry.getKey().toString(), this.columnDiscoverType(entry.getKey() + "")));
         }
     }
 
@@ -150,9 +159,13 @@ public class Dataset {
         return atributos;
     }
 
-    public void atributosToString() {
+    public String atributosToString() {
+        String ret = new String();
         for (Atributo atributo : this.atributos) {
-            System.out.println(atributo.getIndex() + "|" + atributo.getNome() + "|" + atributo.getTipoDado());
+            ret += atributo.getIndex() + "|" + atributo.getNome() + "|" + atributo.getTipoDado() + "\n";
         }
+        return ret;
     }
+
+
 }
