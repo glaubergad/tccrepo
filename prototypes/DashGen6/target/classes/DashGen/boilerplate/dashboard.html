@@ -2,7 +2,7 @@
 <html lang="pt-br">
 
 <head>
-    <title>teste</title>
+    <title>Meu Dashboard de Teste</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -22,13 +22,20 @@
 
     <div class="row dashgen-header" >
     <img src="img/ifpa_navlogo.png"width="64px" height="69px" alt="Logo IFPA"/>
-    <h1>teste</h1>
+    <h1>Meu Dashboard de Teste</h1>
     </div>
     <div class="row">
             <div id="grafico1" class='col-xs-12 col-md-12 col-lg-4'>
-                <strong>teste</strong>
+                <strong>Sexo</strong>
                 <span class="reset" style="display: none;">Selected: <span class="filter"></span></span>
                 <a class="reset" href="javascript:grafico1.filterAll();dc.redrawAll();"
+                   style="display: none;">reset</a>
+                <div class="clearfix"></div>
+            </div>
+            <div id="grafico2" class='col-xs-12 col-md-12 col-lg-4'>
+                <strong>Categoria</strong>
+                <span class="reset" style="display: none;">Selected: <span class="filter"></span></span>
+                <a class="reset" href="javascript:grafico2.filterAll();dc.redrawAll();"
                    style="display: none;">reset</a>
                 <div class="clearfix"></div>
             </div>
@@ -43,10 +50,11 @@
 
 <script>
 
-    var grafico1 = dc.barChart("#grafico1");
+    var grafico1 = dc.pieChart("#grafico1");
+    var grafico2 = dc.rowChart("#grafico2");
 
 
-    var url = "data/anv.csv";
+    var url = "data/aposentadoria.csv";
 
     d3.csv(url, function (err, data) {
 
@@ -56,22 +64,28 @@
         //var all = ndx.groupAll();
 
         var grafico1Dim = ndx.dimension(function (d) {
-            return d["total_fatalidades"];
+            return d["sexo"];
         });
-            var grafico1minX = grafico1Dim.bottom(1)[0]["aeronave_assentos"];
-            var grafico1maxX = grafico1Dim.top(1)[0]["aeronave_assentos"];
-
+        var grafico2Dim = ndx.dimension(function (d) {
+            return d["categoria"];
+        });
 
         //Agrupadores
-            var grafico1Group = grafico1Dim.group();
+        var grafico1Group = grafico1Dim.group();
+        var grafico2Group = grafico2Dim.group();
 
         grafico1
             .dimension(grafico1Dim)
             .group(grafico1Group)
 
-            .x(d3.scale.linear().domain([grafico1minX, grafico1maxX]))
+
+            ;
+        grafico2
+            .dimension(grafico2Dim)
+            .group(grafico2Group)
 
 
+                .elasticX(true)
             ;
         dc.renderAll();
     });

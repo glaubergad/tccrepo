@@ -8,16 +8,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0f3afc4c-65e0-4641-8d44-855e6e2dbda6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/DashGen6_jar/DashGen6.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/DashGen6_jar/DashGen6.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DashGen/Dataset.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DashGen/Dataset.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DashGen/templates/dashboard.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DashGen/templates/dashboard.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/scenes/PrincipalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/scenes/PrincipalController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DashGen/Dataset.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DashGen/Dataset.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/DashGen/boilerplate/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DashGen/boilerplate/dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DashGen/templates/dashboard.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DashGen/templates/dashboard.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/scenes/PrincipalController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/scenes/PrincipalController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../support/febreamarela.csv" beforeDir="false" afterPath="$PROJECT_DIR$/../../support/febreamarela.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../support/misocial.csv" beforeDir="false" afterPath="$PROJECT_DIR$/../../support/misocial.csv" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -81,7 +72,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/target/classes/DashGen/templates" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/target/classes/scenes" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -96,16 +87,16 @@
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\tccrepo\prototypes\DashGen6\target\classes\scenes" />
+      <recent name="C:\tccrepo\prototypes\DashGen6\target\classes\DashGen" />
+      <recent name="C:\tccrepo\prototypes\DashGen6\target\classes\DashGen\templates" />
+      <recent name="C:\tccrepo\prototypes\IdeaProjects\DashGen6\target\classes\DashGen" />
+      <recent name="C:\tccrepo\prototypes\IdeaProjects\DashGen6\target\classes\scenes" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\tccrepo\prototypes\IdeaProjects\DashGen6\target\classes\DashGen" />
       <recent name="C:\tccrepo\prototypes\IdeaProjects\DashGen6\src\main\java\DashGen\boilerplate" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\tccrepo\prototypes\DashGen6\target\classes\DashGen\templates" />
-      <recent name="C:\tccrepo\prototypes\DashGen6\target\classes\DashGen" />
-      <recent name="C:\tccrepo\prototypes\DashGen6\target\classes\scenes" />
-      <recent name="C:\tccrepo\prototypes\IdeaProjects\DashGen6\target\classes\DashGen" />
-      <recent name="C:\tccrepo\prototypes\IdeaProjects\DashGen6\target\classes\scenes" />
     </key>
   </component>
   <component name="RunDashboard">
