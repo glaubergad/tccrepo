@@ -89,12 +89,8 @@ public class PrincipalController {
 
    public void selectedCbTipoGrafico(ActionEvent event){
        String value = cbTipoGrafico.getValue().toString();
-       System.out.println(value);
-       if(value.equals("dc.pieChart")){
-           cbAtributoY.setVisible(false);
-           cbAtributoY.getSelectionModel().select(0);
-       }else{
-           cbAtributoY.setVisible(true);
+       if(value == "dc.pieChart"){
+           cbAtributoY.hide();
        }
    }
 
