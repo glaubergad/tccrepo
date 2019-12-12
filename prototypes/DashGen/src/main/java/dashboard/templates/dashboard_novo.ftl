@@ -65,11 +65,11 @@
                 var grafico${grafico_index+1}Dim = ndx.dimension(function (d) {
                     return d["${grafico.atributoY}"];
                 });
-            var grafico${grafico_index+1}minY = grafico${grafico_index+1}Dim.bottom(1)[0]["${grafico.atributoX}"];
-            var grafico${grafico_index+1}maxY = grafico${grafico_index+1}Dim.top(1)[0]["${grafico.atributoX}"];
+            var grafico${grafico_index+1}minX = grafico${grafico_index+1}Dim.bottom(1)[0]["${grafico.atributoX}"];
+            var grafico${grafico_index+1}maxX = grafico${grafico_index+1}Dim.top(1)[0]["${grafico.atributoX}"];
         <#else>
                         var grafico${grafico_index+1}Dim = ndx.dimension(function (d) {
-                            return d["${grafico.atributoX}"];
+                            return d["${grafico.atributoY}"];
                         });
         </#if>
         </#list>
@@ -89,7 +89,7 @@
             .group(grafico${grafico_index+1}Group)
 
             <#if grafico.tipo == "dc.barChart">
-            .x(d3.scale.linear().domain([grafico${grafico_index+1}minY, grafico${grafico_index+1}maxY]))
+            .x(d3.scale.linear().domain([grafico${grafico_index+1}minX, grafico${grafico_index+1}maxX]))
 
             </#if>
 

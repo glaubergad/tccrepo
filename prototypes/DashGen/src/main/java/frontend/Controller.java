@@ -83,10 +83,13 @@ public class Controller {
         cbTipoGrafico.getItems().setAll(tipoGrafico);
     }
 
+    //Listener que funciona para esconder o atributo Y em caso
     public void selectedCbTipoGrafico(ActionEvent event){
+        if(cbTipoGrafico.getItems().size() == 0)
+            return;
         String value = cbTipoGrafico.getValue().toString();
         System.out.println(value);
-        if(value.equals("dc.pieChart")){
+        if(value.equals("dc.pieChart")||value.equals("dc.rowChart")){
             cbAtributoY.setVisible(false);
             cbAtributoY.getSelectionModel().select(0);
         }else{
@@ -144,13 +147,12 @@ public class Controller {
         tipoGrafico.clear();
         cbTipoGrafico.getItems().clear();
         cbAtributoX.getItems().clear();
+        cbAtributoY.getItems().clear();
         lvGraficos.getItems().clear();
         tfTituloGrafico.clear();
         tfTituloDashboard.clear();
         lblPathCsv.setText("");
         lblPathDest.setText("");
-        cbAtributoY.getItems().clear();
-        cbTipoGrafico.getItems().clear();
 
     }
 

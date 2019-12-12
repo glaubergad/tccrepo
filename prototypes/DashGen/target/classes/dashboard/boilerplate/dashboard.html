@@ -2,7 +2,7 @@
 <html lang="pt-br">
 
 <head>
-    <title>Meu novo Dashboard</title>
+    <title>Teste</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -22,7 +22,7 @@
 
     <div class="row dashgen-header" >
     <img src="img/ifpa_navlogo.png"width="64px" height="69px" alt="Logo IFPA"/>
-    <h1>Meu novo Dashboard</h1>
+    <h1>Teste</h1>
     </div>
     <div class="row">
             <div id="grafico1" class='col-xs-12 col-md-12 col-lg-4'>
@@ -39,20 +39,6 @@
                    style="display: none;">reset</a>
                 <div class="clearfix"></div>
             </div>
-            <div id="grafico3" class='col-xs-12 col-md-12 col-lg-4'>
-                <strong>Tipo  de Motor</strong>
-                <span class="reset" style="display: none;">Selected: <span class="filter"></span></span>
-                <a class="reset" href="javascript:grafico3.filterAll();dc.redrawAll();"
-                   style="display: none;">reset</a>
-                <div class="clearfix"></div>
-            </div>
-            <div id="grafico4" class='col-xs-12 col-md-12 col-lg-4'>
-                <strong>Tipo de Veiculo/QTD Assentos</strong>
-                <span class="reset" style="display: none;">Selected: <span class="filter"></span></span>
-                <a class="reset" href="javascript:grafico4.filterAll();dc.redrawAll();"
-                   style="display: none;">reset</a>
-                <div class="clearfix"></div>
-            </div>
     </div>
 
 </div>
@@ -66,8 +52,6 @@
 
     var grafico1 = dc.pieChart("#grafico1");
     var grafico2 = dc.pieChart("#grafico2");
-    var grafico3 = dc.pieChart("#grafico3");
-    var grafico4 = dc.barChart("#grafico4");
 
 
     var url = "data/anv.csv";
@@ -79,27 +63,18 @@
         var ndx = crossfilter(data);
         //var all = ndx.groupAll();
 
-        var grafico1Dim = ndx.dimension(function (d) {
-            return d["aeronave_tipo_veiculo"];
-        });
-        var grafico2Dim = ndx.dimension(function (d) {
-            return d["aeronave_motor_quantidade"];
-        });
-        var grafico3Dim = ndx.dimension(function (d) {
-            return d["aeronave_motor_tipo"];
-        });
-        var grafico4Dim = ndx.dimension(function (d) {
-            return d["aeronave_tipo_veiculo"];
-        });
-            var grafico4minX = grafico4Dim.bottom(1)[0]["aeronave_assentos"];
-            var grafico4maxX = grafico4Dim.top(1)[0]["aeronave_assentos"];
 
+                        var grafico1Dim = ndx.dimension(function (d) {
+                            return d["aeronave_tipo_veiculo"];
+                        });
+
+                        var grafico2Dim = ndx.dimension(function (d) {
+                            return d["aeronave_motor_quantidade"];
+                        });
 
         //Agrupadores
         var grafico1Group = grafico1Dim.group();
         var grafico2Group = grafico2Dim.group();
-        var grafico3Group = grafico3Dim.group();
-            var grafico4Group = grafico4Dim.group();
 
         grafico1
             .dimension(grafico1Dim)
@@ -110,20 +85,6 @@
         grafico2
             .dimension(grafico2Dim)
             .group(grafico2Group)
-
-
-            ;
-        grafico3
-            .dimension(grafico3Dim)
-            .group(grafico3Group)
-
-
-            ;
-        grafico4
-            .dimension(grafico4Dim)
-            .group(grafico4Group)
-
-            .x(d3.scale.linear().domain([grafico4minX, grafico4maxX]))
 
 
             ;

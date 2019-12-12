@@ -60,20 +60,23 @@
         //var all = ndx.groupAll();
 
         <#list graficos as grafico>
-        var grafico${grafico_index+1}Dim = ndx.dimension(function (d) {
-            return d["${grafico.atributoX}"];
-        });
         <#if grafico.tipo == "dc.barChart">
-            var grafico${grafico_index+1}minX = grafico${grafico_index+1}Dim.bottom(1)[0]["${grafico.atributoY}"];
-            var grafico${grafico_index+1}maxX = grafico${grafico_index+1}Dim.top(1)[0]["${grafico.atributoY}"];
-
+                var grafico${grafico_index+1}Dim = ndx.dimension(function (d) {
+                    return d["${grafico.atributoY}"];
+                });
+            var grafico${grafico_index+1}minY = grafico${grafico_index+1}Dim.bottom(1)[0]["${grafico.atributoX}"];
+            var grafico${grafico_index+1}maxY = grafico${grafico_index+1}Dim.top(1)[0]["${grafico.atributoX}"];
+        <#else>
+                        var grafico${grafico_index+1}Dim = ndx.dimension(function (d) {
+                            return d["${grafico.atributoX}"];
+                        });
         </#if>
         </#list>
 
         //Agrupadores
         <#list graficos as grafico>
         <#if grafico.tipo == "dc.barChart">
-            var grafico${grafico_index+1}Group = grafico${grafico_index+1}Dim.group();
+            var grafico${grafico_index+1}Group = grafico${grafico_index+1}Dim.group(); //TODO: Descobrir forma de definir variavel de medida
         <#else>
         var grafico${grafico_index+1}Group = grafico${grafico_index+1}Dim.group();
         </#if>
@@ -85,7 +88,7 @@
             .group(grafico${grafico_index+1}Group)
 
             <#if grafico.tipo == "dc.barChart">
-            .x(d3.scale.linear().domain([grafico${grafico_index+1}minX, grafico${grafico_index+1}maxX]))
+            .x(d3.scale.linear().domain([grafico${grafico_index+1}minY, grafico${grafico_index+1}maxY]))
 
             </#if>
 
