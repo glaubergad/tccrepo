@@ -1,12 +1,10 @@
 <!doctype html>
 <html lang="pt-br">
-
 <head>
-    <title>Teste</title>
+    <title>Teste com ReduceSum</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <!-- Bootstrap e DC CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/dc.css">
@@ -15,83 +13,75 @@
     <script src=js/d3.js></script>
     <script src=js/dc.js></script>
 </head>
-
 <body>
-
 <div class="container">
-
     <div class="row dashgen-header" >
-    <img src="img/ifpa_navlogo.png"width="64px" height="69px" alt="Logo IFPA"/>
-    <h1>Teste</h1>
+    <img src="img/ifpa_navlogo.png" width="120px" height="120px" alt="Logo IFPA"/>
+    <h1>Teste com ReduceSum</h1>
     </div>
     <div class="row">
             <div id="grafico1" class='col-xs-12 col-md-12 col-lg-4'>
-                <strong>Tipo de Aeronave</strong>
+                <strong>Sexo</strong>
                 <span class="reset" style="display: none;">Selected: <span class="filter"></span></span>
                 <a class="reset" href="javascript:grafico1.filterAll();dc.redrawAll();"
                    style="display: none;">reset</a>
                 <div class="clearfix"></div>
             </div>
             <div id="grafico2" class='col-xs-12 col-md-12 col-lg-4'>
-                <strong>Motores</strong>
+                <strong>Religiao</strong>
                 <span class="reset" style="display: none;">Selected: <span class="filter"></span></span>
                 <a class="reset" href="javascript:grafico2.filterAll();dc.redrawAll();"
                    style="display: none;">reset</a>
                 <div class="clearfix"></div>
             </div>
+            <div id="grafico3" class='col-xs-12 col-md-12 col-lg-4'>
+                <strong>Sexo</strong>
+                <span class="reset" style="display: none;">Selected: <span class="filter"></span></span>
+                <a class="reset" href="javascript:grafico3.filterAll();dc.redrawAll();"
+                   style="display: none;">reset</a>
+                <div class="clearfix"></div>
+            </div>
     </div>
-
 </div>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="js/jquery-3.4.1.min.js"></script>
-
 <!-- Aqui começa a  geração do gráfico -->
-
 <script>
-
     var grafico1 = dc.pieChart("#grafico1");
-    var grafico2 = dc.pieChart("#grafico2");
-
-
-    var url = "data/anv.csv";
-
+    var grafico2 = dc.rowChart("#grafico2");
+    var grafico3 = dc.barChart("#grafico3");
+    var url = "data/teste_salario.csv";
     d3.csv(url, function (err, data) {
-
         if (err) throw err;
-
         var ndx = crossfilter(data);
-        //var all = ndx.groupAll();
-
-
-                        var grafico1Dim = ndx.dimension(function (d) {
-                            return d["aeronave_tipo_veiculo"];
-                        });
-
-                        var grafico2Dim = ndx.dimension(function (d) {
-                            return d["aeronave_motor_quantidade"];
-                        });
-
+                        var grafico1Dim = ndx.dimension(d => d.SEXO);
+                        var grafico2Dim = ndx.dimension(d => d.RELIGIAO);
+                var grafico3Dim = ndx.dimension(d => d.SEXO);
+            var grafico3minX = grafico3Dim.bottom(1)[0]["SEXO"];
+            var grafico3maxX = grafico3Dim.top(1)[0]["SEXO"];
         //Agrupadores
         var grafico1Group = grafico1Dim.group();
         var grafico2Group = grafico2Dim.group();
-
+            var grafico3Group = grafico3Dim.group().reduceSum(d => d.SEXO); //TODO: Descobrir forma de definir variavel de medida - reduceSum()
         grafico1
+            .cap(4)
             .dimension(grafico1Dim)
             .group(grafico1Group)
-
-
             ;
         grafico2
+            .cap(4)
             .dimension(grafico2Dim)
             .group(grafico2Group)
-
-
+                .elasticX(true)
+            ;
+        grafico3
+            .dimension(grafico3Dim)
+            .group(grafico3Group)
+            .x(d3.scale.linear().domain([grafico3minX, grafico3maxX]))
             ;
         dc.renderAll();
     });
 </script>
-
 </body>
-
 </html>
