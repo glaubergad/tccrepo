@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
@@ -21,6 +22,7 @@ public class Main extends Application {
         pStage = primaryStage;
         try {
             Parent root = FXMLLoader.load(getClass().getResource("frontend.fxml"));
+            final ToggleGroup rbGroup = new ToggleGroup();
             pStage.setTitle("Gerador de Dashboards");
             pStage.setScene(new Scene(root, 700, 600));
             pStage.show();

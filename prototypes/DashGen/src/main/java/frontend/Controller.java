@@ -12,6 +12,7 @@ import java.util.List;
 
 public class Controller {
 
+    public ToggleGroup rbGroup;
     private File csvFile, destFolder;
     private Dataset dataset;
     private Dashboard dashboard;
@@ -97,6 +98,11 @@ public class Controller {
         }
     }
 
+    public void rbGroupSelect(ActionEvent event){
+		//TODO: Código que seta o grouping do gráfico de acordo com a  seleção do radioButton
+		
+    }
+
 
     public void addGrafico(ActionEvent actionEvent) {
         try {
@@ -104,7 +110,8 @@ public class Controller {
             String atributoY = cbAtributoY.getSelectionModel().getSelectedItem().toString();
             String tipoGraf = cbTipoGrafico.getSelectionModel().getSelectedItem().toString();
             String titGraf = tfTituloGrafico.getText();
-            graficos.add(new Grafico(atributoX, atributoY, titGraf, tipoGraf));
+            int grouping = 
+            graficos.add(new Grafico(atributoX, atributoY, titGraf, tipoGraf,));
             lvGraficos.getItems().setAll(graficos);
             cbAtributoX.getSelectionModel().clearSelection();
             cbAtributoY.getSelectionModel().clearSelection();

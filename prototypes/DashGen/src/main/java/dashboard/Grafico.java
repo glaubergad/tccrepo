@@ -16,6 +16,7 @@ public class Grafico {
     private String atributoY;
     private String nome;
     private String tipo;
+    private int grouping =0;
 
     //Declaração de constantes para definir os tipos de gráficos da biblioteca DC.js
     public static final String TIPO_BARRAS = "dc.barChart";
@@ -33,17 +34,24 @@ public class Grafico {
     public Grafico() {
     }
 
-    public Grafico(String atributoX, String nome, String tipo) {
+    public Grafico(String atributoX, String nome, String tipo,int grouping) {
         this.atributoX = atributoX;
         this.nome = nome;
         this.tipo = tipo;
+        if(grouping!=0){
+            this.grouping = 1;
+        }
     }
 
-    public Grafico(String atributoX, String atributoY, String nome, String tipo) {
+    public Grafico(String atributoX, String atributoY, String nome, String tipo,int grouping) {
         this.atributoX = atributoX;
         this.atributoY = atributoY;
         this.nome = nome;
         this.tipo = tipo;
+        if(grouping!=0){
+            this.grouping = 1;
+        }
+        this.grouping = grouping;
     }
 
 

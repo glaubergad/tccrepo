@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="pt-br">
 <head>
-    <title>Teste com ReduceSum</title>
+    <title>Meu teste Glauber</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -17,7 +17,7 @@
 <div class="container">
     <div class="row dashgen-header" >
     <img src="img/ifpa_navlogo.png" width="120px" height="120px" alt="Logo IFPA"/>
-    <h1>Teste com ReduceSum</h1>
+    <h1>Meu teste Glauber</h1>
     </div>
     <div class="row">
             <div id="grafico1" class='col-xs-12 col-md-12 col-lg-4'>
@@ -28,14 +28,14 @@
                 <div class="clearfix"></div>
             </div>
             <div id="grafico2" class='col-xs-12 col-md-12 col-lg-4'>
-                <strong>Religiao</strong>
+                <strong>Idade</strong>
                 <span class="reset" style="display: none;">Selected: <span class="filter"></span></span>
                 <a class="reset" href="javascript:grafico2.filterAll();dc.redrawAll();"
                    style="display: none;">reset</a>
                 <div class="clearfix"></div>
             </div>
             <div id="grafico3" class='col-xs-12 col-md-12 col-lg-4'>
-                <strong>Sexo</strong>
+                <strong>Idade</strong>
                 <span class="reset" style="display: none;">Selected: <span class="filter"></span></span>
                 <a class="reset" href="javascript:grafico3.filterAll();dc.redrawAll();"
                    style="display: none;">reset</a>
@@ -56,14 +56,14 @@
         if (err) throw err;
         var ndx = crossfilter(data);
                         var grafico1Dim = ndx.dimension(d => d.SEXO);
-                        var grafico2Dim = ndx.dimension(d => d.RELIGIAO);
-                var grafico3Dim = ndx.dimension(d => d.SEXO);
-            var grafico3minX = grafico3Dim.bottom(1)[0]["SEXO"];
-            var grafico3maxX = grafico3Dim.top(1)[0]["SEXO"];
+                        var grafico2Dim = ndx.dimension(d => d.IDADE);
+                var grafico3Dim = ndx.dimension(d => d.IDADE);
+            var grafico3minX = grafico3Dim.bottom(1)[0]["IDADE"];
+            var grafico3maxX = grafico3Dim.top(1)[0]["IDADE"];
         //Agrupadores
         var grafico1Group = grafico1Dim.group();
         var grafico2Group = grafico2Dim.group();
-            var grafico3Group = grafico3Dim.group().reduceSum(d => d.SEXO); //TODO: Descobrir forma de definir variavel de medida - reduceSum()
+            var grafico3Group = grafico3Dim.group().reduceSum(d => d.SALARIO); //TODO: Descobrir forma de definir variavel de medida - reduceSum()
         grafico1
             .cap(4)
             .dimension(grafico1Dim)
@@ -78,7 +78,7 @@
         grafico3
             .dimension(grafico3Dim)
             .group(grafico3Group)
-            .x(d3.scale.linear().domain([grafico3minX, grafico3maxX]))
+            .x(d3.scale.linear().domain([grafico3minX, grafico3maxX]))//TODO:Consertar a Escala de eixo pelos valores minimos e maximos do grupo reduceSUM()
             ;
         dc.renderAll();
     });
