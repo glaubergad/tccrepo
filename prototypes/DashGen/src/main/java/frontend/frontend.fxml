@@ -35,11 +35,11 @@
         <Button fx:id="btnEndDashboard" layoutX="467.0" layoutY="552.0" mnemonicParsing="false" onAction="#endDashboard" text="Finalizar Dashboard" />
         <Label layoutX="43.0" layoutY="470.0" text="Atributo Somatória" />
         <ComboBox fx:id="cbAtributoY" layoutX="11.0" layoutY="495.0" prefHeight="25.0" prefWidth="168.0" promptText="Atributo do CSV" />
-      <RadioButton fx:id="rbContagem" layoutX="245.0" layoutY="436.0" mnemonicParsing="false" onAction="#rbGroupSelect" selected="true" text="Contagem">
+        <RadioButton fx:id="rbContagem" layoutX="245.0" layoutY="436.0" mnemonicParsing="false" onAction="#rbSelected" selected="true" text="Contagem" userData="0">
          <toggleGroup>
             <ToggleGroup fx:id="rbGroup" />
          </toggleGroup></RadioButton>
-      <RadioButton fx:id="rbReduceSum" layoutX="245.0" layoutY="462.0" mnemonicParsing="false" onAction="#rbGroupSelect" text="Redução Somatória" toggleGroup="$rbGroup" />
+      <RadioButton fx:id="rbReduceSum" layoutX="245.0" layoutY="462.0" mnemonicParsing="false" onAction="#rbSelected" text="Redução Somatória" toggleGroup="$rbGroup" userData="1" />
       <Label layoutX="271.0" layoutY="407.0" text="Agrupamento" />
     </children>
 </AnchorPane>

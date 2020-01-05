@@ -2,9 +2,14 @@ package frontend;
 
 import dashboard.*;
 import freemarker.template.TemplateException;
+import javafx.beans.value.ChangeListener;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.Group.*;
+import javafx.scene.control.Toggle;
+import javafx.scene.control.ToggleGroup;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -12,6 +17,8 @@ import java.util.List;
 
 public class Controller {
 
+    public RadioButton rbReduceSum;
+    public RadioButton rbContagem;
     public ToggleGroup rbGroup;
     private File csvFile, destFolder;
     private Dataset dataset;
@@ -19,6 +26,7 @@ public class Controller {
     private String tituloDashboard;
     private final List<Grafico> graficos = new ArrayList<Grafico>();
     private final List<String> tipoGrafico = new ArrayList<String>();
+    private int grouping;
     public Label lblPathCsv;
     public Label lblPathDest;
     public ComboBox cbAtributoX;
@@ -27,6 +35,9 @@ public class Controller {
     public TextField tfTituloGrafico;
     public TextField tfTituloDashboard;
     public ListView lvGraficos;
+
+
+
     public void selectCSV(ActionEvent actionEvent) {
         try {
             resetForm();
@@ -61,7 +72,7 @@ public class Controller {
 
     private void populateCbAtributoX(List<Atributo> atributos) {
         cbAtributoX.getItems().clear();
-        for(Atributo atributo:atributos)
+        for (Atributo atributo : atributos)
             cbAtributoX.getItems().add(atributo.getNome());
     }
 
@@ -85,24 +96,18 @@ public class Controller {
     }
 
     //Listener que funciona para esconder o atributo Y em caso
-    public void selectedCbTipoGrafico(ActionEvent event){
-        if(cbTipoGrafico.getItems().size() == 0)
+    public void selectedCbTipoGrafico(ActionEvent event) {
+        if (cbTipoGrafico.getItems().size() == 0)
             return;
         String value = cbTipoGrafico.getValue().toString();
         System.out.println(value);
-        if(value.equals("dc.pieChart")||value.equals("dc.rowChart")){
+        if (value.equals("dc.pieChart") || value.equals("dc.rowChart")) {
             cbAtributoY.setVisible(false);
             cbAtributoY.getSelectionModel().select(0);
-        }else{
+        } else {
             cbAtributoY.setVisible(true);
         }
     }
-
-    public void rbGroupSelect(ActionEvent event){
-		//TODO: Código que seta o grouping do gráfico de acordo com a  seleção do radioButton
-		
-    }
-
 
     public void addGrafico(ActionEvent actionEvent) {
         try {
@@ -110,8 +115,10 @@ public class Controller {
             String atributoY = cbAtributoY.getSelectionModel().getSelectedItem().toString();
             String tipoGraf = cbTipoGrafico.getSelectionModel().getSelectedItem().toString();
             String titGraf = tfTituloGrafico.getText();
-            int grouping = 
-            graficos.add(new Grafico(atributoX, atributoY, titGraf, tipoGraf,));
+            System.out.println("Grafico:"+titGraf+" Tipo:"+tipoGraf
+            + " Dimensão:"+atributoX + " Somatoria:" + atributoY
+            + " agrupamento:"+ Main.grouping);
+            graficos.add(new Grafico(atributoX, atributoY, titGraf, tipoGraf, Main.grouping));
             lvGraficos.getItems().setAll(graficos);
             cbAtributoX.getSelectionModel().clearSelection();
             cbAtributoY.getSelectionModel().clearSelection();
@@ -167,5 +174,15 @@ public class Controller {
     public void clearGraficosClick(ActionEvent actionEvent) {
         lvGraficos.getItems().clear();
         graficos.clear();
+    }
+
+
+    public void rbSelected() {
+        if(rbContagem.isSelected()){
+            Main.grouping = Integer.parseInt(rbContagem.getUserData().toString());
+        }else{
+            Main.grouping = Integer.parseInt(rbReduceSum.getUserData().toString());
+        }
+        System.out.println("Agrupamento tipo:" + Main.grouping);
     }
 }

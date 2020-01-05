@@ -1,9 +1,14 @@
 package frontend;
 
 import javafx.application.Application;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
 import javafx.stage.DirectoryChooser;
@@ -16,13 +21,16 @@ import java.io.IOException;
 public class Main extends Application {
     private static Stage pStage;
     private static final File HOME = new File(Main.class.getProtectionDomain().getCodeSource().getLocation().getPath());
+    public static int grouping = 0;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
         pStage = primaryStage;
+
+
+
         try {
             Parent root = FXMLLoader.load(getClass().getResource("frontend.fxml"));
-            final ToggleGroup rbGroup = new ToggleGroup();
             pStage.setTitle("Gerador de Dashboards");
             pStage.setScene(new Scene(root, 700, 600));
             pStage.show();
