@@ -45,7 +45,7 @@
         var ndx = crossfilter(data);
         <#list graficos as grafico>
         <#if grafico.tipo == "dc.barChart">
-                var grafico${grafico_index+1}Dim = ndx.dimension(d => d.${grafico.atributoX});
+            var grafico${grafico_index+1}Dim = ndx.dimension(d => d.${grafico.atributoX});
             var grafico${grafico_index+1}minX = grafico${grafico_index+1}Dim.bottom(1)[0]["${grafico.atributoX}"];
             var grafico${grafico_index+1}maxX = grafico${grafico_index+1}Dim.top(1)[0]["${grafico.atributoX}"];
         <#else>
@@ -54,8 +54,8 @@
         </#list>
         //Agrupadores
         <#list graficos as grafico>
-        <#if grafico.tipo == "dc.barChart">
-            var grafico${grafico_index+1}Group = grafico${grafico_index+1}Dim.group().reduceSum(d => d.${grafico.atributoY}); //TODO: Descobrir forma de definir variavel de medida - reduceSum()
+        <#if grafico.grouping == 1>
+            var grafico${grafico_index+1}Group = grafico${grafico_index+1}Dim.group().reduceSum(d => d.${grafico.atributoY}); //TODO: Capturar grouping type do objeto Grafico
         <#else>
         var grafico${grafico_index+1}Group = grafico${grafico_index+1}Dim.group();
         </#if>
@@ -68,7 +68,7 @@
             .dimension(grafico${grafico_index+1}Dim)
             .group(grafico${grafico_index+1}Group)
             <#if grafico.tipo == "dc.barChart">
-            .x(d3.scale.linear().domain([grafico${grafico_index+1}minX, grafico${grafico_index+1}maxX]))//TODO:Consertar a Escala de eixo pelos valores minimos e maximos do grupo reduceSUM()
+            .x(d3.scale.linear().domain([grafico${grafico_index+1}minX, grafico${grafico_index+1}Group.top(1).value])
             </#if>
             <#if grafico.tipo == "dc.rowChart">
                 .elasticX(true)

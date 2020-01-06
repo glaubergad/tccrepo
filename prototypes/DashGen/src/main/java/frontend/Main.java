@@ -1,15 +1,9 @@
 package frontend;
 
 import javafx.application.Application;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.Toggle;
-import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
@@ -26,11 +20,8 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         pStage = primaryStage;
-
-
-
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("frontend.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/frontend/frontend.fxml"));
             pStage.setTitle("Gerador de Dashboards");
             pStage.setScene(new Scene(root, 700, 600));
             pStage.show();
@@ -43,10 +34,8 @@ public class Main extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-
-
     //JavaFX Filechooser para obter o arquivo CSV. É disparado a partir do PrincipalController.selectCSV()
-    static File selectCSV(){
+    static File selectCSV()  throws Exception {
         FileChooser csvFileChooser = new FileChooser();
         csvFileChooser.setTitle("Selecione o CSV para o DashGen");
         csvFileChooser.setInitialDirectory(FileSystemView.getFileSystemView().getHomeDirectory());

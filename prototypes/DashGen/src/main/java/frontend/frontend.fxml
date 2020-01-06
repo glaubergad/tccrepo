@@ -25,7 +25,7 @@
         <Label layoutX="43.0" layoutY="407.0" text="Atributo Dimensão" />
         <ComboBox fx:id="cbAtributoX" layoutX="14.0" layoutY="432.0" prefHeight="25.0" prefWidth="168.0" promptText="Atributo do CSV" />
         <Label layoutX="14.0" layoutY="337.0" text="Tipo de Gráfico" />
-        <ComboBox fx:id="cbTipoGrafico" layoutX="14.0" layoutY="361.0" onAction="#selectedCbTipoGrafico" prefHeight="25.0" prefWidth="239.0" promptText="Tipo de Grafico" />
+        <ComboBox fx:id="cbTipoGrafico" layoutX="14.0" layoutY="361.0" prefHeight="25.0" prefWidth="239.0" promptText="Tipo de Grafico" />
         <Label layoutX="14.0" layoutY="273.0" text="Titulo do Grafico" />
         <TextField fx:id="tfTituloGrafico" layoutX="15.0" layoutY="296.0" prefHeight="25.0" prefWidth="239.0" />
         <Button fx:id="btnAddGrafico" layoutX="69.0" layoutY="552.0" mnemonicParsing="false" onAction="#addGrafico" text="Adicionar Gráfico" />
@@ -33,8 +33,8 @@
         <ListView fx:id="lvGraficos" layoutX="383.0" layoutY="299.0" prefHeight="200.0" prefWidth="287.0" />
         <Button fx:id="btnClearGraficos" layoutX="477.0" layoutY="509.0" mnemonicParsing="false" onAction="#clearGraficosClick" text="Limpar Gráficos" />
         <Button fx:id="btnEndDashboard" layoutX="467.0" layoutY="552.0" mnemonicParsing="false" onAction="#endDashboard" text="Finalizar Dashboard" />
-        <Label layoutX="43.0" layoutY="470.0" text="Atributo Somatória" />
-        <ComboBox fx:id="cbAtributoY" layoutX="11.0" layoutY="495.0" prefHeight="25.0" prefWidth="168.0" promptText="Atributo do CSV" />
+        <Label fx:id="lblSomatoria" layoutX="43.0" layoutY="470.0" text="Atributo Somatória" visible="false" />
+        <ComboBox fx:id="cbAtributoY" layoutX="11.0" layoutY="495.0" prefHeight="25.0" prefWidth="168.0" promptText="Atributo do CSV" visible="false" />
         <RadioButton fx:id="rbContagem" layoutX="245.0" layoutY="436.0" mnemonicParsing="false" onAction="#rbSelected" selected="true" text="Contagem" userData="0">
          <toggleGroup>
             <ToggleGroup fx:id="rbGroup" />

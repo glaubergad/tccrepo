@@ -45,7 +45,7 @@
         var ndx = crossfilter(data);
         <#list graficos as grafico>
         <#if grafico.tipo == "dc.barChart">
-                var grafico${grafico_index+1}Dim = ndx.dimension(d => d.${grafico.atributoX});
+            var grafico${grafico_index+1}Dim = ndx.dimension(d => d.${grafico.atributoX});
             var grafico${grafico_index+1}minX = grafico${grafico_index+1}Dim.bottom(1)[0]["${grafico.atributoX}"];
             var grafico${grafico_index+1}maxX = grafico${grafico_index+1}Dim.top(1)[0]["${grafico.atributoX}"];
         <#else>
@@ -54,7 +54,7 @@
         </#list>
         //Agrupadores
         <#list graficos as grafico>
-        <#if grafico.tipo == "dc.barChart">
+        <#if grafico.grouping == 1>
             var grafico${grafico_index+1}Group = grafico${grafico_index+1}Dim.group().reduceSum(d => d.${grafico.atributoY}); //TODO: Capturar grouping type do objeto Grafico
         <#else>
         var grafico${grafico_index+1}Group = grafico${grafico_index+1}Dim.group();

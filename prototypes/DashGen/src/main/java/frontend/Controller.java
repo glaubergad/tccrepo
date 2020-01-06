@@ -10,6 +10,7 @@ import javafx.scene.control.*;
 import javafx.scene.Group.*;
 import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleGroup;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -20,6 +21,12 @@ public class Controller {
     public RadioButton rbReduceSum;
     public RadioButton rbContagem;
     public ToggleGroup rbGroup;
+    public Button btnSelectCsv;
+    public Button btnSelectDest;
+    public Button btnClearGraficos;
+    public Button btnEndDashboard;
+    public Button btnAddGrafico;
+    public Label lblSomatoria;
     private File csvFile, destFolder;
     private Dataset dataset;
     private Dashboard dashboard;
@@ -37,14 +44,12 @@ public class Controller {
     public ListView lvGraficos;
 
 
-
     public void selectCSV(ActionEvent actionEvent) {
         try {
             resetForm();
             csvFile = Main.selectCSV();
             lblPathCsv.setText(csvFile.getAbsolutePath());
             tituloDashboard = tfTituloDashboard.getText();
-
             setDataset();
         } catch (Exception e) {
             System.out.println(e.toString());
@@ -52,8 +57,6 @@ public class Controller {
     }
 
     public void selectDest(ActionEvent actionEvent) {
-
-
         try {
             destFolder = Main.selectDestFolder();
             lblPathDest.setText(destFolder.getAbsolutePath());
@@ -96,6 +99,8 @@ public class Controller {
     }
 
     //Listener que funciona para esconder o atributo Y em caso
+
+    /*Por enquanto, não tem mais utilidade devido ao advendo do RadioButton
     public void selectedCbTipoGrafico(ActionEvent event) {
         if (cbTipoGrafico.getItems().size() == 0)
             return;
@@ -107,7 +112,7 @@ public class Controller {
         } else {
             cbAtributoY.setVisible(true);
         }
-    }
+    }*/
 
     public void addGrafico(ActionEvent actionEvent) {
         try {
@@ -115,9 +120,9 @@ public class Controller {
             String atributoY = cbAtributoY.getSelectionModel().getSelectedItem().toString();
             String tipoGraf = cbTipoGrafico.getSelectionModel().getSelectedItem().toString();
             String titGraf = tfTituloGrafico.getText();
-            System.out.println("Grafico:"+titGraf+" Tipo:"+tipoGraf
-            + " Dimensão:"+atributoX + " Somatoria:" + atributoY
-            + " agrupamento:"+ Main.grouping);
+            System.out.println("Grafico:" + titGraf + " Tipo:" + tipoGraf
+                    + " Dimensão:" + atributoX + " Somatoria:" + atributoY
+                    + " agrupamento:" + Main.grouping);
             graficos.add(new Grafico(atributoX, atributoY, titGraf, tipoGraf, Main.grouping));
             lvGraficos.getItems().setAll(graficos);
             cbAtributoX.getSelectionModel().clearSelection();
@@ -178,10 +183,15 @@ public class Controller {
 
 
     public void rbSelected() {
-        if(rbContagem.isSelected()){
+        if (rbContagem.isSelected()) {
             Main.grouping = Integer.parseInt(rbContagem.getUserData().toString());
-        }else{
+            cbAtributoY.setVisible(false);
+            lblSomatoria.setVisible(true);
+            cbAtributoY.getSelectionModel().select(0);
+        } else {
             Main.grouping = Integer.parseInt(rbReduceSum.getUserData().toString());
+            lblSomatoria.setVisible(true);
+            cbAtributoY.setVisible(true);
         }
         System.out.println("Agrupamento tipo:" + Main.grouping);
     }

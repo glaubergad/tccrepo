@@ -57,6 +57,14 @@ public class Grafico {
 
     //Seção de Getters e Setters
 
+    public int getGrouping() {
+        return grouping;
+    }
+
+    public void setGrouping(int grouping) {
+        this.grouping = grouping;
+    }
+
     public String getAtributoX() {
         return atributoX;
     }
