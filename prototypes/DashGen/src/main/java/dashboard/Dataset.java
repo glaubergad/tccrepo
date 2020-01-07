@@ -30,6 +30,7 @@ public class Dataset {
     private final List<Atributo> atributos = new ArrayList<Atributo>();
     private CSVParser parser;
     private Iterable<CSVRecord> record;
+    private int numFields = 0;
 
     /*
      * Método construtor admite como parâmetro o objeto file obtido no Front-End
@@ -41,13 +42,13 @@ public class Dataset {
     public Dataset(File fileDs) throws Exception {
 
         this.datasetFile = fileDs;
+        numFields = 0;
         this.setParser();
         this.setHeaders();
         this.headersToString();
         this.setRecord();
         this.recordsToString();
         this.setAtributos();
-        //this.novoSetAtributos();
         System.out.println(this.atributosToString());
     }
 
@@ -94,8 +95,15 @@ public class Dataset {
         }
     }
 
+    public int getNumFields() {
+        return numFields;
+    }
 
-    //Método usado para exibir no console todos os cabeçalhos de dados do CSV - Finalidade de Teste
+    public void setNumFields(int numFields) {
+        this.numFields = numFields;
+    }
+
+//Método usado para exibir no console todos os cabeçalhos de dados do CSV - Finalidade de Teste
 
     public void headersToString() {
         for (Map.Entry entry : this.headers.entrySet()) {
@@ -145,6 +153,7 @@ public class Dataset {
         if (string > 0) {
             return "T";
         } else {
+            numFields++;
             return "N";
         }
     }

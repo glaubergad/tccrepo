@@ -68,7 +68,9 @@ public class Controller {
     private void setDataset() throws Exception {
         dataset = new Dataset(csvFile);
         populateCbAtributoX(dataset.getAtributos());
+        if(dataset.getNumFields() > 0)
         populateCbAtributoY(dataset.getAtributos());
+
         populateCbTipoGrafico();
 
     }
@@ -77,6 +79,7 @@ public class Controller {
         cbAtributoX.getItems().clear();
         for (Atributo atributo : atributos)
             cbAtributoX.getItems().add(atributo.getNome());
+            rbReduceSum.setVisible(false);
     }
 
     private void populateCbAtributoY(List<Atributo> atributos) {
@@ -98,26 +101,16 @@ public class Controller {
         cbTipoGrafico.getItems().setAll(tipoGrafico);
     }
 
-    //Listener que funciona para esconder o atributo Y em caso
-
-    /*Por enquanto, não tem mais utilidade devido ao advendo do RadioButton
-    public void selectedCbTipoGrafico(ActionEvent event) {
-        if (cbTipoGrafico.getItems().size() == 0)
-            return;
-        String value = cbTipoGrafico.getValue().toString();
-        System.out.println(value);
-        if (value.equals("dc.pieChart") || value.equals("dc.rowChart")) {
-            cbAtributoY.setVisible(false);
-            cbAtributoY.getSelectionModel().select(0);
-        } else {
-            cbAtributoY.setVisible(true);
-        }
-    }*/
 
     public void addGrafico(ActionEvent actionEvent) {
         try {
             String atributoX = cbAtributoX.getSelectionModel().getSelectedItem().toString();
-            String atributoY = cbAtributoY.getSelectionModel().getSelectedItem().toString();
+            String atributoY;
+            if(Main.grouping == 1) {
+                atributoY = cbAtributoY.getSelectionModel().getSelectedItem().toString();
+            }else{
+                atributoY = cbAtributoX.getSelectionModel().getSelectedItem().toString();
+            }
             String tipoGraf = cbTipoGrafico.getSelectionModel().getSelectedItem().toString();
             String titGraf = tfTituloGrafico.getText();
             System.out.println("Grafico:" + titGraf + " Tipo:" + tipoGraf
@@ -187,7 +180,7 @@ public class Controller {
             Main.grouping = Integer.parseInt(rbContagem.getUserData().toString());
             cbAtributoY.setVisible(false);
             lblSomatoria.setVisible(true);
-            cbAtributoY.getSelectionModel().select(0);
+            cbAtributoX.getSelectionModel().select(0);
         } else {
             Main.grouping = Integer.parseInt(rbReduceSum.getUserData().toString());
             lblSomatoria.setVisible(true);
