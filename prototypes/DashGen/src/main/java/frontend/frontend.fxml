@@ -34,7 +34,7 @@
         <Button fx:id="btnClearGraficos" layoutX="477.0" layoutY="509.0" mnemonicParsing="false" onAction="#clearGraficosClick" text="Limpar Gráficos" />
         <Button fx:id="btnEndDashboard" layoutX="467.0" layoutY="552.0" mnemonicParsing="false" onAction="#endDashboard" text="Finalizar Dashboard" />
         <Label fx:id="lblSomatoria" layoutX="43.0" layoutY="470.0" text="Atributo Somatória" visible="false" />
-        <ComboBox fx:id="cbAtributoY" layoutX="11.0" layoutY="495.0" prefHeight="25.0" prefWidth="168.0" promptText="Atributo do CSV" visible="false" />
+        <ComboBox fx:id="cbAtributoY" layoutX="11.0" layoutY="495.0" prefHeight="25.0" prefWidth="168.0" promptText="Atributo do CSV" />
         <RadioButton fx:id="rbContagem" layoutX="245.0" layoutY="436.0" mnemonicParsing="false" onAction="#rbSelected" selected="true" text="Contagem" userData="0">
          <toggleGroup>
             <ToggleGroup fx:id="rbGroup" />

@@ -42,7 +42,6 @@ public class Dataset {
     public Dataset(File fileDs) throws Exception {
 
         this.datasetFile = fileDs;
-        numFields = 0;
         this.setParser();
         this.setHeaders();
         this.headersToString();
@@ -129,6 +128,7 @@ public class Dataset {
     private boolean isNumeric(String string) {
         try {
             Double.parseDouble(string);
+
             return true;
         } catch (NumberFormatException e) {
             return false;
@@ -153,7 +153,7 @@ public class Dataset {
         if (string > 0) {
             return "T";
         } else {
-            numFields++;
+            this.numFields++;
             return "N";
         }
     }

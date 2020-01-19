@@ -68,9 +68,14 @@ public class Controller {
     private void setDataset() throws Exception {
         dataset = new Dataset(csvFile);
         populateCbAtributoX(dataset.getAtributos());
-        if(dataset.getNumFields() > 0)
-        populateCbAtributoY(dataset.getAtributos());
-
+        if(dataset.getNumFields() > 0) {
+            populateCbAtributoY(dataset.getAtributos());
+            cbAtributoY.setVisible(true);
+            rbReduceSum.setVisible(true);
+        }else{
+            cbAtributoY.setVisible(false);
+            rbReduceSum.setVisible(false);
+        }
         populateCbTipoGrafico();
 
     }
@@ -120,8 +125,10 @@ public class Controller {
             lvGraficos.getItems().setAll(graficos);
             cbAtributoX.getSelectionModel().clearSelection();
             cbAtributoY.getSelectionModel().clearSelection();
+            btnEndDashboard.setDisable(false);
         } catch (Exception e) {
             System.out.println("AddGrafico:" + e.toString());
+            new Alert(Alert.AlertType.INFORMATION, "Você não selecionou os dados para inserir o gráfico!"+e.toString()).showAndWait();
         }
     }
 
@@ -132,6 +139,7 @@ public class Controller {
             setaPackSaida();
         } catch (Exception e) {
             System.out.println("SetaGerador:" + e.toString());
+            new Alert(Alert.AlertType.INFORMATION, "Não foi possível gerar o Dashboard. Verifique as opções escolhidas!").showAndWait();
         } finally {
             new Alert(Alert.AlertType.INFORMATION, "Dashboard gerado com sucesso!").showAndWait();
             resetForm();
@@ -163,6 +171,7 @@ public class Controller {
         lvGraficos.getItems().clear();
         tfTituloGrafico.clear();
         tfTituloDashboard.clear();
+        btnEndDashboard.setDisable(true);
         lblPathCsv.setText("");
         lblPathDest.setText("");
 
@@ -171,6 +180,7 @@ public class Controller {
     //Método limpa os gráficos da lista caso o usuário tenha se equivocado
     public void clearGraficosClick(ActionEvent actionEvent) {
         lvGraficos.getItems().clear();
+        btnEndDashboard.setDisable(true);
         graficos.clear();
     }
 

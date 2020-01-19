@@ -46,18 +46,22 @@
         <#list graficos as grafico>
         <#if grafico.tipo == "dc.barChart">
             var grafico${grafico_index+1}Dim = ndx.dimension(d => d.${grafico.atributoX});
-            var grafico${grafico_index+1}minX = grafico${grafico_index+1}Dim.bottom(1)[0]["${grafico.atributoX}"];
-            var grafico${grafico_index+1}maxX = grafico${grafico_index+1}Dim.top(1)[0]["${grafico.atributoX}"];
+
+
         <#else>
-                        var grafico${grafico_index+1}Dim = ndx.dimension(d => d.${grafico.atributoX});
+            var grafico${grafico_index+1}Dim = ndx.dimension(d => d.${grafico.atributoX});
         </#if>
         </#list>
         //Agrupadores
         <#list graficos as grafico>
         <#if grafico.grouping == 1>
-            var grafico${grafico_index+1}Group = grafico${grafico_index+1}Dim.group().reduceSum(d => d.${grafico.atributoY}); //TODO: Capturar grouping type do objeto Grafico
+            var grafico${grafico_index+1}Group = grafico${grafico_index+1}Dim.group().reduceSum(d => d.${grafico.atributoY});
+            var grafico${grafico_index+1}minX = grafico${grafico_index+1}Dim.bottom(1)[0]["${grafico.atributoY}"];
+            var grafico${grafico_index+1}maxX = grafico${grafico_index+1}Group.top(1).value;
         <#else>
-        var grafico${grafico_index+1}Group = grafico${grafico_index+1}Dim.group();
+            var grafico${grafico_index+1}Group = grafico${grafico_index+1}Dim.group();
+            var grafico${grafico_index+1}minX = grafico${grafico_index+1}Dim.bottom(1)[0]["${grafico.atributoX}"];
+            var grafico${grafico_index+1}maxX = grafico${grafico_index+1}Dim.top(1)[0]["${grafico.atributoX}"];
         </#if>
         </#list>
         <#list graficos as grafico>
@@ -68,7 +72,7 @@
             .dimension(grafico${grafico_index+1}Dim)
             .group(grafico${grafico_index+1}Group)
             <#if grafico.tipo == "dc.barChart">
-            .x(d3.scale.linear().domain([grafico${grafico_index+1}minX, grafico${grafico_index+1}Group.top(1).value])
+                .x(d3.scale.linear().domain([grafico${grafico_index+1}minX, grafico${grafico_index+1}maxX]))
             </#if>
             <#if grafico.tipo == "dc.rowChart">
                 .elasticX(true)
