@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="pt-br">
 <head>
-    <title>teste</title>
+    <title>Este é um novo teste de Dashboard</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -17,13 +17,34 @@
 <div class="container">
     <div class="row dashgen-header" >
     <img src="img/ifpa_navlogo.png" width="120px" height="120px" alt="Logo IFPA"/>
-    <h1>teste</h1>
+    <h1>Este é um novo teste de Dashboard</h1>
     </div>
     <div class="row">
             <div id="grafico1" class='col-xs-12 col-md-12 col-lg-4'>
-                <strong>sexo x idade</strong>
+                <strong>Sexo</strong>
                 <span class="reset" style="display: none;">Selected: <span class="filter"></span></span>
                 <a class="reset" href="javascript:grafico1.filterAll();dc.redrawAll();"
+                   style="display: none;">reset</a>
+                <div class="clearfix"></div>
+            </div>
+            <div id="grafico2" class='col-xs-12 col-md-12 col-lg-4'>
+                <strong>Idade</strong>
+                <span class="reset" style="display: none;">Selected: <span class="filter"></span></span>
+                <a class="reset" href="javascript:grafico2.filterAll();dc.redrawAll();"
+                   style="display: none;">reset</a>
+                <div class="clearfix"></div>
+            </div>
+            <div id="grafico3" class='col-xs-12 col-md-12 col-lg-4'>
+                <strong>Religiao</strong>
+                <span class="reset" style="display: none;">Selected: <span class="filter"></span></span>
+                <a class="reset" href="javascript:grafico3.filterAll();dc.redrawAll();"
+                   style="display: none;">reset</a>
+                <div class="clearfix"></div>
+            </div>
+            <div id="grafico4" class='col-xs-12 col-md-12 col-lg-4'>
+                <strong>Religiao X Salario</strong>
+                <span class="reset" style="display: none;">Selected: <span class="filter"></span></span>
+                <a class="reset" href="javascript:grafico4.filterAll();dc.redrawAll();"
                    style="display: none;">reset</a>
                 <div class="clearfix"></div>
             </div>
@@ -34,20 +55,54 @@
 <script src="js/jquery-3.4.1.min.js"></script>
 <!-- Aqui começa a  geração do gráfico -->
 <script>
-    var grafico1 = dc.pieChart("#grafico1");
+    var grafico1 = dc.rowChart("#grafico1");
+    var grafico2 = dc.lineChart("#grafico2");
+    var grafico3 = dc.pieChart("#grafico3");
+    var grafico4 = dc.rowChart("#grafico4");
     var url = "data/teste_salario.csv";
     d3.csv(url, function (err, data) {
         if (err) throw err;
         var ndx = crossfilter(data);
             var grafico1Dim = ndx.dimension(d => d.SEXO);
+            var grafico2Dim = ndx.dimension(d => d.IDADE);
+
+
+            var grafico3Dim = ndx.dimension(d => d.RELIGIAO);
+            var grafico4Dim = ndx.dimension(d => d.RELIGIAO);
         //Agrupadores
-            var grafico1Group = grafico1Dim.group().reduceSum(d => d.IDADE);
-            var grafico1minX = grafico1Dim.bottom(1)[0]["IDADE"];
-            var grafico1maxX = grafico1Group.top(1).value;
+            var grafico1Group = grafico1Dim.group();
+            var grafico1minX = grafico1Dim.bottom(1)[0]["SEXO"];
+            var grafico1maxX = grafico1Dim.top(1)[0]["SEXO"];
+            var grafico2Group = grafico2Dim.group();
+            var grafico2minX = grafico2Dim.bottom(1)[0]["IDADE"];
+            var grafico2maxX = grafico2Dim.top(1)[0]["IDADE"];
+            var grafico3Group = grafico3Dim.group();
+            var grafico3minX = grafico3Dim.bottom(1)[0]["RELIGIAO"];
+            var grafico3maxX = grafico3Dim.top(1)[0]["RELIGIAO"];
+            var grafico4Group = grafico4Dim.group().reduceSum(d => d.SALARIO);
+            var grafico4minX = grafico4Dim.bottom(1)[0]["SALARIO"];
+            var grafico4maxX = grafico4Group.top(1).value;
         grafico1
             .cap(4)
             .dimension(grafico1Dim)
             .group(grafico1Group)
+                .elasticX(true)
+            ;
+        grafico2
+            .dimension(grafico2Dim)
+            .group(grafico2Group)
+                .x(d3.scale.linear().domain([grafico2minX, grafico2maxX]))
+            ;
+        grafico3
+            .cap(4)
+            .dimension(grafico3Dim)
+            .group(grafico3Group)
+            ;
+        grafico4
+            .cap(4)
+            .dimension(grafico4Dim)
+            .group(grafico4Group)
+                .elasticX(true)
             ;
         dc.renderAll();
     });

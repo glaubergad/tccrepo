@@ -43,7 +43,10 @@ public class Controller {
     public TextField tfTituloDashboard;
     public ListView lvGraficos;
 
-
+    /*
+    /Método que abre uma caixa de seleção de Pasta de Destino para o Dashboard gerado. É necessário que o usuário tenha
+    /permissão de escrita na pasta.
+    */
     public void selectCSV(ActionEvent actionEvent) {
         try {
             resetForm();
@@ -56,6 +59,10 @@ public class Controller {
         }
     }
 
+    /*
+    /Método que abre uma caixa de seleção de Pasta de Destino para o Dashboard gerado. É necessário que o usuário tenha
+    /permissão de escrita na pasta.
+    */
     public void selectDest(ActionEvent actionEvent) {
         try {
             destFolder = Main.selectDestFolder();
@@ -65,14 +72,16 @@ public class Controller {
         }
     }
 
+    //Método instancia um objeto Dataset com o conjunto de dados contido no arquivo CSV selecionado.
     private void setDataset() throws Exception {
         dataset = new Dataset(csvFile);
         populateCbAtributoX(dataset.getAtributos());
-        if(dataset.getNumFields() > 0) {
+        if (dataset.getNumFields() > 0) {
             populateCbAtributoY(dataset.getAtributos());
+            lblSomatoria.setVisible(true);
             cbAtributoY.setVisible(true);
             rbReduceSum.setVisible(true);
-        }else{
+        } else {
             cbAtributoY.setVisible(false);
             rbReduceSum.setVisible(false);
         }
@@ -80,13 +89,15 @@ public class Controller {
 
     }
 
+    //Método povoa a combobox do atributo principal da dimensão para o gráfico
     private void populateCbAtributoX(List<Atributo> atributos) {
         cbAtributoX.getItems().clear();
         for (Atributo atributo : atributos)
             cbAtributoX.getItems().add(atributo.getNome());
-            rbReduceSum.setVisible(false);
+        rbReduceSum.setVisible(false);
     }
 
+    //Método povoa a combobox do atibuto de somatória somente com atributos identificados como numéricos.
     private void populateCbAtributoY(List<Atributo> atributos) {
         cbAtributoY.getItems().clear();
         int i = 0;
@@ -97,41 +108,39 @@ public class Controller {
         }
     }
 
+    //Método preenche as opções da Combobox Tipo de Gráfico
     private void populateCbTipoGrafico() {
-        tipoGrafico.add(Grafico.TIPO_BARRAS);
-        tipoGrafico.add(Grafico.TIPO_BARRASV);
-        tipoGrafico.add(Grafico.TIPO_PIZZA);
-        //tipoGrafico.add(Grafico.TIPO_TABELA);
         cbTipoGrafico.getItems().clear();
-        cbTipoGrafico.getItems().setAll(tipoGrafico);
+        cbTipoGrafico.getItems().setAll(Grafico.getTipoGraficos());
     }
 
-
+    //Método adiciona novo gráfico à listagem exibida na tela.
     public void addGrafico(ActionEvent actionEvent) {
         try {
             String atributoX = cbAtributoX.getSelectionModel().getSelectedItem().toString();
             String atributoY;
-            if(Main.grouping == 1) {
+            if (this.grouping == 1) {
                 atributoY = cbAtributoY.getSelectionModel().getSelectedItem().toString();
-            }else{
+            } else {
                 atributoY = cbAtributoX.getSelectionModel().getSelectedItem().toString();
             }
             String tipoGraf = cbTipoGrafico.getSelectionModel().getSelectedItem().toString();
             String titGraf = tfTituloGrafico.getText();
             System.out.println("Grafico:" + titGraf + " Tipo:" + tipoGraf
                     + " Dimensão:" + atributoX + " Somatoria:" + atributoY
-                    + " agrupamento:" + Main.grouping);
-            graficos.add(new Grafico(atributoX, atributoY, titGraf, tipoGraf, Main.grouping));
+                    + " agrupamento:" + this.grouping);
+            graficos.add(new Grafico(atributoX, atributoY, titGraf, tipoGraf, this.grouping));
             lvGraficos.getItems().setAll(graficos);
             cbAtributoX.getSelectionModel().clearSelection();
             cbAtributoY.getSelectionModel().clearSelection();
             btnEndDashboard.setDisable(false);
         } catch (Exception e) {
             System.out.println("AddGrafico:" + e.toString());
-            new Alert(Alert.AlertType.INFORMATION, "Você não selecionou os dados para inserir o gráfico!"+e.toString()).showAndWait();
+            new Alert(Alert.AlertType.INFORMATION, "Você não selecionou os dados para inserir o gráfico!" + e.toString()).showAndWait();
         }
     }
 
+    //Método finaliza a geração do Dashboard, executando o motor de templates FreeMarker, copiando os arquivos para a pasta de destino e gerando o zip de saida.
     public void endDashboard(ActionEvent actionEvent) {
         setaDashboard();
         try {
@@ -148,15 +157,18 @@ public class Controller {
 
     }
 
+    //Método instancia objeto Dashboard juntando todas as informações definidas pelo usuário na UI
     private void setaDashboard() {
         tituloDashboard = tfTituloDashboard.getText();
         dashboard = new Dashboard(dataset, tituloDashboard, graficos);
     }
 
+    //Método instancia a classe gerador, que processa o template FreeMarker e gera em disco o arquivo Dashboard.html.
     private void setaGerador() throws IOException, TemplateException {
         new Gerador(dashboard);
     }
 
+    //Método instancia novo pack  de saída para gerar em disco o Dashboard completo.
     private void setaPackSaida() throws IOException {
         new PackSaida(destFolder, csvFile);
     }
@@ -172,6 +184,9 @@ public class Controller {
         tfTituloGrafico.clear();
         tfTituloDashboard.clear();
         btnEndDashboard.setDisable(true);
+        lblSomatoria.setVisible(false);
+        cbAtributoY.setVisible(false);
+        rbReduceSum.setVisible(false);
         lblPathCsv.setText("");
         lblPathDest.setText("");
 
@@ -184,18 +199,18 @@ public class Controller {
         graficos.clear();
     }
 
-
+    //Método para identificar qual método de agrupamento o usuário  selecionou
     public void rbSelected() {
         if (rbContagem.isSelected()) {
-            Main.grouping = Integer.parseInt(rbContagem.getUserData().toString());
+            this.grouping = Integer.parseInt(rbContagem.getUserData().toString());
             cbAtributoY.setVisible(false);
             lblSomatoria.setVisible(true);
             cbAtributoX.getSelectionModel().select(0);
         } else {
-            Main.grouping = Integer.parseInt(rbReduceSum.getUserData().toString());
+            this.grouping = Integer.parseInt(rbReduceSum.getUserData().toString());
             lblSomatoria.setVisible(true);
             cbAtributoY.setVisible(true);
         }
-        System.out.println("Agrupamento tipo:" + Main.grouping);
+        System.out.println("Agrupamento tipo:" + this.grouping);
     }
 }

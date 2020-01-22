@@ -44,7 +44,7 @@
         if (err) throw err;
         var ndx = crossfilter(data);
         <#list graficos as grafico>
-        <#if grafico.tipo == "dc.barChart">
+        <#if grafico.tipo == "dc.lineChart">
             var grafico${grafico_index+1}Dim = ndx.dimension(d => d.${grafico.atributoX});
 
 
@@ -66,12 +66,12 @@
         </#list>
         <#list graficos as grafico>
         grafico${grafico_index+1}
-            <#if grafico.tipo != "dc.barChart">
+            <#if grafico.tipo != "dc.lineChart">
             .cap(4)
             </#if>
             .dimension(grafico${grafico_index+1}Dim)
             .group(grafico${grafico_index+1}Group)
-            <#if grafico.tipo == "dc.barChart">
+            <#if grafico.tipo == "dc.lineChart">
                 .x(d3.scale.linear().domain([grafico${grafico_index+1}minX, grafico${grafico_index+1}maxX]))
             </#if>
             <#if grafico.tipo == "dc.rowChart">

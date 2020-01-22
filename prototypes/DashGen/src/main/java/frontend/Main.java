@@ -15,7 +15,6 @@ import java.io.IOException;
 public class Main extends Application {
     private static Stage pStage;
     private static final File HOME = new File(Main.class.getProtectionDomain().getCodeSource().getLocation().getPath());
-    public static int grouping = 0;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
