@@ -2,17 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/../../mono/cronograma tcc Glauber Gadelha - 2015790028  - 2019-02.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../mono/cronograma tcc Glauber Gadelha - 2015790028  - 2019-02.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dashboard/Grafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dashboard/Grafico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dashboard/templates/dashboard.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dashboard/templates/dashboard.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/frontend/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frontend/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/frontend/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frontend/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/dashboard/Grafico.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dashboard/Grafico.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/dashboard/boilerplate/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dashboard/boilerplate/dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dashboard/templates/dashboard.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dashboard/templates/dashboard.ftl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/frontend/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/frontend/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/frontend/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/frontend/Main.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,22 +104,22 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\tccrepo\prototypes\DashGen\target\classes\frontend" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\tccrepo\prototypes\DashGen\target\classes\frontend" />
       <recent name="C:\tccrepo\prototypes\DashGen\target\classes\dashboard" />
       <recent name="C:\tccrepo\prototypes\DashGen\target\classes\dashboard\templates" />
       <recent name="C:\tccrepo\prototypes\DashGen\src\main\java\frontend" />
       <recent name="C:\tccrepo\prototypes\DashGen\src\main\java\dashboard\templates" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\tccrepo\prototypes\DashGen\target\classes\frontend" />
     </key>
   </component>
   <component name="RunManager">
@@ -239,6 +232,7 @@
       <workItem from="1579712042342" duration="3666000" />
       <workItem from="1579718042886" duration="1353000" />
       <workItem from="1579720040031" duration="2791000" />
+      <workItem from="1579748056662" duration="94000" />
     </task>
     <servers />
   </component>
@@ -267,25 +261,25 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="120" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1579715134950" />
-    <state width="1323" height="64" key="GridCell.Tab.0.bottom" timestamp="1579722854226">
+    <state width="1323" height="156" key="GridCell.Tab.0.bottom" timestamp="1579748150432">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="64" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1579722854226" />
+    <state width="1323" height="156" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1579748150432" />
     <state width="1877" height="378" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1578431018731" />
-    <state width="1323" height="64" key="GridCell.Tab.0.center" timestamp="1579722854226">
+    <state width="1323" height="156" key="GridCell.Tab.0.center" timestamp="1579748150432">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="64" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1579722854226" />
+    <state width="1323" height="156" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1579748150432" />
     <state width="1877" height="378" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1578431018731" />
-    <state width="1323" height="64" key="GridCell.Tab.0.left" timestamp="1579722854226">
+    <state width="1323" height="156" key="GridCell.Tab.0.left" timestamp="1579748150432">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="64" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1579722854226" />
+    <state width="1323" height="156" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1579748150432" />
     <state width="1877" height="378" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1578431018731" />
-    <state width="1323" height="64" key="GridCell.Tab.0.right" timestamp="1579722854226">
+    <state width="1323" height="156" key="GridCell.Tab.0.right" timestamp="1579748150432">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="64" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1579722854226" />
+    <state width="1323" height="156" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1579748150432" />
     <state width="1877" height="378" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1578431018731" />
     <state width="1323" height="223" key="GridCell.Tab.1.bottom" timestamp="1579460718777">
       <screen x="0" y="0" width="1366" height="728" />
@@ -303,10 +297,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="223" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1579460718777" />
-    <state x="163" y="0" key="SettingsEditor" timestamp="1579715187747">
+    <state x="163" y="0" key="SettingsEditor" timestamp="1579748079789">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="163" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1579715187747" />
+    <state x="163" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1579748079789" />
     <state x="384" y="189" key="com.intellij.ide.util.TipDialog" timestamp="1579720340443">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
