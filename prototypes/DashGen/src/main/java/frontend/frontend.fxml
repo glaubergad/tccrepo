@@ -39,7 +39,7 @@
          <toggleGroup>
             <ToggleGroup fx:id="rbGroup" />
          </toggleGroup></RadioButton>
-      <RadioButton fx:id="rbReduceSum" layoutX="245.0" layoutY="462.0" mnemonicParsing="false" onAction="#rbSelected" text="Redução Somatória" toggleGroup="$rbGroup" userData="1" />
-      <Label layoutX="271.0" layoutY="407.0" text="Agrupamento" />
+      <RadioButton fx:id="rbReduceSum" layoutX="245.0" layoutY="462.0" mnemonicParsing="false" onAction="#rbSelected" text="Somatória" toggleGroup="$rbGroup" userData="1" />
+      <Label layoutX="271.0" layoutY="407.0" text="Redução" />
     </children>
 </AnchorPane>
