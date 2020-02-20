@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="DashGen.jnlp">
+  <information>
+    <title>DashGen</title>
+    <vendor>br.net.gadelha</vendor>
+    <description>1</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="DashGen.jar" size="572430" download="eager" />
+    <jar href="commons-csv-1.7.jar" size="45065" download="eager" />
+    <jar href="commons-io-2.6.jar" size="214788" download="eager" />
+    <jar href="freemarker-2.3.28.jar" size="1524587" download="eager" />
+    <jar href="logback-core-1.2.3.jar" size="471901" download="eager" />
+    <jar href="slf4j-api-1.7.26.jar" size="41139" download="eager" />
+    <jar href="slf4j-nop-1.7.26.jar" size="4010" download="eager" />
+    <jar href="zt-zip-1.13.jar" size="110605" download="eager" />
+  </resources>
+  <jfx:javafx-desc  width="600" height="400" main-class="frontend.Main"  name="DashGen" />
+  <update check="background"/>
+</jnlp>

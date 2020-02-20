@@ -2,13 +2,8 @@ package frontend;
 
 import dashboard.*;
 import freemarker.template.TemplateException;
-import javafx.beans.value.ChangeListener;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.Group.*;
-import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleGroup;
 
 import java.io.File;
@@ -50,7 +45,7 @@ public class Controller {
     public void selectCSV(ActionEvent actionEvent) {
         try {
             resetForm();
-            csvFile = Main.selectCSV();
+            csvFile = DashGen.selectCSV();
             lblPathCsv.setText(csvFile.getAbsolutePath());
             tituloDashboard = tfTituloDashboard.getText();
             setDataset();
@@ -65,7 +60,7 @@ public class Controller {
     */
     public void selectDest(ActionEvent actionEvent) {
         try {
-            destFolder = Main.selectDestFolder();
+            destFolder = DashGen.selectDestFolder();
             lblPathDest.setText(destFolder.getAbsolutePath());
         } catch (Exception e) {
             System.out.println(e.toString());
