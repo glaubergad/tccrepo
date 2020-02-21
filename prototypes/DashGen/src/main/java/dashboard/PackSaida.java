@@ -17,12 +17,12 @@ import org.zeroturnaround.zip.ZipUtil;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 
 public class PackSaida {
     private final String sep = File.separator;
-    private final File boilerplateDir = new File(PackSaida.class.getProtectionDomain().getCodeSource().getLocation().getPath() + sep + "dashboard" + sep + "boilerplate");
+    private final File boilerplateDir = new File( "boilerplate");
     private File destDir, csvFile;
-    private static final String FILE_NAME = "dashgen.zip";
 
     //Método construtor recebe o diretorio de destino e o arquivo CSV para composição do pacote de saída Dashgen
     public PackSaida(File destDir, File csvFile) throws IOException {
@@ -43,6 +43,7 @@ public class PackSaida {
     }
 
     private void processarZip() {
+        String FILE_NAME = "dashgen.zip";
         ZipUtil.pack(this.destDir, new File(this.destDir.getAbsolutePath() + sep + FILE_NAME));
     }
 }

@@ -21,6 +21,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
@@ -29,14 +30,16 @@ public class Gerador {
 
     private Dashboard dashboard;
     private static final String sep = File.separator;
-    private static final File HOME = new File(Gerador.class.getProtectionDomain().getCodeSource().getLocation().getPath()+ sep +"dashboard");
+    private final File HOME = new File("templates");
+    private File destDir;
     private Template template;
     private final Configuration cfg = new Configuration(new Version("2.3.28"));
     private final Map<String,Object> input = new HashMap<>();
 
     //Método construtor deve receber como parâmetro um objeto Dashboard
-    public Gerador(Dashboard dashboard) throws IOException, TemplateException {
+    public Gerador(Dashboard dashboard, File destDir) throws IOException, TemplateException {
         this.dashboard = dashboard;
+        this.destDir = destDir;
 
        /*
         *Com o objeto Dashboard carregado, a classe Gerador prepara um HashMap com objetos que vão preencher as
@@ -59,7 +62,7 @@ public class Gerador {
 
     //Configurador dos dados necessários para processamento do template
     private void configurar() throws IOException {
-        cfg.setDirectoryForTemplateLoading(new File(HOME + sep + "templates"));
+        cfg.setDirectoryForTemplateLoading(HOME);
         cfg.setIncompatibleImprovements(new Version(2, 3, 28));
         cfg.setDefaultEncoding("UTF-8");
         cfg.setLocale(Locale.US);
@@ -81,7 +84,7 @@ public class Gerador {
     //Executa o processamento do template e a geração do arquivo final, gravando no caminho especificado sob o nome
     // dashboard.html
     private void processar() throws IOException, TemplateException {
-        Writer fileWriter = new FileWriter(new File(HOME+sep+"boilerplate"+sep+"dashboard.html"));
+        Writer fileWriter = new FileWriter(new File(destDir.getAbsolutePath()  +sep+"dashboard.html"));
         template.process(input, fileWriter);
         fileWriter.close();
     }

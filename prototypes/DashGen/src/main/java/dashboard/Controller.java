@@ -1,6 +1,5 @@
-package frontend;
+package dashboard;
 
-import dashboard.*;
 import freemarker.template.TemplateException;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
@@ -160,7 +159,7 @@ public class Controller {
 
     //Método instancia a classe gerador, que processa o template FreeMarker e gera em disco o arquivo Dashboard.html.
     private void setaGerador() throws IOException, TemplateException {
-        new Gerador(dashboard);
+        new Gerador(dashboard,destFolder);
     }
 
     //Método instancia novo pack  de saída para gerar em disco o Dashboard completo.

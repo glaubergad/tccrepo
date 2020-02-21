@@ -1,4 +1,4 @@
-package frontend;
+package dashboard;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -14,13 +14,13 @@ import java.io.IOException;
 
 public class DashGen extends Application {
     private static Stage pStage;
-    private static final File HOME = new File(DashGen.class.getProtectionDomain().getCodeSource().getLocation().getPath());
+
 
     @Override
     public void start(Stage primaryStage) throws Exception {
         pStage = primaryStage;
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/frontend/frontend.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/dashboard/frontend.fxml"));
             pStage.setTitle("Gerador de Dashboards");
             pStage.setScene(new Scene(root, 700, 600));
             pStage.show();
