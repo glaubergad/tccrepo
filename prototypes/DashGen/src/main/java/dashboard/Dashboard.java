@@ -1,13 +1,13 @@
 package dashboard;
 /*
-*   Dashboard.java
-*   Classe integrante do Pacote DashGen
-*   Responsável por agregar em um objeto o Dataset, a Lista de Gráficos e o Título do Dashboard
-*   TCC - Gerador de Dashboards
-*   IFPA - Campus Belém - 2019
-*   Aluno: Glauber Matteis Gadelha
-*   Orientador: Prof. Me. Claudio Roberto de Lima Martins
-*/
+ *   Dashboard.java
+ *   Classe integrante do Pacote DashGen
+ *   Responsável por agregar em um objeto o Dataset, a Lista de Gráficos e o Título do Dashboard
+ *   TCC - Gerador de Dashboards
+ *   IFPA - Campus Belém - 2019
+ *   Aluno: Glauber Matteis Gadelha
+ *   Orientador: Prof. Me. Claudio Roberto de Lima Martins
+ */
 
 
 import java.util.ArrayList;
@@ -22,10 +22,10 @@ public class Dashboard {
 
 
     /*
-    *   Sobrecarga de método construtor, podendo um objeto ser instanciado sem nenhum parâmetro,
-    *   Recebendo somente o Dataset e o Título ou
-    *   Recebendo Além do Dataset e do Título, a lista de Gráficos*
-    */
+     *   Sobrecarga de método construtor, podendo um objeto ser instanciado sem nenhum parâmetro,
+     *   Recebendo somente o Dataset e o Título ou
+     *   Recebendo Além do Dataset e do Título, a lista de Gráficos*
+     */
 
 
     public Dashboard() {

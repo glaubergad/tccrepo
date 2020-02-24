@@ -80,7 +80,6 @@ public class Controller {
             rbReduceSum.setVisible(false);
         }
         populateCbTipoGrafico();
-
     }
 
     //Método povoa a combobox do atributo principal da dimensão para o gráfico
