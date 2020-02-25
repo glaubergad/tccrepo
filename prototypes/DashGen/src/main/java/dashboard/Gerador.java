@@ -21,7 +21,6 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
-import java.net.URL;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
@@ -40,23 +39,8 @@ public class Gerador {
     public Gerador(Dashboard dashboard, File destDir) throws IOException, TemplateException {
         this.dashboard = dashboard;
         this.destDir = destDir;
-
-       /*
-        *Com o objeto Dashboard carregado, a classe Gerador prepara um HashMap com objetos que vão preencher as
-        * marcações do arquivo de template
-        */
         carregaInput();
-
-        /*
-         * o método configurar passa todos os dados necessários para o motor de processamento, como o caminho dos
-         * arquivos, o nome do arquivo de template, a codificação UTF-8 entre outos
-         */
         configurar();
-
-        /*
-         * O método processar executa o processamento do template, no final gravando no caminho determinado um arquivo
-         * final com os dados preenchendo as marcações atendendo as regras de negócio especificadas no modelo.
-         */
         processar();
     }
 

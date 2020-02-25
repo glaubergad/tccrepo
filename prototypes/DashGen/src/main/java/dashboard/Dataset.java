@@ -125,7 +125,9 @@ public class Dataset {
         }
     }
 
-    private boolean isNumeric(String string) {
+
+    //Método para teste se uma String contém um valor numérico
+      private boolean isNumeric(String string) {
         try {
             Double.parseDouble(string);
 
@@ -135,7 +137,7 @@ public class Dataset {
         }
     }
 
-
+    //método que testa as 100 primeiras linhas do CSV a procura de valores numéricos
     private String columnDiscoverType(String col) {
         int numeric = 0, string = 0;
         //Necessário resetar o Record para ler novamente as linhas do CSV a partir do inicio
