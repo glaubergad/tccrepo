@@ -6,3 +6,10 @@
 .nav-offset{
     margin-top: 100px;
 }
+
+.dashgen-footer{
+    margin-top:20px;
+    background-color: #226b52;
+    color: #ffffff;
+    height: 50px;
+}
