@@ -48,7 +48,6 @@ public class Dataset {
         this.setRecord();
         this.recordsToString();
         this.setAtributos();
-        System.out.println(this.atributosToString());
     }
 
 

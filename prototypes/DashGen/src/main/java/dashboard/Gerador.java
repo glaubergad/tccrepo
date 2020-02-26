@@ -55,11 +55,8 @@ public class Gerador {
 
     //Método responsável por criar um HashMap com todos os dados e objetos a serem preenchidos sobre o template
     private void carregaInput(){
-        System.out.println("arquivo:" + dashboard.getDataset().getArquivo());
         input.put("arquivo", dashboard.getDataset().getArquivo());
-        System.out.println("Titulo:" + dashboard.getNomeDashboard());
         input.put("titulo", dashboard.getNomeDashboard());
-        System.out.println("Graficos:" + dashboard.getListaGraficos().size());
         input.put("graficos", dashboard.getListaGraficos());
     }
 

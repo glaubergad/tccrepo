@@ -76,6 +76,7 @@ public class Controller {
             cbAtributoY.setVisible(true);
             rbReduceSum.setVisible(true);
         } else {
+            lblSomatoria.setVisible(false);
             cbAtributoY.setVisible(false);
             rbReduceSum.setVisible(false);
         }
@@ -119,9 +120,6 @@ public class Controller {
             }
             String tipoGraf = cbTipoGrafico.getSelectionModel().getSelectedItem().toString();
             String titGraf = tfTituloGrafico.getText();
-            System.out.println("Grafico:" + titGraf + " Tipo:" + tipoGraf
-                    + " Dimensão:" + atributoX + " Somatoria:" + atributoY
-                    + " agrupamento:" + this.grouping);
             graficos.add(new Grafico(atributoX, atributoY, titGraf, tipoGraf, this.grouping));
             lvGraficos.getItems().setAll(graficos);
             cbAtributoX.getSelectionModel().clearSelection();
@@ -129,7 +127,7 @@ public class Controller {
             btnEndDashboard.setDisable(false);
         } catch (Exception e) {
             System.out.println("AddGrafico:" + e.toString());
-            new Alert(Alert.AlertType.INFORMATION, "Você não selecionou os dados para inserir o gráfico!" + e.toString()).showAndWait();
+            new Alert(Alert.AlertType.INFORMATION, "Você não selecionou os dados para inserir o gráfico!").showAndWait();
         }
     }
 
@@ -204,6 +202,5 @@ public class Controller {
             lblSomatoria.setVisible(true);
             cbAtributoY.setVisible(true);
         }
-        System.out.println("Agrupamento tipo:" + this.grouping);
     }
 }
