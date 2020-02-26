@@ -17,10 +17,7 @@ package dashboard;
  */
 import freemarker.template.*;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.Writer;
+import java.io.*;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
@@ -49,7 +46,7 @@ public class Gerador {
         cfg.setDirectoryForTemplateLoading(HOME);
         cfg.setIncompatibleImprovements(new Version(2, 3, 28));
         cfg.setDefaultEncoding("UTF-8");
-        cfg.setLocale(Locale.US);
+        cfg.setLocale(new Locale("pt","BR"));
         cfg.setTemplateExceptionHandler(TemplateExceptionHandler.RETHROW_HANDLER);
         this.template = cfg.getTemplate("dashboard.ftl");
     }
@@ -68,7 +65,7 @@ public class Gerador {
     //Executa o processamento do template e a geração do arquivo final, gravando no caminho especificado sob o nome
     // dashboard.html
     private void processar() throws IOException, TemplateException {
-        Writer fileWriter = new FileWriter(new File(destDir.getAbsolutePath()  +sep+"dashboard.html"));
+        BufferedWriter fileWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File(destDir.getAbsolutePath()  +sep+"dashboard.html")),"UTF-8"));
         template.process(input, fileWriter);
         fileWriter.close();
     }

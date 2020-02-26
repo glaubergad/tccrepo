@@ -23,9 +23,9 @@
         <#list graficos as grafico>
             <div id="grafico${grafico_index +1}" class='col-xs-12 col-md-12 col-lg-4'>
                 <strong>${grafico.nome}</strong>
-                <span class="reset" style="display: none;">Selected: <span class="filter"></span></span>
+                <span class="reset" style="display: none;">Selecionado: <span class="filter"></span></span>
                 <a class="reset" href="javascript:grafico${grafico_index +1}.filterAll();dc.redrawAll();"
-                   style="display: none;">reset</a>
+                   style="display: none;">Limpar</a>
                 <div class="clearfix"></div>
             </div>
         </#list>
