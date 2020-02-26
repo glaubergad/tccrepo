@@ -8,6 +8,7 @@ package dashboard;
  *   IFPA - Campus Belém - 2019
  *   Aluno: Glauber Matteis Gadelha
  *   Orientador: Prof. Me. Claudio Roberto de Lima Martins
+ *	 Última refatoração 2020-02-26
  */
 
 /*
