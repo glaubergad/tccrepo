@@ -37,11 +37,12 @@ public class PackSaida {
         processarZip();
     }
 
+    //Usa FileUtils para facilitar o processo de cópia recursiva do diretório e subdiretórios
     private void processarCopia() throws IOException {
         FileUtils.copyFile(this.csvFile, new File(this.destDir.getAbsolutePath() + sep + "data" + sep + csvFile.getName()));
         FileUtils.copyDirectory(this.boilerplateDir, this.destDir);
     }
-
+    //processa a compactação dos arquivos contidos no diretório de origem da aplicação em um arquivo ZIP no diretório de destino
     private void processarZip() {
         String FILE_NAME = "dashgen.zip";
         ZipUtil.pack(this.destDir, new File(this.destDir.getAbsolutePath() + sep + FILE_NAME));
