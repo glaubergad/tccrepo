@@ -1,56 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/10.0.2-internal"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="dashboard.Controller">
+<AnchorPane prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dashboard.Controller">
     <children>
         <Label layoutX="255.0" layoutY="14.0" text="IFPA DashGen" textFill="#005e0d">
             <font>
-                <Font name="System Bold" size="21.0"/>
+                <Font name="System Bold" size="21.0" />
             </font>
         </Label>
-        <Label id="lblPathCsv" fx:id="lblPathCsv" layoutX="17.0" layoutY="64.0" text="Local..."/>
-        <Button fx:id="btnSelectCsv" layoutX="17.0" layoutY="89.0" mnemonicParsing="false" onAction="#selectCSV"
-                prefHeight="25.0" prefWidth="115.0" text="Arquivo CSV"/>
-        <Label fx:id="lblPathDest" layoutX="17.0" layoutY="122.0" text="Local..."/>
-        <Button fx:id="btnSelectDest" layoutX="17.0" layoutY="146.0" mnemonicParsing="false" onAction="#selectDest"
-                text="Selecionar Destino"/>
-        <Label layoutX="17.0" layoutY="188.0" text="Titulo do Dashboard"/>
-        <TextField fx:id="tfTituloDashboard" layoutX="18.0" layoutY="214.0" prefHeight="25.0" prefWidth="465.0"/>
+        <Label id="lblPathCsv" fx:id="lblPathCsv" layoutX="17.0" layoutY="64.0" text="Local..." />
+        <Button fx:id="btnSelectCsv" layoutX="17.0" layoutY="89.0" mnemonicParsing="false" onAction="#selectCSV" prefHeight="25.0" prefWidth="115.0" text="Arquivo CSV" />
+        <Label fx:id="lblPathDest" layoutX="17.0" layoutY="122.0" text="Local..." />
+        <Button fx:id="btnSelectDest" layoutX="17.0" layoutY="146.0" mnemonicParsing="false" onAction="#selectDest" text="Selecionar Destino" />
+        <Label layoutX="17.0" layoutY="188.0" text="Titulo do Dashboard" />
+        <TextField fx:id="tfTituloDashboard" layoutX="18.0" layoutY="214.0" prefHeight="25.0" prefWidth="465.0" />
         <Label layoutX="14.0" layoutY="246.0" text="Graficos ">
             <font>
-                <Font name="System Bold" size="20.0"/>
+                <Font name="System Bold" size="20.0" />
             </font>
         </Label>
-        <Label layoutX="43.0" layoutY="407.0" text="Atributo Dimensão"/>
-        <ComboBox fx:id="cbAtributoX" layoutX="14.0" layoutY="432.0" prefHeight="25.0" prefWidth="168.0"
-                  promptText="Atributo do CSV"/>
-        <Label layoutX="14.0" layoutY="337.0" text="Tipo de Gráfico"/>
-        <ComboBox fx:id="cbTipoGrafico" layoutX="14.0" layoutY="361.0" prefHeight="25.0" prefWidth="239.0"
-                  promptText="Tipo de Grafico"/>
-        <Label layoutX="14.0" layoutY="273.0" text="Titulo do Grafico"/>
-        <TextField fx:id="tfTituloGrafico" layoutX="15.0" layoutY="296.0" prefHeight="25.0" prefWidth="239.0"/>
-        <Button fx:id="btnAddGrafico" layoutX="69.0" layoutY="552.0" mnemonicParsing="false" onAction="#addGrafico"
-                text="Adicionar Gráfico"/>
-        <Label layoutX="471.0" layoutY="273.0" text="Graficos Adicionados"/>
-        <ListView fx:id="lvGraficos" layoutX="383.0" layoutY="299.0" prefHeight="200.0" prefWidth="287.0"/>
-        <Button fx:id="btnClearGraficos" layoutX="477.0" layoutY="509.0" mnemonicParsing="false"
-                onAction="#clearGraficosClick" text="Limpar Gráficos"/>
-        <Button fx:id="btnEndDashboard" layoutX="467.0" layoutY="552.0" mnemonicParsing="false" onAction="#endDashboard"
-                text="Finalizar Dashboard"/>
-        <Label fx:id="lblSomatoria" layoutX="43.0" layoutY="470.0" text="Atributo Somatória"/>
-        <ComboBox fx:id="cbAtributoY" layoutX="13.0" layoutY="495.0" prefHeight="25.0" prefWidth="168.0"
-                  promptText="Atributo do CSV"/>
-        <RadioButton fx:id="rbContagem" layoutX="245.0" layoutY="436.0" mnemonicParsing="false" onAction="#rbSelected"
-                     selected="true" text="Contagem" userData="0">
+        <Label layoutX="43.0" layoutY="407.0" text="Atributo Dimensão" />
+        <ComboBox fx:id="cbAtributoX" layoutX="14.0" layoutY="432.0" prefHeight="25.0" prefWidth="168.0" promptText="Atributo do CSV" />
+        <Label layoutX="14.0" layoutY="337.0" text="Tipo de Gráfico" />
+        <ComboBox fx:id="cbTipoGrafico" layoutX="14.0" layoutY="361.0" prefHeight="25.0" prefWidth="239.0" promptText="Tipo de Grafico" />
+        <Label layoutX="14.0" layoutY="273.0" text="Titulo do Grafico" />
+        <TextField fx:id="tfTituloGrafico" layoutX="15.0" layoutY="296.0" prefHeight="25.0" prefWidth="239.0" />
+        <Button fx:id="btnAddGrafico" layoutX="69.0" layoutY="552.0" mnemonicParsing="false" onAction="#addGrafico" text="Adicionar Gráfico" />
+        <Label layoutX="471.0" layoutY="273.0" text="Graficos Adicionados" />
+        <ListView fx:id="lvGraficos" layoutX="383.0" layoutY="299.0" prefHeight="200.0" prefWidth="287.0" />
+        <Button fx:id="btnClearGraficos" layoutX="477.0" layoutY="509.0" mnemonicParsing="false" onAction="#clearGraficosClick" text="Limpar Gráficos" />
+        <Button fx:id="btnEndDashboard" layoutX="467.0" layoutY="552.0" mnemonicParsing="false" onAction="#endDashboard" text="Finalizar Dashboard" />
+        <Label fx:id="lblSomatoria" layoutX="43.0" layoutY="470.0" text="Atributo Medição" />
+        <ComboBox fx:id="cbAtributoY" layoutX="13.0" layoutY="495.0" prefHeight="25.0" prefWidth="168.0" promptText="Atributo do CSV" />
+        <RadioButton fx:id="rbContagem" layoutX="245.0" layoutY="436.0" mnemonicParsing="false" onAction="#rbSelected" selected="true" text="Contagem" userData="0">
             <toggleGroup>
-                <ToggleGroup fx:id="rbGroup"/>
+                <ToggleGroup fx:id="rbGroup" />
             </toggleGroup>
         </RadioButton>
-        <RadioButton fx:id="rbReduceSum" layoutX="245.0" layoutY="462.0" mnemonicParsing="false" onAction="#rbSelected"
-                     text="Somatória" toggleGroup="$rbGroup" userData="1"/>
-        <Label layoutX="271.0" layoutY="407.0" text="Redução"/>
+        <RadioButton fx:id="rbReduceSum" layoutX="245.0" layoutY="462.0" mnemonicParsing="false" onAction="#rbSelected" text="Somatória" toggleGroup="$rbGroup" userData="1" />
+        <Label layoutX="271.0" layoutY="407.0" text="Redução" />
     </children>
 </AnchorPane>
