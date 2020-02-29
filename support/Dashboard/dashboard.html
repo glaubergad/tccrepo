@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <title>Renda Bruta Brasil</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap e DC CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/dc.css">
+    <link rel="stylesheet" href="css/dashgen.css">
+    <script src=js/crossfilter.js></script>
+    <script src=js/d3.js></script>
+    <script src=js/dc.js></script>
+</head>
+<body>
+<div class="container">
+    <div class="row dashgen-header" >
+        <img src="img/ifpa_navlogo.png" width="120px" height="120px" alt="Logo IFPA"/>
+        <h1>Renda Bruta Brasil</h1>
+    </div>
+    <div class="row">
+            <div id="grafico1" class='col-xs-12 col-md-12 col-lg-4'>
+                <strong>Sexo dos Entrevistados</strong>
+                <span class="reset" style="display: none;">Selecionado: <span class="filter"></span></span>
+                <a class="reset" href="javascript:grafico1.filterAll();dc.redrawAll();"
+                   style="display: none;">Limpar</a>
+                <div class="clearfix"></div>
+            </div>
+            <div id="grafico2" class='col-xs-12 col-md-12 col-lg-4'>
+                <strong>Idade dos Entrevistados</strong>
+                <span class="reset" style="display: none;">Selecionado: <span class="filter"></span></span>
+                <a class="reset" href="javascript:grafico2.filterAll();dc.redrawAll();"
+                   style="display: none;">Limpar</a>
+                <div class="clearfix"></div>
+            </div>
+            <div id="grafico3" class='col-xs-12 col-md-12 col-lg-4'>
+                <strong>Região</strong>
+                <span class="reset" style="display: none;">Selecionado: <span class="filter"></span></span>
+                <a class="reset" href="javascript:grafico3.filterAll();dc.redrawAll();"
+                   style="display: none;">Limpar</a>
+                <div class="clearfix"></div>
+            </div>
+            <div id="grafico4" class='col-xs-12 col-md-12 col-lg-4'>
+                <strong>Renda Bruta X Sexo</strong>
+                <span class="reset" style="display: none;">Selecionado: <span class="filter"></span></span>
+                <a class="reset" href="javascript:grafico4.filterAll();dc.redrawAll();"
+                   style="display: none;">Limpar</a>
+                <div class="clearfix"></div>
+            </div>
+            <div id="grafico5" class='col-xs-12 col-md-12 col-lg-4'>
+                <strong>Renda Bruta X Idade</strong>
+                <span class="reset" style="display: none;">Selecionado: <span class="filter"></span></span>
+                <a class="reset" href="javascript:grafico5.filterAll();dc.redrawAll();"
+                   style="display: none;">Limpar</a>
+                <div class="clearfix"></div>
+            </div>
+            <div id="grafico6" class='col-xs-12 col-md-12 col-lg-4'>
+                <strong>Renda Bruta X Região</strong>
+                <span class="reset" style="display: none;">Selecionado: <span class="filter"></span></span>
+                <a class="reset" href="javascript:grafico6.filterAll();dc.redrawAll();"
+                   style="display: none;">Limpar</a>
+                <div class="clearfix"></div>
+            </div>
+    </div>
+    <div class="row dashgen-footer text-right">Gerado Automaticamente pelo Dashgen. Fonte de dados: teste_salario.csv</div>
+</div>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="js/jquery-3.4.1.min.js"></script>
+<!-- Aqui começa a  geração dos gráficos -->
+<script>
+
+    //instanciacao e identificacao do local de exibicao no DOM
+    var grafico1 = dc.pieChart("#grafico1");
+    var grafico2 = dc.lineChart("#grafico2");
+    var grafico3 = dc.rowChart("#grafico3");
+    var grafico4 = dc.rowChart("#grafico4");
+    var grafico5 = dc.rowChart("#grafico5");
+    var grafico6 = dc.rowChart("#grafico6");
+
+    //Especificacao da fonte de dados
+    var url = "data/teste_salario.csv";
+
+    d3.csv(url, function (err, data) {
+        if (err) throw err;
+        var ndx = crossfilter(data);
+
+        //Estabelecimento da dimensao principal do grafico
+        var grafico1Dim = ndx.dimension(d => d.SEXO);
+        var grafico2Dim = ndx.dimension(d => d.IDADE);
+        var grafico3Dim = ndx.dimension(d => d.REGIAO);
+        var grafico4Dim = ndx.dimension(d => d.SEXO);
+        var grafico5Dim = ndx.dimension(d => d.IDADE);
+        var grafico6Dim = ndx.dimension(d => d.REGIAO);
+
+        //Redutores
+        var grafico1Group = grafico1Dim.group();
+        var grafico1minX = grafico1Dim.bottom(1)[0]["SEXO"];
+        var grafico1maxX = grafico1Dim.top(1)[0]["SEXO"];
+        var grafico2Group = grafico2Dim.group();
+        var grafico2minX = grafico2Dim.bottom(1)[0]["IDADE"];
+        var grafico2maxX = grafico2Dim.top(1)[0]["IDADE"];
+        var grafico3Group = grafico3Dim.group();
+        var grafico3minX = grafico3Dim.bottom(1)[0]["REGIAO"];
+        var grafico3maxX = grafico3Dim.top(1)[0]["REGIAO"];
+        var grafico4Group = grafico4Dim.group().reduceSum(d => d.SALARIO);
+        var grafico4minX = grafico4Dim.bottom(1)[0]["SALARIO"];
+        var grafico4maxX = grafico4Group.top(1).value;
+        var grafico5Group = grafico5Dim.group().reduceSum(d => d.SALARIO);
+        var grafico5minX = grafico5Dim.bottom(1)[0]["SALARIO"];
+        var grafico5maxX = grafico5Group.top(1).value;
+        var grafico6Group = grafico6Dim.group().reduceSum(d => d.SALARIO);
+        var grafico6minX = grafico6Dim.bottom(1)[0]["SALARIO"];
+        var grafico6maxX = grafico6Group.top(1).value;
+
+        //Parametros especificos de cada grafico
+        grafico1
+            //Exibe os quatro atributos com valores mais altos, agrupando os demais em Others
+            .cap(5)
+            .dimension(grafico1Dim)
+            .group(grafico1Group)
+        ;
+        grafico2
+            .dimension(grafico2Dim)
+            .group(grafico2Group)
+            //Define a escala do eixo X baseado nos valores minimo e maximo do agrupamento de reducao.
+            .x(d3.scale.linear().domain([grafico2minX, grafico2maxX]))
+        ;
+        grafico3
+            //Exibe os quatro atributos com valores mais altos, agrupando os demais em Others
+            .cap(5)
+            .dimension(grafico3Dim)
+            .group(grafico3Group)
+            //Garante o reajuste automatico do eixo X
+            .elasticX(true)
+        ;
+        grafico4
+            //Exibe os quatro atributos com valores mais altos, agrupando os demais em Others
+            .cap(5)
+            .dimension(grafico4Dim)
+            .group(grafico4Group)
+            //Garante o reajuste automatico do eixo X
+            .elasticX(true)
+        ;
+        grafico5
+            //Exibe os quatro atributos com valores mais altos, agrupando os demais em Others
+            .cap(5)
+            .dimension(grafico5Dim)
+            .group(grafico5Group)
+            //Garante o reajuste automatico do eixo X
+            .elasticX(true)
+        ;
+        grafico6
+            //Exibe os quatro atributos com valores mais altos, agrupando os demais em Others
+            .cap(5)
+            .dimension(grafico6Dim)
+            .group(grafico6Group)
+            //Garante o reajuste automatico do eixo X
+            .elasticX(true)
+        ;
+        dc.renderAll();
+    });
+</script>
+</body>
+</html>

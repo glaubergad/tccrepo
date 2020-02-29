@@ -138,14 +138,11 @@ public class Controller {
             setaGerador();
             setaPackSaida();
         } catch (Exception e) {
-            System.out.println("SetaGerador:" + e.toString());
             new Alert(Alert.AlertType.INFORMATION, "Não foi possível gerar o Dashboard. Verifique as opções escolhidas!").showAndWait();
         } finally {
             new Alert(Alert.AlertType.INFORMATION, "Dashboard gerado com sucesso!").showAndWait();
             resetForm();
         }
-
-
     }
 
     //Método instancia objeto Dashboard juntando todas as informações definidas pelo usuário na UI

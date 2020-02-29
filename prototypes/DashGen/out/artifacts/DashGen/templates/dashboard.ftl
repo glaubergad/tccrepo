@@ -72,8 +72,8 @@
         <#list graficos as grafico>
         grafico${grafico_index+1}
         <#if grafico.tipo != "dc.lineChart">
-            //Exibe os quatro atributos com valores mais altos, agrupando os demais em Others
-            .cap(4)
+            //Exibe os cinco atributos com valores mais altos, agrupando os demais em Others
+            .cap(5)
             </#if>
             .dimension(grafico${grafico_index+1}Dim)
             .group(grafico${grafico_index+1}Group)
