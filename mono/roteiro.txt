@@ -1,4 +1,4 @@
-Boa tarde a todos os presentes, meus cumprimentos aos componentes da banca de avaliação.
+Boa noite a todos os presentes, meus cumprimentos aos componentes da banca de avaliação.
 
 	Meu nome é Glauber Gadelha e o meu Orientador foi o Professor Mestre Cláudio Roberto de Lima Martins.
 	
@@ -6,78 +6,34 @@ Boa tarde a todos os presentes, meus cumprimentos aos componentes da banca de av
 	
 	A pesquisa partiu do seguinte problema: Quadros de exibição de informações em formato de gráficos, usualmente conhecidos como Dashboards, facilitam o entendimento de conjuntos de dados volumosos. Porém, mesmo usando novas bibliotecas e APIs, ainda é bastante trabalhoso produzir um a um esses painéis, exigindo conhecimento de programação e muitas linhas de código. 
 
-	Para propor uma solução, o escopo desse trabalho foi delimitado em 
-	desenvolver uma aplicação em Java 8 para desktops com interface 
-	gráfica, com reuso de software e programação generativa orientada a gabaritos ou templates, 
-	que facilitasse a criação de painéis de informações em formato de 
-	gráficos  gerados a partir de dados contidos em um arquivo 
-	CSV (Escolhido por ser um formato aberto e bastante utilizado). 
+	Para propor uma solução, o escopo desse trabalho foi delimitado em desenvolver uma aplicação em Java 8 para desktops com interface gráfica, com reuso de software e programação generativa orientada a gabaritos ou templates, que facilitasse a criação de painéis de informações em formato de gráficos  gerados a partir de dados contidos em um arquivo CSV (Escolhido por ser um formato aberto e bastante utilizado). 
 
-       A aplicação deve permitir a seleção de atributos contidos no arquivo 
-	   a serem usados como dimensões e atribuídos a três tipos de gráficos: 
-	   Tipo Pizza ou PieChart, tipo Barras horizontais ou RowChart, 
-	   e tipo linha ou lineChart, dando também a opção do usuário selecionar 
-	   entre dois tipos de redução: por contagem de incidências do atributo 
-	   ou pela somatória de valores de um segundo atributo com 
-	   valores numéricos.
+       A aplicação deve permitir a seleção de atributos contidos no arquivo a serem usados como dimensões e atribuídos a três tipos de gráficos: Tipo Pizza ou PieChart, tipo Barras horizontais ou RowChart, e tipo linha ou lineChart, dando também a opção do usuário selecionar entre dois tipos de redução: por contagem de incidências do atributo ou pela somatória de valores de um segundo atributo com valores numéricos.
  
-        A revisão da literatura direcionou a pesquisa para o campo de 
-		engenharia de software baseada em reuso, com análise das vantagens 
-		e desvantagens de se aplicar reúso de artefatos prontos, testados 
-		e validados. Dentro deste campo, o foco da pesquisa passou a ser 
-		geradores de programas (programação generativa) e foi considerada 
-		adequada para o desenvolvimento do DashGen a abordagem da geração 
-		de artefatos baseada em gabaritos (templates).
+        A revisão da literatura direcionou a pesquisa para o campo de engenharia de software baseada em reuso, com análise das vantagens e desvantagens de se aplicar reúso de artefatos prontos, testados e validados. Dentro deste campo, o foco da pesquisa passou a ser a geradores de programas (programação generativa) e foi considerada adequada para o desenvolvimento do DashGen a abordagem da geração de artefatos baseada em gabaritos (templates).
 
-        Programação generativa baseada em gabaritos consiste em utilizar-se 
-		processadores de gabaritos, que consistem em componentes de software 
-		com a função de combinar gabaritos a um dado modelo de dados, 
-		gerando artefatos de saída como resultado deste processamento.
+        Programação generativa baseada em gabaritos consiste em utilizar-se processadores de gabaritos, que consistem componentes de software com a função de combinar gabaritos a um dado modelo de dados, gerando artefatos de saída como resultado deste processamento.
       
-	Ao longo da pesquisa, foram identificadas duas opções de motores para 
-	processamento de gabaritos: O Apache Velocity, bastante popular mas à 
-	data da pesquisa com o projeto passando por um período sem evoluções 
-	e melhorias e o Apache FreeMarker, com atualizações mais frequentes e 
-	também bastante utilizado e requisitado no repositório central do 
-	gerenciador de dependências Maven. A pesquisa findou por destacar o 
-	Apache FreeMarker como a solução ideal para o projeto do DashGen. 
-	(Representar o Freemarker com os slides)
+	Ao longo da pesquisa, foram destacadas duas opções de motores para processamento de gabaritos em aplicações Java: O Apache Velocity, bastante popular mas à data da pesquisa com o projeto passando por um período sem evoluções e melhorias e o Apache FreeMarker, com atualizações mais frequentes e também bastante utilizado e requisitado no repositório central do gerenciador de dependências Maven. A pesquisa findou por destacar o Apache FreeMarker como a solução ideal para o projeto do DashGen. 
 
-	Levando em conta que era desejável reusar ferramentas já desenvolvidas e 
-	validadas para manipulação de arquivos em formato CSV, cópia de arquivos 
-	de dependência para o dashboard e por fim a compactação dos artefatos 
-	finalizados em um arquivo ZIP, foram também adicionadas ao projeto as 
-	bibliotecas Apache Commons CSV (TRATAMENTO DE ARQUIVOS CSV) e 
-	Commons IO (FACILITA LEITURA E ESCRITA DE ARQUIVOS EM DISCO) e a 
-	biblioteca ZT-ZIP (COMPACTAR ARQUIVOS OU DIRETORIOS RECURSIVAMENTE). 
-	Para o artefato final do Dashboard foi utilizada a biblioteca DC.js e 
-	suas dependências (Crossfilter e D3).
+	Levando em conta que era desejável reusar ferramentas já desenvolvidas e validadas para manipulação de arquivos em formato CSV, cópia de arquivos de dependência para o dashboard e por fim a compactação dos artefatos finalizados em um arquivo ZIP, foram também adicionadas ao projeto as bibliotecas Apache Commons CSV (TRATAMENTO DE ARQUIVOS CSV) e Commons IO (FACILITA LEITURA E ESCRITA DE ARQUIVOS EM DISCO) e a biblioteca ZT-ZIP (COMPACTAR ARQUIVOS OU DIRETORIOS RECURSIVAMENTE). Para o artefato final do Dashboard foi utilizada a biblioteca DC.js e suas dependências (Crossfilter e D3).
 
     Na  fase de análise e modelagem foram percorridas as  etapas consideradas necessárias para o tamanho da aplicação:
 
--Análise de Requisitos: especificação dos requisitos funcionais e não 
-funcionais do DashGen. 
+-Análise de Requisitos: especificação dos requisitos funcionais e não funcionais do DashGen. 
 
--Análise de casos de uso: Definido o caso de uso e especificada a 
-descrição passo a passo
+-Análise de casos de uso: Definido o caso de uso e especificada a descrição passo a passo
 
--Diagrama de classes de análise, que trouxe a luz algumas das 
-necessidades do domínio, ainda sem se ater à tecnologia a  
-ser utilizada. 
+-Diagrama de classes de análise, que trouxe a luz algumas das necessidades do domínio, ainda sem se ater à tecnologia a  ser utilizada. 
 
--Diagrama de  classes de  implementação: Aí sim com as classes definidas 
-em Java
+-Diagrama de  classes de  implementação: Aí sim com as classes definidas em Java
 
--Diagramas de sequência geral e o de sequência do motor de composição 
-dos gabaritos. 
+-Diagramas de sequência geral e o de sequência do motor de composição dos gabaritos. 
 
 
 Fase de implementação:
 
-- A interface gráfica, desenhada em JavaFX 8, Foi desenvolvida com uma 
-única tela, onde o usuário insere os dados do CSV, Diretório de destino,
-titulo do dashboard e os atributos desejados, aasociados ao tipo de 
-gráfico e tipo de redução. (Slide com a interface grafica).
+- A interface gráfica, desenhada em JavaFX 8, Foi desenvolvida com uma única tela, onde o usuário insere os dados do CSV, Diretório de destino,titulo do dashboard e os atributos desejados, aasociados ao tipo de gráfico e tipo de redução. (Slide com a interface grafica).
 
 Aplicação JavaFX 8 é aderente ao padrão arquitetural MVC. 
 A Classe Controller: 
@@ -110,3 +66,5 @@ Por fim, A classe PackSaida:
 (Se houver tempo, fazer uma execução da aplicação para a banca, utilizando um CSV, preferencialmente o mesmo do trabalho escrito (teste_salario.csv))
 
 Agradecimentos e Resposta a questionamentos da banca.
+
+
